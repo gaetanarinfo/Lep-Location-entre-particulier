@@ -1,0 +1,32 @@
+/* Header */
+
+header.py-5 {
+    padding-top: 3rem!important;
+    padding-bottom: 12rem!important;
+}
+
+header .col-lg-8.col-xl-7.col-xxl-6 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Bloc marketing */
+
+.marketing {
+    margin-top: -10rem;
+    background: #0000000a;
+    padding: 0 2rem;
+}
+
+.marketing .col-lg-3 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.marketing .row {
+    display: flex;
+    justify-content: center;    
+}
