@@ -5,7 +5,7 @@
         <div class="row gx-5">
 
             <div class="col-lg-4 mb-5 mb-lg-0">
-                <h2 class="fw-bolder mb-0"><i class="fa-solid fa-mountain-sun fs-3 me-3"></i>Notre mission, vous satisfaire dans vos projets.</h2>
+                <h2 class="fw-bolder mb-0"><i class="fa-solid fa-mountain-sun fs-3 me-3"></i>Notre mission, vous satisfaire dans vos projets immobiliers.</h2>
             </div>
 
             <div class="col-lg-8">

@@ -30,3 +30,7 @@ header .col-lg-8.col-xl-7.col-xxl-6 {
     display: flex;
     justify-content: center;    
 }
+
+.marketing .bd-placeholder-img.rounded-circle {
+    opacity: 0.85;
+}

@@ -12,7 +12,7 @@
 
                 <h2 class="mt-4 mb-4"><?= $value['title'] ?></h2>
 
-                <p><?= $value['description'] ?></p>
+                <p class="fst-italic fw-normal">"<?= $value['description'] ?>"</p>
 
             </div>
 
