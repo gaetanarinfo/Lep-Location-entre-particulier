@@ -38,6 +38,9 @@
     <!-- Blog -->
     <?php include('public/components/blog.php'); ?>
 
+    <!-- Autres recherches -->
+    <?php include('public/components/autres-recherches.php'); ?>
+
 </main>
 
 <!-- Footer-->

@@ -15,6 +15,10 @@ $ville_populaire = $dbh->query('SELECT * FROM ville_populaire WHERE id_site = 1'
 $presentation = $dbh->query('SELECT * FROM presentation WHERE id_site = 1');
 
 $appartements_last = $dbh->query('SELECT A.*, AT.title AS title_type FROM appartements AS A LEFT JOIN appartements_type AS AT ON AT.id = A.type WHERE A.id_site = 1 ORDER BY A.created_at DESC LIMIT 0,6');
+$maisons_last = $dbh->query('SELECT M.*, MT.title AS title_type FROM maisons AS M LEFT JOIN maisons_type AS MT ON MT.id = M.type WHERE M.id_site = 1 ORDER BY M.created_at DESC LIMIT 0,6');
+
+$locationsCols1 = $dbh->query('SELECT * FROM regions WHERE id_site = 1 AND colonne = 1');
+$locationsCols2 = $dbh->query('SELECT * FROM regions WHERE id_site = 1 AND colonne = 2');
 
 $config_row = $config->fetch(PDO::FETCH_ASSOC);
 $menu_row = $config->fetchAll();
@@ -26,6 +30,9 @@ $blogs_row = $blogs->fetchAll();
 $ville_populaire_row = $ville_populaire->fetchAll();
 $presentation_row = $presentation->fetch(PDO::FETCH_ASSOC);
 $appartements_last_row = $appartements_last->fetchAll();
+$maisons_last_row = $maisons_last->fetchAll();
+$locationsCols1_last_row = $locationsCols1->fetchAll();
+$locationsCols2_last_row = $locationsCols2->fetchAll();
 
 // -------- //
 
