@@ -6,7 +6,7 @@
 
             <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
 
-                <img class="d-block w-100 img-fluid rounded my-5" src="<?= $image_url . 'cle-en-main.jpg' ?>" alt="Votre location clé en main" />
+                <img class="d-block w-100 img-fluid rounded my-5" src="<?= $image_url . $presentation_config['image'] ?>" alt="<?= $presentation_config['title'] ?>" />
 
             </div>
 
@@ -14,9 +14,9 @@
 
                 <div class="my-5 text-center text-xl-start">
 
-                    <h1 class="display-5 fw-bolder mb-2"><i class="fa-solid fa-key me-3 fs-1"></i>Votre location clé en main</h1>
+                    <h3 class="fw-bolder mb-2"><i class="fa-solid fa-key me-1 fs-3"></i><?= $presentation_config['title'] ?></h3>
 
-                    <p class="lead fw-normal mb-4 fst-italic">"Plus besoin de passer des heures à éplucher les petites annonces, LEP vous simplifie le locatif."</p>
+                    <p class="lead fw-normal mb-4 fst-italic"><?= $presentation_config['description'] ?></p>
 
                 </div>
 

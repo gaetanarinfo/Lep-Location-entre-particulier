@@ -20,6 +20,9 @@
     <!-- Missions-->
     <?php include('public/components/mission.php'); ?>
 
+    <!-- Ville populaire -->
+    <?php include('public/components/ville-populaire.php'); ?>
+
     <!-- Temoignage -->
     <?php include('public/components/temoignages.php'); ?>
 

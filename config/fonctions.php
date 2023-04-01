@@ -7,14 +7,14 @@ SELECT C.title AS title_site, C.meta_title, C.description AS description_site, C
 FROM config AS C LEFT JOIN menu AS CM ON C.id = CM.id_site WHERE C.id = 1');
 
 $header = $dbh->query('SELECT * FROM header WHERE id_site = 1');
-
 $marketing = $dbh->query('SELECT * FROM marketing WHERE id_site = 1 ORDER BY ordre DESC');
-
 $mission = $dbh->query('SELECT * FROM mission WHERE id_site = 1 ORDER BY ordre DESC');
-
 $temoignages = $dbh->query('SELECT * FROM temoignages WHERE id_site = 1');
-
 $blogs = $dbh->query('SELECT * FROM blog WHERE id_site = 1');
+$ville_populaire = $dbh->query('SELECT * FROM ville_populaire WHERE id_site = 1');
+$presentation = $dbh->query('SELECT * FROM presentation WHERE id_site = 1');
+
+$appartements_last = $dbh->query('SELECT A.*, AT.title AS title_type FROM appartements AS A LEFT JOIN appartements_type AS AT ON AT.id = A.type WHERE A.id_site = 1 ORDER BY A.created_at DESC LIMIT 0,6');
 
 $config_row = $config->fetch(PDO::FETCH_ASSOC);
 $menu_row = $config->fetchAll();
@@ -23,6 +23,9 @@ $marketing_row = $marketing->fetchAll();
 $mission_row = $mission->fetchAll();
 $temoignages_row = $temoignages->fetch(PDO::FETCH_ASSOC);
 $blogs_row = $blogs->fetchAll();
+$ville_populaire_row = $ville_populaire->fetchAll();
+$presentation_row = $presentation->fetch(PDO::FETCH_ASSOC);
+$appartements_last_row = $appartements_last->fetchAll();
 
 // -------- //
 
@@ -57,6 +60,12 @@ $temoignages_config = [
     'author' => $temoignages_row['author'],
     'title' => $temoignages_row['title'],
     'position' => $temoignages_row['position']
+];
+
+$presentation_config = [
+    'title' => $presentation_row['title'],
+    'description' => $presentation_row['description'],
+    'image' => $presentation_row['image']
 ];
 
 // -------- //
