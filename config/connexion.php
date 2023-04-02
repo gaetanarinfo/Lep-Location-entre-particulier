@@ -13,6 +13,7 @@ $dataBase = [
 
 try {
     $dbh = new PDO('mysql:host=31.33.145.219; dbname=' . $dataBase['DB_NAME'], $dataBase['DB_USER'], $dataBase['DB_PASSWORD']);
+    $dbh->exec("SET CHARACTER SET utf8");
 
 } catch (PDOException $e) {
     print "Erreur !: " . $e->getMessage() . "<br/>";

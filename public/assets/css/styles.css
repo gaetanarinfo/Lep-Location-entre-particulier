@@ -324,3 +324,40 @@ header .col-lg-8.col-xl-7.col-xxl-6 {
     display: block;
     right: 3rem;
 }
+
+/* Bloc Newsletter */
+
+#newsletter {
+    width: 100%;
+    display: flex;
+}
+
+#newsletter input {
+    margin-right: 1rem;
+}
+
+/* Recaptcha v2 */
+
+.g-recaptcha {
+    display: none;
+}
+
+/* Loader */
+
+.loader_inf {
+    display: none;
+    width: 100%;
+    text-align: center;
+}
+
+/* Alert */
+
+.alert-newsletter {
+    display: none;
+}
+
+.alert-newsletter .before-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,5 +1,8 @@
 <?php
 
+// API et librairies
+use PHPMailer\PHPMailer\PHPMailer;
+
 // Requêtes
 
 $config = $dbh->query('
@@ -74,5 +77,67 @@ $presentation_config = [
     'description' => $presentation_row['description'],
     'image' => $presentation_row['image']
 ];
+
+// -------- //
+
+
+
+// Envoi de mails
+
+function sendMail($from, $from_name, $to, $to_name, $reply, $reply_name, $subject, $content, $config, $attachments = array())
+{
+
+	if (!empty($to)) {
+
+		if (!class_exists('PHPMailer\PHPMailer\Exception')) {
+			require __DIR__ . '/../mail/src/Exception.php';
+			require __DIR__ . '/../mail/src/PHPMailer.php';
+			require __DIR__ . '/../mail/src/SMTP.php';
+		}
+
+		$mail = new PHPMailer();
+		$mail->SMTPDebug = 0;
+		$mail->CharSet = PHPMailer::CHARSET_UTF8;
+		$mail->isHTML();
+		$mail->isSMTP();
+		$mail->SMTPAuth = true;
+
+		$mail->Host = $config['mail_Host'];
+		$mail->Username = $config['mail_Username'];
+		$mail->Password = $config['mail_Password'];
+		$mail->SMTPSecure = $config['mail_SMTPSecure'];
+		$mail->Port = $config['mail_Port'];
+
+		$mail->setFrom($from, $from_name);
+
+		if (!empty($reply) or $reply == '0') {
+			if (!empty($$reply_name)) {
+				$mail->addReplyTo($reply, $reply_name);
+			} else {
+				$mail->addReplyTo($reply, $reply);
+			}
+		}
+
+		$mail->addAddress($to, $to_name);
+
+		if (!empty($attachments)) {
+			foreach ($attachments as $attachment) {
+				$mail->addStringAttachment(file_get_contents($attachment['url']), $attachment['name']);
+			}
+		}
+
+		$mail->Subject = $subject;
+		$mail->msgHTML($content);
+		$mail->AltBody = $content;
+
+		if ($mail->send()) {
+			$return = "Votre message a bien été envoyé";
+		}
+	} else {
+		$return = "to empty";
+	}
+
+	return $return;
+}
 
 // -------- //
