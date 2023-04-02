@@ -1,4 +1,4 @@
-<div class="py-5 bg-light">
+<div class="py-5 bg-light reveal">
 
     <div class="container px-5 my-5">
 

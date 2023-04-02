@@ -1,4 +1,4 @@
-<div class="container px-4 py-5 nouveautes_appart">
+<div class="container px-4 py-5 nouveautes_appart reveal">
 
     <h2 class="pb-2 border-bottom mb-3">Nos nouveautés côté location appartement.</h2>
 

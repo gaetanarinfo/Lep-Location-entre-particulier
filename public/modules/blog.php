@@ -1,4 +1,4 @@
-<section class="py-5">
+<section class="py-5 reveal">
 
     <div class="container px-5 my-5">
 
@@ -26,7 +26,7 @@
 
                     <div class="card h-100 shadow border-0">
 
-                        <img class="card-img-top" src="<?= $image_url . 'blog/' . $value['image'] ?>" alt="<?= $value['title'] ?>" />
+                        <img class="card-img-top reveal" src="<?= $image_url . 'blog/' . $value['image'] ?>" alt="<?= $value['title'] ?>" />
 
                         <div class="card-body p-4">
 
@@ -47,7 +47,7 @@
 
                                 <div class="d-flex align-items-center">
 
-                                    <img class="rounded-circle me-3" height="70" width="70" src="<?= $image_url . 'blog/' ?>avatar/73d897d1-0400-4c61-a860-27b2a06296a1.webp" alt="Mickaêl Libert" />
+                                    <img class="rounded-circle me-3 reveal" height="70" width="70" src="<?= $image_url . 'blog/' ?>avatar/73d897d1-0400-4c61-a860-27b2a06296a1.webp" alt="Mickaêl Libert" />
 
                                     <div class="small">
                                         <div class="fw-bold"><?= $value['author'] ?></div>

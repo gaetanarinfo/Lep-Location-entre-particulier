@@ -1,4 +1,4 @@
-<div class="alert alert-success alert-newsletter mt-5" role="alert">
+<div class="alert alert-success alert-newsletter mt-5 reveal" role="alert">
 
     <div class="before-icone mb-3">
         <div class="message-icone"></div>

@@ -2,14 +2,16 @@
     <div class="container px-5">
         <div class="row align-items-center justify-content-between flex-column flex-sm-row">
             <div class="col-auto">
-                <div class="small m-0 text-white">Copyright &copy; Seigneur Gaëtan - <?= date('Y') ?></div>
+                <div class="small m-0 text-white">Copyright &copy; Seigneur Gaëtan - <?= $site_config['title'] ?> - <?= date('Y') ?></div>
             </div>
             <div class="col-auto">
                 <a class="link-light small" href="/">Politique de confidentialité</a>
                 <span class="text-white mx-1">&middot;</span>
-                <a class="link-light small" href="/">Terme et condition</a>
+                <a class="link-light small" href="/">CGU</a>
                 <span class="text-white mx-1">&middot;</span>
-                <a class="link-light small" href="/">Contact</a>
+                <a class="link-light small" href="/">CGV</a>
+                <span class="text-white mx-1">&middot;</span>
+                <a class="link-light small" href="/">Aide / Contact</a>
             </div>
         </div>
     </div>

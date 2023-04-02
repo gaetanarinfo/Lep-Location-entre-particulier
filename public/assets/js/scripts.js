@@ -1,5 +1,10 @@
 $(document).ready(function () {
 
+  // Scroll révélation
+  ScrollReveal().reveal('.reveal', {
+    delay: 200
+  });
+
   // Carousel Header
 
   var headerCarousel = document.querySelector('#headerCarousel')

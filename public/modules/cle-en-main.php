@@ -1,4 +1,4 @@
-<div class="bg-light py-5">
+<div class="bg-light py-5 reveal">
 
     <div class="container px-5">
 
@@ -6,7 +6,7 @@
 
             <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
 
-                <img class="d-block w-100 img-fluid rounded my-5" src="<?= $image_url . $presentation_config['image'] ?>" alt="<?= $presentation_config['title'] ?>" />
+                <img class="d-block w-100 img-fluid rounded my-5 reveal" src="<?= $image_url . $presentation_config['image'] ?>" alt="<?= $presentation_config['title'] ?>" />
 
             </div>
 

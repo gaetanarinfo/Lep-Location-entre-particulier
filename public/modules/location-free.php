@@ -1,4 +1,4 @@
-<div class="bg-white  py-5">
+<div class="bg-white  py-5 reveal">
 
     <div class="container px-4 py-5">
 

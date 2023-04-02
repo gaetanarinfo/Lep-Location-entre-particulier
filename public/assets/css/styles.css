@@ -10,6 +10,20 @@ header .col-lg-8.col-xl-7.col-xxl-6 {
     padding-right: 0;
 }
 
+.dropdown-user a i {
+    font-size: 1.5rem;
+}
+
+.dropdown-user ul li i {
+    font-size: 1rem;
+}
+
+.nav-fixed {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+}
+
 /* Bloc marketing */
 
 .marketing {
@@ -373,7 +387,7 @@ header .col-lg-8.col-xl-7.col-xxl-6 {
     z-index: 98;
     opacity: 0.8;
     padding: 0.8rem 1rem;
-    background-color: #212529!important;
+    background-color: #212529 !important;
     transition: all 1s;
     color: white;
 }

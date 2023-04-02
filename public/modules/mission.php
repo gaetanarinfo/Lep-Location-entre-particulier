@@ -1,4 +1,4 @@
-<section class="py-5" id="features">
+<section class="py-5 reveal" id="features">
 
     <div class="container px-5 my-5">
 
