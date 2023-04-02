@@ -4,44 +4,47 @@
 <?php include('config/config.php'); ?>
 
 <!-- Body -->
-<?php include('public/components/body.php'); ?>
+<?php include('public/modules/body.php'); ?>
 
 <main class="flex-shrink-0">
 
     <!-- Navigation-->
-    <?php include('public/components/navigation.php'); ?>
+    <?php include('public/modules/navigation.php'); ?>
 
     <!-- Header-->
-    <?php include('public/components/header.php'); ?>
+    <?php include('public/modules/header.php'); ?>
 
     <!-- Marqueting-->
-    <?php include('public/components/marketing.php'); ?>
+    <?php include('public/modules/marketing.php'); ?>
 
     <!-- Missions-->
-    <?php include('public/components/mission.php'); ?>
+    <?php include('public/modules/mission.php'); ?>
 
     <!-- Ville populaire -->
-    <?php include('public/components/ville-populaire.php'); ?>
+    <?php include('public/modules/ville-populaire.php'); ?>
 
     <!-- Temoignage -->
-    <?php include('public/components/temoignages.php'); ?>
+    <?php include('public/modules/temoignages.php'); ?>
 
     <!-- Nouveautes appartement -->
-    <?php include('public/components/nouveautes-appartement.php'); ?>
+    <?php include('public/modules/nouveautes-appartement.php'); ?>
 
     <!-- Nouveautes maison -->
-    <?php include('public/components/nouveautes-maison.php'); ?>
+    <?php include('public/modules/nouveautes-maison.php'); ?>
 
     <!-- Cle en main -->
-    <?php include('public/components/cle-en-main.php'); ?>
+    <?php include('public/modules/cle-en-main.php'); ?>
 
     <!-- Blog -->
-    <?php include('public/components/blog.php'); ?>
+    <?php include('public/modules/blog.php'); ?>
 
     <!-- Autres recherches -->
-    <?php include('public/components/autres-recherches.php'); ?>
+    <?php include('public/modules/autres-recherches.php'); ?>
+
+    <!-- Ajouter une location -->
+    <?php include('public/modules/location-free.php'); ?>
 
 </main>
 
 <!-- Footer-->
-<?php include('public/components/footer.php'); ?>
+<?php include('public/modules/footer.php'); ?>

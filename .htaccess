@@ -1,0 +1,22 @@
+RewriteEngine on
+Options -Indexes
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^([\s\S]*)$ index.php?rt=$1 [L,B,QSA]
+
+ErrorDocument 404 /error404.html
+
+Options -Indexes
+
+<Files *.php>
+    Order Deny,Allow
+    Deny from all
+    Allow from ::1
+</Files>
+
+<Files index.php>
+    Order Allow,Deny
+    Allow from all
+</Files>

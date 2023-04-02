@@ -46,7 +46,7 @@
                                         <?php
 
                                         foreach ($array as $key => $value) {
-                                            echo '<li>' . $value['location'] . '</li>';
+                                            echo '<li><a class="text-decoration-none" href="/">' . $value['location'] . '</a></li>';
                                         }
 
                                         ?>
@@ -102,7 +102,7 @@
                                         <?php
 
                                         foreach ($array as $key => $value) {
-                                            echo '<li>' . $value['location'] . '</li>';
+                                            echo '<li><a class="text-decoration-none" href="/">' . $value['location'] . '</a></li>';
                                         }
 
                                         ?>
