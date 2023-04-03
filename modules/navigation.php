@@ -26,9 +26,9 @@
 
                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
 
-                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-angle-right me-2"></i>Crée mon compte</a></li>
+                    <li><a class="dropdown-item" href="nouvelle-annonce"><i class="fa-solid fa-angle-right me-2"></i>Ajouter une annonce</a></li>
 
-                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-angle-left me-2"></i>Connexion</a></li>
+                    <li><a class="dropdown-item" href="se-connecter"><i class="fa-solid fa-angle-left me-2"></i>Connexion</a></li>
 
                     <li>
                         <hr class="dropdown-divider">
