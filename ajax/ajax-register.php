@@ -322,6 +322,38 @@ if (isset($_POST)) {
         // Création de l'user //
         $create_user = $dbh->query('INSERT INTO `users` (id_site, email, email_contact, password, civilite, nom, prenom, tel) VALUES ("1", "' . $_POST['email_login'] . '", "' . $_POST['email_contact'] . '", "' . $password . '", "' . $_POST['genre'] . '", "' . $_POST['nom_contact'] . '", "' . $_POST['prenom_contact'] . '", "' . $_POST['tel_contact'] . '")');
 
+        // Envoi du mail
+        $from = 'contact@location-entre-particulier.fr';
+        $from_name = 'LEP - Location entre particulier';
+        $to = $_POST['email_login'];
+        $to_name = ucfirst($_POST['prenom_contact']) . ' ' . ucfirst($_POST['nom_contact']);
+        $reply       = "no-reply@location-entre-particulier.fr";
+        $reply_name     = 'LEP - Location entre particulier';
+
+        $sujet = 'Création de vos identifiants et de votre annonce.';
+
+        $content = 'Bonjour ' . $_POST['prenom_contact'] . ',<br/><br/>';
+
+        $content .= 'Merci de vous avoir inscrit sur LEP, vous pouvez désormais vous connecter à votre espace.<br/><br/>';
+
+        $content .= 'Notre équipe va examiner avec attention votre annonce, et elle sera en ligne sous 24/48h jours ouvrée maximum.<br/><br/>';
+
+        $content .= 'Vous pouvez gérer vos annonces ou vos coordonnées, modifier supprimer, créé, comme bon vous semble.<br/><br/>';
+        
+        $content .= 'Pour rappel votre identifiant de connexion :<br/>';
+        $content .= 'Adresse email : ' . $_POST['email_contact'] . '<br/>';
+        $content .= 'Votre adresse ip : ' . $_SERVER['REMOTE_ADDR'] . '<br/><br/>';
+
+        $content .= 'Nous vous souhaitons une agréable expérience sur <a href="https://location-entre-particulier.fr">LEP</a>.<br/><br/>';
+
+        $content .= '<img width="50" height="50" src="https://location-entre-particulier.fr/public/assets/images/favicon.png"><br/><br/>';
+
+        $content .= 'A très bientôt.';
+
+        sendMail($from, $from_name, $to, $to_name, $reply, $reply_name, $sujet, $content, $dbh, false);
+
+        // ---------------------------- //
+
         // L'utilisateur ne possède pas de compte
         $final = ['create' => true, 'title' => 'Votre annonce a bien été créée !', 'message' => 'Merci de patienter le temps que notre équipe analyse votre annonce, celà peut prendre entre 24/48h jour ouvrée, merci de votre confiance.<br><br><h4>À très bientôt.</h4>', 'icone' => $image_url . 'check.png'];
     } else {

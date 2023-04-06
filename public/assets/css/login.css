@@ -6896,6 +6896,7 @@ label .password-icon .feather-eye-off {
     padding: 1rem 1.5rem;
     border-radius: 15px;
     text-align: center;
+    max-width: 90%;
 }
 
 .message-validation.message-succes {
@@ -6947,4 +6948,18 @@ label .password-icon .feather-eye-off {
     flex-wrap: wrap;
     flex-direction: column;
     position: relative;
+}
+
+/* Mot de passe oubliÃ© */
+
+#forgot-password {
+    display: none;
+}
+
+.forgot-password {
+    cursor: pointer;
+}
+
+.bloc-forgot {
+    display: none;
 }

@@ -35,6 +35,24 @@ switch (basename($_SERVER['PHP_SELF'])) {
 
         break;
 
+    case 'forgot-password.php':
+
+        $req_user = $dbh->prepare('SELECT token FROM users WHERE token = :token');
+        $req_user->execute(array('token' => $_GET['token']));
+        $users_not_login = $req_user->fetch();
+
+        if (isset($_SESSION['user_id'])) {
+            header('Location: /');
+        } else if (!isset($_SESSION['token'])) {
+            header('Location: /');
+        } else if (!isset($_GET['token'])) {
+            header('Location: /');
+        } else if (isset($_GET['token']) && $_GET['token'] != $users_not_login['token']) {
+            header('Location: /');
+        }
+
+        break;
+
     default:
         # code...
         break;

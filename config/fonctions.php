@@ -41,15 +41,10 @@ $locationsCols2_last_row = $locationsCols2->fetchAll();
 // User
 
 if (isset($_SESSION['user_id'])) {
-
 	$req_user = $dbh->prepare('SELECT * FROM users WHERE id_site = 1 AND id = :id');
-    $req_user->execute(array('id' => $_SESSION['user_id']));
-    $users = $req_user->fetch();
-
+	$req_user->execute(array('id' => $_SESSION['user_id']));
+	$users = $req_user->fetch();
 }
-
-// -------- //
-
 
 // -------- //
 
@@ -94,12 +89,12 @@ $presentation_config = [
 
 // -------- //
 
-
-
 // Envoi de mails
 
-function sendMail($from, $from_name, $to, $to_name, $reply, $reply_name, $subject, $content, $config, $attachments = array())
+function sendMail($from, $from_name, $to, $to_name, $reply, $reply_name, $subject, $content, $dbh, $attachments = array())
 {
+
+	$return = '';
 
 	if (!empty($to)) {
 
@@ -108,6 +103,9 @@ function sendMail($from, $from_name, $to, $to_name, $reply, $reply_name, $subjec
 			require __DIR__ . '/../mail/src/PHPMailer.php';
 			require __DIR__ . '/../mail/src/SMTP.php';
 		}
+
+		$config_req = $dbh->query('SELECT * FROM config WHERE id = 1');
+		$config = $config_req->fetch(PDO::FETCH_ASSOC);
 
 		$mail = new PHPMailer();
 		$mail->SMTPDebug = 0;

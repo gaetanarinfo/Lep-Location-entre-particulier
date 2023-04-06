@@ -71,6 +71,157 @@ $(document).ready(function () {
 
     // -------- //
 
+    // Forgot password //
+
+    $(document).on('click', '.forgot-password', function (e) {
+
+        e.preventDefault();
+
+        $('.bloc-form').hide();
+        $('.bloc-forgot').fadeIn(600);
+        $('#forgot-password').fadeIn(600);
+
+    })
+
+    $('#forgot-login').on('submit', function (e) {
+
+        e.preventDefault();
+
+        var email = $('#email_forgot_login').val(),
+            url = '../ajax/ajax-forgot-login.php'
+
+        $('.bloc-forgot').fadeOut(300);
+        $('#forgot-password').fadeOut(300);
+
+        setTimeout(() => {
+            $('#loader-form').removeClass('hidden');
+            $('.col-md-6.contents').addClass('login');
+        }, 600);
+
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: {
+                email_forgot_login: email,
+            },
+            success: function (data) {
+    
+                setTimeout(() => {
+                    $('#loader-form').addClass('hidden');
+                }, 2000);
+
+                var parsed = JSON.parse(data);
+    
+                if (parsed.login == true) {
+    
+                    $('.message-validation .message-icone').attr('src', parsed.icone);
+                    $('.message-validation .message-title').html(parsed.title);
+                    $('.message-validation .message-body').html(parsed.message);
+                    $('.message-validation').addClass('message-success');
+    
+                    setTimeout(() => {
+                        $('.message-validation').fadeIn(300);
+                    }, 2300);
+    
+                    setTimeout(() => {
+                    }, 3000);
+    
+                }
+    
+                if (parsed.login == false) {
+    
+                    $('.message-validation .message-icone').attr('src', parsed.icone);
+                    $('.message-validation .message-title').html(parsed.title);
+                    $('.message-validation .message-body').html(parsed.message);
+                    $('.message-validation').addClass('message-error');
+                    $('.message-validation .back-login').show();
+                    $('.message-validation .back-login a').attr('href', '/register');
+    
+                    setTimeout(() => {
+                        $('.message-validation').fadeIn(300);
+                    }, 2300);
+    
+                }
+    
+            }
+    
+        })
+    })
+
+    // -------- //
+
+    // Forgot password check //
+
+    $('#forgot-password-form').on('submit', function (e) {
+
+        e.preventDefault();
+
+        var password = $('#password_forgot_check').val(),
+            token = $('#token_forgot_check').val(),
+            url = '../ajax/ajax-forgot-login-check.php'
+
+        $('.bloc-forgot-check').fadeOut(300);
+        $('#forgot-password-check').fadeOut(300);
+
+        setTimeout(() => {
+            $('#loader-form').removeClass('hidden');
+            $('.col-md-6.contents').addClass('login');
+        }, 600);
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: {
+                password_forgot_check: password,
+                token_forgot_check: token
+            },
+            success: function (data) {
+    
+                setTimeout(() => {
+                    $('#loader-form').addClass('hidden');
+                }, 2000);
+
+                var parsed = JSON.parse(data);
+    
+                if (parsed.login == true) {
+    
+                    $('.message-validation .message-icone').attr('src', parsed.icone);
+                    $('.message-validation .message-title').html(parsed.title);
+                    $('.message-validation .message-body').html(parsed.message);
+                    $('.message-validation').addClass('message-success');
+    
+                    setTimeout(() => {
+                        $('.message-validation').fadeIn(300);
+                    }, 2300);
+    
+                    setTimeout(() => {
+                        window.location.href = '/login';
+                    }, 6000);
+    
+                }
+    
+                if (parsed.login == false) {
+    
+                    $('.message-validation .message-icone').attr('src', parsed.icone);
+                    $('.message-validation .message-title').html(parsed.title);
+                    $('.message-validation .message-body').html(parsed.message);
+                    $('.message-validation').addClass('message-error');
+                    $('.message-validation .back-login').show();
+                    $('.message-validation .back-login a').attr('href', '/login');
+    
+                    setTimeout(() => {
+                        $('.message-validation').fadeIn(300);
+                    }, 2300);
+    
+                }
+    
+            }
+    
+        })
+    })
+
+    // -------- //
 });
 
 // Login user //
@@ -116,7 +267,7 @@ function recaptchacheck(token) {
 
                 setTimeout(() => {
                     window.location.href = '/espace';
-                }, 3000);
+                }, 6000);
 
             }
 

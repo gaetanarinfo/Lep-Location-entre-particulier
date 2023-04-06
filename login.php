@@ -36,7 +36,7 @@
                                 <h3 class="message-title"></h3>
                             </div>
 
-                            <div class="mb-4">
+                            <div class="mb-4 mt-4">
                                 <p class="message-body"></p>
                             </div>
 
@@ -83,7 +83,7 @@
                                         <div class="control__indicator"></div>
                                     </label>
 
-                                    <span class="ml-auto"><a href="forgot-password" class="forgot-password">Mot de passe oublié</a></span>
+                                    <span class="ml-auto"><a class="forgot-password">Mot de passe oublié</a></span>
                                 </div>
 
                                 <input type="submit" value="Connexion" id="button-login" class="btn btn-block bg-gradient btn-info text-white">
@@ -108,6 +108,25 @@
                                 </div>
 
                             </form>
+
+                            <div class="mb-4 bloc-forgot">
+                                <h3>Mot de passe oublié</h3>
+                                <p class="mb-4">Simple en deux clic modifier votre mot de passe.</p>
+                            </div>
+
+                            <div id="forgot-password">
+
+                                <form id="forgot-login">
+
+                                    <div class="form-group first mb-3">
+                                        <input type="email" class="form-control" id="email_forgot_login" placeholder="Adresse email" required>
+                                    </div>
+
+                                    <input type="submit" value="Valider" id="button-forgot" class="btn btn-block bg-gradient btn-info text-white">
+
+                                </form>
+
+                            </div>
 
                         </div>
 
