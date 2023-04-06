@@ -26,31 +26,25 @@
                                 <div class="carousel-inner">
 
                                     <div class="carousel-item active">
-                                        <img class="card-img-top" src="<?= $image_url . 'maisons/' . $value['image'] ?>" alt="<?= $value['title_type'] . ' de ' . $value['surface'] . ' m2 à ' . $value['location'] ?>" />
+                                        <img class="card-img-top" src="<?= $image_url . 'annonces/' . $value['image'] ?>" alt="<?= $value['title_type'] . ' de ' . $value['surface'] . ' m2 à ' . $value['location'] ?>" />
                                     </div>
 
                                     <?php if (!empty($value['image_2'])) { ?>
                                         <div class="carousel-item">
-                                            <img class="card-img-top" src="<?= $image_url . 'maisons/' . $value['image_2'] ?>" alt="<?= $value['title_type'] . ' de ' . $value['surface'] . ' m2 à ' . $value['location'] ?>" />
+                                            <img class="card-img-top" src="<?= $image_url . 'annonces/' . $value['image_2'] ?>" alt="<?= $value['title_type'] . ' de ' . $value['surface'] . ' m2 à ' . $value['location'] ?>" />
                                         </div>
                                     <?php } ?>
 
                                     <?php if (!empty($value['image_3'])) { ?>
                                         <div class="carousel-item">
-                                            <img class="card-img-top" src="<?= $image_url . 'maisons/' . $value['image_3'] ?>" alt="<?= $value['title_type'] . ' de ' . $value['surface'] . ' m2 à ' . $value['location'] ?>" />
+                                            <img class="card-img-top" src="<?= $image_url . 'annonces/' . $value['image_3'] ?>" alt="<?= $value['title_type'] . ' de ' . $value['surface'] . ' m2 à ' . $value['location'] ?>" />
                                         </div>
                                     <?php } ?>
 
 
                                     <?php if (!empty($value['image_4'])) { ?>
                                         <div class="carousel-item">
-                                            <img class="card-img-top" src="<?= $image_url . 'maisons/' . $value['image_4'] ?>" alt="<?= $value['title_type'] . ' de ' . $value['surface'] . ' m2 à ' . $value['location'] ?>" />
-                                        </div>
-                                    <?php } ?>
-
-                                    <?php if (!empty($value['image_5'])) { ?>
-                                        <div class="carousel-item">
-                                            <img class="card-img-top" src="<?= $image_url . 'maisons/' . $value['image_5'] ?>" alt="<?= $value['title_type'] . ' de ' . $value['surface'] . ' m2 à ' . $value['location'] ?>" />
+                                            <img class="card-img-top" src="<?= $image_url . 'annonces/' . $value['image_4'] ?>" alt="<?= $value['title_type'] . ' de ' . $value['surface'] . ' m2 à ' . $value['location'] ?>" />
                                         </div>
                                     <?php } ?>
 

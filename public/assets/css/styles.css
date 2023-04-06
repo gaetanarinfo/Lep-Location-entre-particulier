@@ -395,3 +395,17 @@ header .col-lg-8.col-xl-7.col-xxl-6 {
 #toTopBtn:hover {
     opacity: 0.4;
 }
+
+/* Bloc Location Free */
+
+.location-free {
+    background: url(../images/background-terrain.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.location-free .bg-success {
+    background-color: #323433a8 !important;
+}

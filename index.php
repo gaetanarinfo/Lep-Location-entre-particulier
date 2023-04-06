@@ -18,6 +18,9 @@
     <!-- Missions-->
     <?php include('modules/mission.php'); ?>
 
+    <!-- Ajouter une location -->
+    <?php include('modules/location-free.php'); ?>
+
     <!-- Ville populaire -->
     <?php include('modules/ville-populaire.php'); ?>
 
@@ -38,9 +41,6 @@
 
     <!-- Autres recherches -->
     <?php include('modules/autres-recherches.php'); ?>
-
-    <!-- Ajouter une location -->
-    <?php include('modules/location-free.php'); ?>
 
 </main>
 

@@ -19,6 +19,14 @@
 
 <a href="#" id="toTopBtn" class="cd-top text-replace js-cd-top cd-top--is-visible cd-top--fade-out" data-abc="true"><i class="fa-solid fa-chevron-up"></i></a>
 
+<?php if (basename($_SERVER['PHP_SELF']) == "login.php") { ?>
+    <!-- ICON SCRIPT -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        feather.replace();
+    </script>
+<?php } ?>
+
 </body>
 
 </html>

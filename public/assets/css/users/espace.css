@@ -1,0 +1,36 @@
+body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+}
+
+.main {
+    flex-wrap: nowrap;
+    height: 100vh;
+    height: -webkit-fill-available;
+    max-height: 100vh;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    height: 70px;
+}
+
+.sidebar {
+    width: 280px;
+    min-height: 100vh;
+}
+
+/* User */
+.user-avatar {
+    font-size: 32px;
+}
+
+.grid-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+}

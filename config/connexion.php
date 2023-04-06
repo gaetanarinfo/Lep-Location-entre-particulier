@@ -1,5 +1,8 @@
 <?php
 
+// Démarrage de la session  -->
+session_start();
+
 // Variables  -->
 
 // Database
