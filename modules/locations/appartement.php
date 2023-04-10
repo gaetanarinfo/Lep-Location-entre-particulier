@@ -281,7 +281,6 @@
 
                 <div class="col-md-12">
 
-
                     <div class="alert-before">
                         <div id="alert-card-success" class="alert alert-success">Merci, votre paiement a été accepté !</div>
                     </div>
@@ -290,26 +289,28 @@
                         <div id="alert-card-error" class="alert alert-danger">Une erreur est survenue avec votre carte bancaire !</div>
                     </div>
 
+                    <div class="loader_inf hidden" id="loader-paiement">
+                        <img width="67" height="67" src="<?= $image_url . 'loader.svg' ?>">
+                    </div>
+
                     <div class="card_element">
 
                         <!-- Display a payment form -->
-                        <form id="payment-form"></form>
-                            
-                            <input type="hidden" value="Abonnement - <?= $user['email'] . ' - ' . date('Y/m/d H:i:s') ?>" id="description">
+                        <form id="payment-form" class="mb-3">
 
-                            <div id="payment-element">
-                                <!-- Mount the Payment Element here -->
+                            <input type="hidden" value="Abonnement LPE location - <?= '15,99 €' . ' - ' . date('d/m/Y H:i:s') ?>" id="description">
+
+                            <div id="card-element">
+                                <!--Stripe.js injects the Card Element-->
                             </div>
 
-                            <button class="btn btn-lg btn-warning btn-gradient btn-paiement" id="submit_card">
+                            <button class="btn btn-lg btn-warning btn-gradient btn-paiement mt-3" id="submit_card">
                                 <span id="button-text">Commencez maintenant</span>
                             </button>
-
 
                         </form>
 
                     </div>
-
 
                     <div class="bloc-text-div">
                         <p class="bloc-text-mini text-center">Votre abonnement commence dès maintenant, l'abonnement est renouvelé tous les mois. Les frais de renouvellement sont de 15,99 €. Vous pouvez toujours annuler votre abonnement.</p>

@@ -573,7 +573,7 @@ label {
     font-size: 0.9rem;
 }
 
-.btn-paiement {
+#submit_card {
     min-width: 305px;
     color: white;
     font-weight: 500;
@@ -583,9 +583,9 @@ label {
     transition: all 1s;
 }
 
-.btn-paiement:hover,
-.btn-paiement:active,
-.btn-paiement:focus {
+#submit_card:hover,
+#submit_card:active,
+#submit_card:focus {
     background-color: rgba(70, 131, 180, 0.932);
     border: 2px solid #5d89afe8;
     color: white;
@@ -611,3 +611,17 @@ label {
     flex-wrap: nowrap;
     flex-direction: row;
 }
+
+.card_element {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ #payment-form {
+    max-width: 500px;
+ }
+
+ #loader-paiement {
+    margin-bottom: 1rem;
+ }
