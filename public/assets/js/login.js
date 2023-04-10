@@ -266,7 +266,7 @@ function recaptchacheck(token) {
                 }, 2300);
 
                 setTimeout(() => {
-                    window.location.href = '/espace';
+                    window.location.href = '/mon-espace';
                 }, 6000);
 
             }

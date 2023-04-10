@@ -34,3 +34,14 @@ body {
     grid-template-columns: 1fr 1fr;
     align-items: start;
 }
+
+@media all and (min-width: 320px) and (max-width: 768px) {
+
+    .page {
+        margin-top: 4.5rem !important;
+        margin-bottom: 4.5rem !important;
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+
+}

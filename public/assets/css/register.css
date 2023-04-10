@@ -6571,6 +6571,14 @@ a:hover {
     padding: 7rem 0;
 }
 
+@media all and (min-width: 320px) and (max-width: 768px) {
+
+    .content {
+        padding: 3rem 0;
+    }
+
+}
+
 h2 {
     font-size: 20px;
 }

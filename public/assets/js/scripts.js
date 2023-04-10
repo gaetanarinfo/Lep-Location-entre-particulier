@@ -5,18 +5,6 @@ $(document).ready(function () {
     delay: 200
   });
 
-  // Carousel Header
-
-  var headerCarousel = document.querySelector('#headerCarousel')
-
-  var carousel = new bootstrap.Carousel(headerCarousel, {
-    interval: 2000,
-    wrap: false,
-    touch: true
-  })
-
-  // --------- //
-
   // Newsletter
 
   $('#newsletter').submit(function (e) {

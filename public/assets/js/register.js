@@ -368,6 +368,7 @@ $(document).ready(function () {
             location = $('#location').val(),
             address = $('#address').val(),
             region = $('#region').val(),
+            cp = $('#cp').val(),
             genre = $('#genre').val(),
             email_contact = $('#email_contact').val(),
             tel_contact = $('#tel_contact').val(),
@@ -418,6 +419,7 @@ $(document).ready(function () {
             if (e.name != "animeaux_acceptes") form_data.append(e.name, e.value);
             if (e.name != "sous_location") form_data.append(e.name, e.value);
             if (e.name != "location") form_data.append(e.name, e.value);
+            if (e.name != "cp") form_data.append(e.name, e.value);
             if (e.name != "address") form_data.append(e.name, e.value);
             if (e.name != "region") form_data.append(e.name, e.value);
             if (e.name != "genre") form_data.append(e.name, e.value);
@@ -447,6 +449,7 @@ $(document).ready(function () {
         form_data.append('location', location);
         form_data.append('address', address);
         form_data.append('region', region);
+        form_data.append('cp', cp);
         form_data.append('genre', genre);
         form_data.append('email_contact', email_contact);
         form_data.append('tel_contact', tel_contact);

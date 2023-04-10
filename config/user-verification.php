@@ -14,7 +14,7 @@ switch (basename($_SERVER['PHP_SELF'])) {
     case 'register.php':
 
         if (isset($_SESSION['user_id'])) {
-            header('Location: /espace');
+            header('Location: /mon-espace');
         }
 
         break;
@@ -22,7 +22,7 @@ switch (basename($_SERVER['PHP_SELF'])) {
     case 'login.php':
 
         if (isset($_SESSION['user_id'])) {
-            header('Location: /espace');
+            header('Location: /mon-espace');
         }
 
         break;

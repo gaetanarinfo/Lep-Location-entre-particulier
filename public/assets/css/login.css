@@ -6572,6 +6572,14 @@ a:hover {
     padding: 10rem 0;
 }
 
+@media all and (min-width: 320px) and (max-width: 768px) {
+
+    .content {
+        padding: 6rem 0 10rem 0;
+    }
+
+}
+
 h2 {
     font-size: 20px;
 }
@@ -6863,6 +6871,15 @@ label .password-icon {
     transition: all 0.2s;
 }
 
+@media (min-width: 320px) and (max-width: 768px) {
+
+    label .password-icon {
+        top: 50%;
+        right: -48px;
+    }
+
+}
+
 label .password-icon:hover {
     cursor: pointer;
     color: #0dcaf0;
@@ -6962,4 +6979,23 @@ label .password-icon .feather-eye-off {
 
 .bloc-forgot {
     display: none;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+
+    .bloc-center {
+        text-align: center;
+    }
+
+}
+
+/* Footer */
+
+@media (min-width: 320px) and (max-width: 768px) {
+
+    footer {
+        position: fixed;
+        bottom: 0;
+    }
+
 }

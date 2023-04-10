@@ -16,7 +16,7 @@
             <!-- SideBar -->
             <?php include('modules/users/sidebar.php'); ?>
 
-            <div class="col-md-9 ms-sm-auto ps-0 pe-4 col-lg-10">
+            <div class="col-md-9 ms-sm-auto ps-0 pe-4 col-lg-10 page">
 
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 

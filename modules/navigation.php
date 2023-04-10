@@ -2,7 +2,8 @@
 
     <div class="container px-5">
 
-        <a class="navbar-brand" href="/"><img class="me-3" height="50" width="50" src="<?= $image_url ?>favicon.png" alt="<?= $site_config['title'] ?>" /><?= $site_config['title'] ?></a>
+        <a class="navbar-brand hide-mobile" href="/"><img class="me-3" height="50" width="50" src="<?= $image_url ?>favicon.png" alt="<?= $site_config['title'] ?>" /><?= $site_config['title'] ?></a>
+        <a class="navbar-brand show-mobile" href="/"><img class="me-3" height="50" width="50" src="<?= $image_url ?>favicon.png" alt="<?= $site_config['title'] ?>" /><?= substr($site_config['title'], 0, 3) ?></a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 
@@ -33,7 +34,7 @@
                         <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "login.php") ? " active disabled" : ""; ?>" href="login"><i class="fa-solid fa-angle-left me-2"></i>Connexion</a></li>
 
                     <?php } else { ?>
-                        <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "espace.php") ? " active disabled" : ""; ?>" href="espace"><i class="fa-solid fa-rocket me-2"></i>Mon espace</a></li>
+                        <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "mon-espace.php") ? " active disabled" : ""; ?>" href="mon-espace"><i class="fa-solid fa-rocket me-2"></i>Mon espace</a></li>
                         <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "annonces.php") ? " active disabled" : ""; ?>" href="annonces"><i class="fa-solid fa-rectangle-list me-2"></i>Mes annonces</a></li>
                         <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "abonnements.php") ? " active disabled" : ""; ?>" href="abonnements"><i class="fa-solid fa-wand-magic-sparkles me-2"></i>Mes abonnements</a></li>
                         <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "coordonees.php") ? " active disabled" : ""; ?>" href="coordonees"><i class="fa-solid fa-user-pen me-2"></i>Gestion de mon compte</a></li>

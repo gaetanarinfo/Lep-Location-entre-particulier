@@ -24,6 +24,28 @@ $maisons_last = $dbh->query('SELECT M.*, MT.title AS title_type FROM maisons AS 
 $locationsCols1 = $dbh->query('SELECT * FROM regions WHERE id_site = 1 AND colonne = 1');
 $locationsCols2 = $dbh->query('SELECT * FROM regions WHERE id_site = 1 AND colonne = 2');
 
+if (basename($_SERVER['PHP_SELF']) == "annonces.php") {
+	$appartements = $dbh->prepare('SELECT url FROM appartements WHERE url = :url');
+	$appartements->execute(array('url' => $_GET['url']));
+	$appartement_url = $appartements->fetch();
+
+	$maisons = $dbh->prepare('SELECT url FROM maisons WHERE url = :url');
+	$maisons->execute(array('url' => $_GET['url']));
+	$maison_url = $maisons->fetch();
+}
+
+if (!empty($appartement_url) && empty($maison_url)) {
+	$appartement_req = $dbh->prepare('SELECT A.*, AT.title AS title_type FROM appartements AS A LEFT JOIN appartements_type AS AT ON AT.id = A.type WHERE A.url = :url');
+	$appartement_req->execute(array('url' => $_GET['url']));
+	$appartement = $appartement_req->fetch();
+} else {
+	if (empty($appartement_url) && !empty($maison_url)) {
+		$maison_req = $dbh->prepare('SELECT M.*, MT.title AS title_type FROM maisons AS M LEFT JOIN maisons_type AS MT ON MT.id = M.type WHERE M.url = :url');
+		$maison_req->execute(array('url' => $_GET['url']));
+		$maison = $maison_req->fetch();
+	}
+}
+
 $config_row = $config->fetch(PDO::FETCH_ASSOC);
 $menu_row = $config->fetchAll();
 $header_row = $header->fetch(PDO::FETCH_ASSOC);
@@ -149,6 +171,20 @@ function sendMail($from, $from_name, $to, $to_name, $reply, $reply_name, $subjec
 		$return = "to empty";
 	}
 
+	return $return;
+}
+
+// -------- //
+
+// Transforme l'url //
+
+function makeUrl($url)
+{
+	$return = mb_strtolower($url, 'UTF-8');
+	$return = str_replace(array('é', 'è', 'ê', 'ë', 'à', 'â', 'î', 'ï', 'ô', 'ù', 'û', 'ç', 'ñ'), array('e', 'e', 'e', 'e', 'a', 'a', 'i', 'i', 'o', 'u', 'u', 'c', 'n'), $return);
+	$return = preg_replace('/\W+/', '-', strtolower($return));
+	$return = urlencode($return);
+	$return = trim(preg_replace("![^a-z0-9]+!i", "-", $return), '-');
 	return $return;
 }
 

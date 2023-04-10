@@ -18,7 +18,7 @@
 
             <div class="row">
 
-                <div class="col-md-6">
+                <div class="col-md-6 mb-5">
                     <img src="<?= $image_url ?>login.svg" alt="Image" class="img-fluid">
                 </div>
 
@@ -52,7 +52,7 @@
                                 <img width="67" height="67" src="<?= $image_url . 'loader.svg' ?>">
                             </div>
 
-                            <div class="mb-4 bloc-forgot-check">
+                            <div class="mb-4 bloc-forgot-check bloc-center">
                                 <h3>Mot de passe oublié</h3>
                                 <p class="mb-4">Simple en deux clic modifier votre mot de passe.</p>
                             </div>
@@ -74,7 +74,9 @@
                                         </label>
                                     </div>
 
-                                    <input type="submit" value="Valider" id="button-forgot" class="btn btn-block bg-gradient btn-info text-white">
+                                    <div class="bloc-center">
+                                        <input type="submit" value="Valider" id="button-forgot" class="btn btn-block bg-gradient btn-info text-white">
+                                    </div>
 
                                 </form>
 

@@ -20,6 +20,15 @@
 
                 <div class="row">
 
+                    <div class="col-md-6 picture show-mobile mb-4">
+                        <img src="<?= $image_url . 'register.jpg' ?>" class="img-fluid rounded shadow-lg" alt="">
+
+                        <div class="mt-4 w-100">
+                            <h3 class="mb-3">Publiez votre annonce de location sur <?= $site_config['title'] ?></h3>
+                            <p class="text-dark">Ajoutez votre annonce de location sur <?= $site_config['title'] ?> - c'est 100 % gratuit ! Des milliers de locataires font des recherches sur internet, sans trouver le bon site internet. Nous avons la bonne solution pour vous. Publiez votre annonce de location dès aujourd'hui ! Vous pouvez toujours suspendre et / ou supprimer votre annonce.</p>
+                        </div>
+                    </div>
+
                     <div class="col-md-6 contents">
 
                         <div class="loader_inf hidden" id="loader-form">
@@ -162,12 +171,12 @@
                             <div class="col-md-6 mb-4">
                                 <div class="form-group mb-3">
                                     <label>* Adresse</label>
-                                    <input class="form-control" autocomplete="off" id="address" placeholder="Adresse" type="text" name="address">
+                                    <input class="form-control" autocomplete="off" required id="address" placeholder="Ex: 20 rue du parc" type="text" name="address">
                                 </div>
 
                                 <div class="form-group mb-3">
                                     <label>* Région</label>
-                                    <select class="form-select" placeholder="Région" id="region" name="region">
+                                    <select class="form-select" placeholder="Région" required id="region" name="region">
                                         <?php foreach ($regions as $value) { ?>
                                             <option value="<?= $value['id'] ?>"><?= $value['title'] ?></option>
                                         <?php } ?>
@@ -176,12 +185,19 @@
                             </div>
 
                             <div class="col-md-6 mb-4">
-                                <div class="form-group mb-3">
+                               
+                            <div class="form-group mb-3">
                                     <div class="form-group mb-3">
                                         <label>* Location</label>
-                                        <input class="form-control" autocomplete="off" id="location" placeholder="Ex: Le Mans" type="text" name="location">
+                                        <input class="form-control" autocomplete="off" required id="location" placeholder="Ex: Le Mans" type="text" name="location">
                                     </div>
                                 </div>
+
+                                <div class="form-group mb-3">
+                                    <label>* Code postal</label>
+                                    <input class="form-control" autocomplete="off" id="cp" required placeholder="Ex: 75256" min="1" max="5" type="number" name="cp">
+                                </div>
+
                             </div>
 
                             <div class="mb-4">
@@ -229,7 +245,7 @@
 
                     </div>
 
-                    <div class="col-md-6 picture">
+                    <div class="col-md-6 picture hide-mobile">
                         <img src="<?= $image_url . 'register.jpg' ?>" class="img-fluid rounded shadow-lg" alt="">
 
                         <div class="mt-4 w-100">

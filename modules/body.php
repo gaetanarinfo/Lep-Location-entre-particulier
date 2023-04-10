@@ -13,14 +13,33 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
 
     <title><?= $title ?></title>
-    <meta name="description" content="<?= $site_config['meta_description'] ?>">
+    <meta name="description" content="<?= $description ?>">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/icons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/icons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/icons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/icons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/icons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/icons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/icons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/icons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/icons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/icons/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/icons/favicon-16x16.png">
+    <link rel="manifest" href="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/icons/manifest.json">
+    <link rel="shortcut icon" href="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/icons/favicon.ico" type="images/x-icon" />
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/icons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 
     <!-- Feuilles de styles -->
-    <link rel="icon" type="image/png" href="<?= $image_url . $site_config['favicon'] ?>" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="<?= $static_url . 'css/styles.css' ?>" rel="stylesheet">
 
-    <?php if (basename($_SERVER['PHP_SELF']) == "login.php" OR basename($_SERVER['PHP_SELF']) == "forgot-password.php") { ?>
+    <?php if (basename($_SERVER['PHP_SELF']) == "login.php" or basename($_SERVER['PHP_SELF']) == "forgot-password.php") { ?>
         <link href="<?= $static_url . 'css/login.css?=' . time(); ?>" rel="stylesheet">
     <?php } ?>
 
@@ -29,8 +48,14 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
     <?php } ?>
 
-    <?php if (isset($_SESSION['user_id']) && basename($_SERVER['PHP_SELF']) == "espace.php") { ?>
+    <?php if (isset($_SESSION['user_id']) && basename($_SERVER['PHP_SELF']) == "mon-espace.php") { ?>
         <link href="<?= $static_url . 'css/users/espace.css?=' . time(); ?>" rel="stylesheet">
+    <?php } ?>
+
+    <?php if (basename($_SERVER['PHP_SELF']) == "annonces.php") { ?>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+        <link href="<?= $static_url . 'css/annonces.css?=' . time(); ?>" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
     <?php } ?>
 
     <!-- Script JS -->
@@ -40,17 +65,55 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
     <script src="<?= $static_url . 'js/scripts.js' ?>"></script>
-    <?php if (basename($_SERVER['PHP_SELF']) == "login.php" OR basename($_SERVER['PHP_SELF']) == "forgot-password.php") { ?>
+    <?php if (basename($_SERVER['PHP_SELF']) == "login.php" or basename($_SERVER['PHP_SELF']) == "forgot-password.php") { ?>
         <script src="<?= $static_url . 'js/login.js?=' . time(); ?>"></script>
     <?php } ?>
 
     <?php if (basename($_SERVER['PHP_SELF']) == "register.php") { ?>
         <script src="<?= $static_url . 'js/register.js?=' . time(); ?>"></script>
+    <?php } ?>
+
+    <?php if (basename($_SERVER['PHP_SELF']) == "annonces.php") { ?>
+        <script src="<?= $static_url . 'js/jquery.creditCardValidator.js'; ?>"></script>
+        <script src="<?= $static_url . 'js/annonces.js?=' . time(); ?>"></script>
+        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/l10n/fr.umd.js"></script>
+        <script src="https://js.stripe.com/v3/"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <?php } ?>
+
+    <?php if (basename($_SERVER['PHP_SELF']) == "/") { ?>
+        <script>
+            // Carousel Header
+
+            var headerCarousel = document.querySelector('#headerCarousel')
+
+            var carousel = new bootstrap.Carousel(headerCarousel, {
+                interval: 2000,
+                wrap: false,
+                touch: true
+            })
+            // --------- //
+        </script>
     <?php } ?>
 
     <script src="<?= $static_url . 'js/scrollreveal.js?=' . time(); ?>"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://<?= $_SERVER['SERVER_NAME'] ?>/">
+    <meta property="og:title" content="Louer en toute confiance grâce à LEP">
+    <meta property="og:description" content="Consultez toutes les annonces immobilières d'appartements à louer sur toute la France. Trouvez votre futur logement grâce à LEP.">
+    <meta property="og:image" content="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/header/header_1.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://<?= $_SERVER['SERVER_NAME'] ?>/">
+    <meta property="twitter:title" content="Louer en toute confiance grâce à LEP">
+    <meta property="twitter:description" content="Consultez toutes les annonces immobilières d'appartements à louer sur toute la France. Trouvez votre futur logement grâce à LEP.">
+    <meta property="twitter:image" content="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/header/header_1.jpg">
 
 </head>
 

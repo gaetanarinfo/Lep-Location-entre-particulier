@@ -5,13 +5,13 @@
                 <div class="small m-0 text-white">Copyright &copy; Seigneur Gaëtan - <?= $site_config['title'] ?> - <?= date('Y') ?></div>
             </div>
             <div class="col-auto">
-                <a class="link-light small" href="/">Politique de confidentialité</a>
+                <a class="link-light small text-decoration-none" href="/">Politique de confidentialité</a>
                 <span class="text-white mx-1">&middot;</span>
-                <a class="link-light small" href="/">CGU</a>
+                <a class="link-light small text-decoration-none" href="/">CGU</a>
                 <span class="text-white mx-1">&middot;</span>
-                <a class="link-light small" href="/">CGV</a>
+                <a class="link-light small text-decoration-none" href="/">CGV</a>
                 <span class="text-white mx-1">&middot;</span>
-                <a class="link-light small" href="/">Aide / Contact</a>
+                <a class="link-light small text-decoration-none" href="/">Aide / Contact</a>
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
 
 <a href="#" id="toTopBtn" class="cd-top text-replace js-cd-top cd-top--is-visible cd-top--fade-out" data-abc="true"><i class="fa-solid fa-chevron-up"></i></a>
 
-<?php if (basename($_SERVER['PHP_SELF']) == "login.php" OR basename($_SERVER['PHP_SELF']) == "forgot-password.php") { ?>
+<?php if (basename($_SERVER['PHP_SELF']) == "login.php" OR basename($_SERVER['PHP_SELF']) == "forgot-password.php" OR basename($_SERVER['PHP_SELF']) == "annonces.php") { ?>
     <!-- ICON SCRIPT -->
     <script src="https://unpkg.com/feather-icons"></script>
     <script>

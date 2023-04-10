@@ -210,6 +210,16 @@ if (isset($_POST)) {
         if (!empty($attachement4)) $image4 = str_replace('/var/www/lpe/public/assets/images/annonces/', '', $attachement4[0]);
         else $image4 = "";
 
+        $req_id = $dbh->query('SELECT id FROM appartements WHERE id_site = 1 ORDER BY id DESC');
+        $last_id = $req_id->fetch(PDO::FETCH_ASSOC);
+
+        $req_id2 = $dbh->query('SELECT id FROM maisons WHERE id_site = 1 ORDER BY id DESC');
+        $last_id2 = $req_id2->fetch(PDO::FETCH_ASSOC);
+
+        $url_appartatement = makeUrl('Appartement ' . $_POST['location'] . ' ' . ($last_id['id']) + 1);
+
+        $url_maison = makeUrl('Maison ' . $_POST['location'] . ' ' . ($last_id2['id']) + 1);
+
         // Pour les maisons uniquement
         if ($_POST['type_propriete'] == "7") {
 
@@ -218,9 +228,11 @@ if (isset($_POST)) {
                 `id_site`,
                 `title`,
                 `description`,
+                `url`,
                 `location`,
                 `region`,
                 `rue`,
+                `code_postal`,
                 `surface`,
                 `pieces`,
                 `chambres`,
@@ -241,9 +253,11 @@ if (isset($_POST)) {
                 1,
                 "' . $_POST['title_annonce'] . '",
                 "' . $_POST['content_annonce'] . '",
+                "' . $url_maison . '",
                 "' . $_POST['location'] . '",
                 "' . $_POST['region'] . '",
                 "' . $_POST['address'] . '",
+                "' . $_POST['cp'] . '",
                 "' . $_POST['surface'] . '",
                 "' . $_POST['pieces'] . '",
                 "' . $_POST['chambre'] . '",
@@ -268,6 +282,7 @@ if (isset($_POST)) {
                 `id_site`,
                 `title`,
                 `description`,
+                `url`,
                 `location`,
                 `region`,
                 `rue`,
@@ -291,6 +306,7 @@ if (isset($_POST)) {
                 1,
                 "' . $_POST['title_annonce'] . '",
                 "' . $_POST['content_annonce'] . '",
+                "' . $url_appartatement . '",
                 "' . $_POST['location'] . '",
                 "' . $_POST['region'] . '",
                 "' . $_POST['address'] . '",
@@ -320,7 +336,7 @@ if (isset($_POST)) {
         $password = password_hash($_POST['password_login'], PASSWORD_BCRYPT, $options);
 
         // Création de l'user //
-        $create_user = $dbh->query('INSERT INTO `users` (id_site, email, email_contact, password, civilite, nom, prenom, tel) VALUES ("1", "' . $_POST['email_login'] . '", "' . $_POST['email_contact'] . '", "' . $password . '", "' . $_POST['genre'] . '", "' . $_POST['nom_contact'] . '", "' . $_POST['prenom_contact'] . '", "' . $_POST['tel_contact'] . '")');
+        $create_user = $dbh->query('INSERT INTO `users` (id_site, email, email_contact, password, civilite, nom, prenom, tel, ip) VALUES ("1", "' . $_POST['email_login'] . '", "' . $_POST['email_contact'] . '", "' . $password . '", "' . $_POST['genre'] . '", "' . $_POST['nom_contact'] . '", "' . $_POST['prenom_contact'] . '", "' . $_POST['tel_contact'] . '", "' . $_SERVER['REMOTE_ADDR'] . '")');
 
         // Envoi du mail
         $from = 'contact@location-entre-particulier.fr';
@@ -339,7 +355,7 @@ if (isset($_POST)) {
         $content .= 'Notre équipe va examiner avec attention votre annonce, et elle sera en ligne sous 24/48h jours ouvrée maximum.<br/><br/>';
 
         $content .= 'Vous pouvez gérer vos annonces ou vos coordonnées, modifier supprimer, créé, comme bon vous semble.<br/><br/>';
-        
+
         $content .= 'Pour rappel votre identifiant de connexion :<br/>';
         $content .= 'Adresse email : ' . $_POST['email_contact'] . '<br/>';
         $content .= 'Votre adresse ip : ' . $_SERVER['REMOTE_ADDR'] . '<br/><br/>';
