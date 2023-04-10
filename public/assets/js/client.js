@@ -147,7 +147,7 @@ $(document).ready(function () {
             success: function (data) {
 
                 var dtExpire = new Date();
-                dtExpire.setTime(dtExpire.getTime() + 3600000000 * 1000);
+                dtExpire.setTime(dtExpire.getTime() + 730001 * 3600 * 1000);
 
                 setCookie('location_email', $('#email_contact').val(), dtExpire, '/');
 

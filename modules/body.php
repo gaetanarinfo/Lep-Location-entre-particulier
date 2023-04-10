@@ -56,7 +56,9 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
         <link href="<?= $static_url . 'css/annonces.css?=' . time(); ?>" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
-        <link href="<?= $static_url . 'css/stripe.css?=' . time(); ?>" rel="stylesheet">
+        <?php if (empty($_COOKIE['location_email'])) { ?>
+            <link href="<?= $static_url . 'css/stripe.css?=' . time(); ?>" rel="stylesheet">
+        <?php } ?>
     <?php } ?>
 
     <!-- Script JS -->
@@ -80,9 +82,11 @@
         <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/l10n/fr.umd.js"></script>
-        <script src="https://js.stripe.com/v3/"></script>
-        <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
-        <script src="<?= $static_url . 'js/client.js?=' . time(); ?>"></script>
+        <?php if (empty($_COOKIE['location_email'])) { ?>
+            <script src="https://js.stripe.com/v3/"></script>
+            <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+            <script src="<?= $static_url . 'js/client.js?=' . time(); ?>"></script>
+        <?php } ?>
     <?php } ?>
 
     <?php if (basename($_SERVER['PHP_SELF']) == "/") { ?>

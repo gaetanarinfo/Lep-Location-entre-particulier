@@ -35,4 +35,44 @@ if ($_POST['statut_transaction'] == "succeeded") {
     $email = $_POST['email'];
 
     $update = $dbh->query('UPDATE `contact_location` SET `paiement_date` = "' . date('Y-m-d H:i:s') . '", `status` = "' . $status . '", `transaction_id` = "' . $_POST['transaction_id'] . '", `token` = "' . $token . '" WHERE email = "' . $email . '"');
+
+    // Envoi du mail
+    $from = 'contact@location-entre-particulier.fr';
+    $from_name = 'LEP - Location entre particulier';
+    $to = $email;
+    $to_name = '';
+    $reply       = "no-reply@location-entre-particulier.fr";
+    $reply_name     = 'LEP - Location entre particulier';
+
+    $sujet = 'Votre paiement n°' . str_replace('pi_', '', $_POST['transaction_id']) . ' sur LEP - Location entre particulier';
+
+    $content = 'Bonjour,<br/><br/>';
+
+    $content .= 'Merci pour votre paiement sur notre site internet.<br/><br/>';
+
+    $content .= 'Votre paiement est actif pour 1 mois, vous pouvez désormais contacter les propriétaires sans limite.<br/><br/>';
+
+    $content .= 'Voici le récapitulatif de votre commande : <br/><br/>';    
+
+    $content .= 'Abonnement : <b>1 mois LEP</b><br/>';
+    $content .= 'Paiement : <b>carte bancaire (STRIPE)</b><br/><br/>';
+
+    $content .= 'Votre adresse email : <b>' . $email . '</b><br/>';
+    $content .= 'Votre adresse ip : <b>' . $_SERVER['REMOTE_ADDR'] . '</b><br/><br/>';
+
+    $content .= 'Montant de la transaction : <b>15,99 €</b><br/>';
+    $content .= 'Date de la commande : <b>' . date('d/m/Y') . ' ' . date('H:i') . '</b  ><br/><br/>';
+
+    $content .= 'Pour demander un remboursement merci de <a href="https://location-entre-particulier.fr/refund/' . $token . '">cliquez-ici</a>.<br/><br/>';
+
+    $content .= 'Cet email sert de justificatif de paiement, merci de le conserver sans limite de temps.<br/><br/>';
+
+    $content .= 'Nous vous souhaitons une agréable expérience sur <a href="https://location-entre-particulier.fr">LEP</a>.<br/><br/>';
+
+    $content .= '<img width="50" height="50" src="https://location-entre-particulier.fr/public/assets/images/favicon.png"><br/><br/>';
+
+    $content .= 'A très bientôt.';
+
+    sendMail($from, $from_name, $to, $to_name, $reply, $reply_name, $sujet, $content, $dbh, false);
+
 }

@@ -36,14 +36,23 @@ if (isset($_POST)) {
             :email
         )');
 
-        $insert->bindValue(':location_type',$location_type,PDO::PARAM_STR);
-        $insert->bindValue(':location_id',$location_id,PDO::PARAM_STR);
+        $insert->bindValue(':location_type', $location_type, PDO::PARAM_STR);
+        $insert->bindValue(':location_id', $location_id, PDO::PARAM_STR);
         $insert->bindValue(':email', $email_contact, PDO::PARAM_STR);
         $insert->execute();
 
         $final = ['create' => true];
     } else {
-        $final = ['create' => false];
+
+        $contact_location = $dbh->prepare('SELECT email, status FROM contact_location WHERE email = :email');
+        $contact_location->execute(array('email' => $donnees['email']));
+        $contact = $contact_location->fetch();
+
+        if ($contact['status'] == 2) {
+            $final = ['paiement' => true];
+        } else {
+            $final = ['create' => false];
+        }
     }
 
     echo json_encode($final);

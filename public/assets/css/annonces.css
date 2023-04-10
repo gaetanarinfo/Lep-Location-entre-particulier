@@ -625,3 +625,7 @@ label {
  #loader-paiement {
     margin-bottom: 1rem;
  }
+
+ .list-group li {
+    background: #eff4f200;
+ }
