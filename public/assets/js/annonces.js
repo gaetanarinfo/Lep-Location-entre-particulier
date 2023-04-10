@@ -150,13 +150,14 @@ $(document).ready(function () {
       },
       success: function (data) {
 
-        setTimeout(() => {
-          $('#loader-form-2').addClass('hidden');
-        }, 2000);
-
+       
         var parsed = JSON.parse(data);
 
         if (parsed.create == true) {
+
+          setTimeout(() => {
+            $('#loader-form-2').addClass('hidden');
+          }, 2000);
 
           setTimeout(() => {
             $('.show-coordonee-2').attr('style', 'display: flex;align-content: center;align-items: flex-start;justify-content: center;');
@@ -165,8 +166,26 @@ $(document).ready(function () {
         }
 
         if (parsed.create == false) {
+
+          setTimeout(() => {
+            $('#loader-form-2').addClass('hidden');
+          }, 2000);
+          
           setTimeout(() => {
             $('.show-coordonee-2').attr('style', 'display: flex;align-content: center;align-items: flex-start;justify-content: center;');
+          }, 2000);
+        }
+
+        if (parsed.paiement == true) {
+          setTimeout(() => {
+
+            var dtExpire = new Date();
+            dtExpire.setTime(dtExpire.getTime() + 730001 * 3600 * 1000);
+
+            setCookie('location_email', $('#email_contact').val(), dtExpire, '/');
+
+            location.reload();
+
           }, 2000);
         }
 

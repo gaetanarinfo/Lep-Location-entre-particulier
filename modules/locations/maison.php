@@ -143,9 +143,9 @@
                                             <h3 class="text-end text-warning fw-bold title-price"><?= $maison['prix'] ?> €/mois</h3>
 
                                             <ul class="list-group list-group-flush">
-                                                <li class="list-group-item"><b><?= $user_info['civilite_name'] ?><br/><?= $user_info['prenom'] . ' ' . $user_info['nom']?></b></li>
-                                                <li class="list-group-item"><b>Adresse email :</b> <a class="text-dark" href="mailto:<?= $user_info['email_contact'] ?>"><?= $user_info['email_contact'] ?></a></li>
-                                                <li class="list-group-item"><b>Téléphone :</b><br/><?= $user_info['tel'] ?></li>
+                                                <li class="list-group-item"><b><i class="fa-regular fa-user me-2"></i><?= $user_info['civilite_name'] ?><br/><?= $user_info['prenom'] . ' ' . $user_info['nom']?></b></li>
+                                                <li class="list-group-item"><b><i class="fa-regular fa-at me-2"></i>Adresse email :</b> <a class="text-dark" href="mailto:<?= $user_info['email_contact'] ?>"><?= $user_info['email_contact'] ?></a></li>
+                                                <li class="list-group-item"><b><i class="fa-solid fa-phone me-2"></i>Téléphone :</b><br/><a class="text-dark" href="tel:<?= $user_info['tel'] ?>"><?= $user_info['tel'] ?></a></li>
                                             </ul>
 
                                         </div>

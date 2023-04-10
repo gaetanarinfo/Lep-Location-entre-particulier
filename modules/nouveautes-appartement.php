@@ -105,7 +105,7 @@
 
                             <div></div>
 
-                            <a href="" class="text-decoration-none">
+                            <a href="/annonces/<?= $value['url'] ?>" class="text-decoration-none">
                                 <div>
                                     <span>Voir le bien</span>
                                 </div>

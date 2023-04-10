@@ -25,6 +25,16 @@ switch (basename($_SERVER['PHP_SELF'])) {
             break;
         }
 
+    case 'cgv.php':
+        $title = $site_config['meta_title'] . ' - Conditions générales de vente';
+        $description = $site_config['meta_description'];
+        break;
+
+    case 'cgu.php':
+        $title = $site_config['meta_title'] . ' - Conditions générales d\'utilisation';
+        $description = $site_config['meta_description'];
+        break;
+
     default:
         $title = $site_config['meta_title'];
         $description = $site_config['meta_description'];

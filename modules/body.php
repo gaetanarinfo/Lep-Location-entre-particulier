@@ -61,6 +61,10 @@
         <?php } ?>
     <?php } ?>
 
+    <?php if (basename($_SERVER['PHP_SELF']) == "cgv.php" or basename($_SERVER['PHP_SELF']) == "cgu.php") { ?>
+        <link href="<?= $static_url . 'css/conditions.css?=' . time(); ?>" rel="stylesheet">
+    <?php } ?>
+
     <!-- Script JS -->
     <script src="<?= $static_url . 'js/6650c3fdcf.js' ?>" crossorigin="anonymous"></script>
     <script src="<?= $static_url ?>js/jquery.min.js"></script>
@@ -107,19 +111,71 @@
     <script src="<?= $static_url . 'js/scrollreveal.js?=' . time(); ?>"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://<?= $_SERVER['SERVER_NAME'] ?>/">
-    <meta property="og:title" content="Louer en toute confiance grâce à LEP">
-    <meta property="og:description" content="Consultez toutes les annonces immobilières d'appartements à louer sur toute la France. Trouvez votre futur logement grâce à LEP.">
-    <meta property="og:image" content="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/header/header_1.jpg">
+    <?php if (basename($_SERVER['PHP_SELF']) == "/") { ?>
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://<?= $_SERVER['SERVER_NAME'] ?>/">
+        <meta property="og:title" content="Louer en toute confiance grâce à LEP">
+        <meta property="og:description" content="Consultez toutes les annonces immobilières d'appartements à louer sur toute la France. Trouvez votre futur logement grâce à LEP.">
+        <meta property="og:image" content="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/header/header_1.jpg">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://<?= $_SERVER['SERVER_NAME'] ?>/">
-    <meta property="twitter:title" content="Louer en toute confiance grâce à LEP">
-    <meta property="twitter:description" content="Consultez toutes les annonces immobilières d'appartements à louer sur toute la France. Trouvez votre futur logement grâce à LEP.">
-    <meta property="twitter:image" content="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/header/header_1.jpg">
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://<?= $_SERVER['SERVER_NAME'] ?>/">
+        <meta property="twitter:title" content="Louer en toute confiance grâce à LEP">
+        <meta property="twitter:description" content="Consultez toutes les annonces immobilières d'appartements à louer sur toute la France. Trouvez votre futur logement grâce à LEP.">
+        <meta property="twitter:image" content="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/header/header_1.jpg">
+    <?php } ?>
+
+    <?php
+
+    if (basename($_SERVER['PHP_SELF']) == "annonces.php") {
+
+        if (!empty($appartement_url) && empty($maison_url)) {
+
+    ?>
+            <!-- Open Graph / Facebook -->
+            <meta property="og:type" content="website">
+            <meta property="og:url" content="https://<?= $_SERVER['SERVER_NAME'] ?>/annonces/<?= $_GET['url'] ?>">
+            <meta property="og:title" content="<?= $appartement['pieces'] . ' pièces ' . $appartement['title_type'] . ' de ' . $appartement['surface'] . ' m² à ' . $appartement['location']; ?>">
+            <meta property="og:description" content="<?= substr($appartement['description'], 0, 155) ?>">
+            <meta property="og:image" content="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/annonces/<?= $appartement['image'] ?>">
+
+            <!-- Twitter -->
+            <meta property="twitter:card" content="summary_large_image">
+            <meta property="twitter:url" content="https://<?= $_SERVER['SERVER_NAME'] ?>/annonces/<?= $_GET['url'] ?>">
+            <meta property="twitter:title" content="<?= $appartement['pieces'] . ' pièces ' . $appartement['title_type'] . ' de ' . $appartement['surface'] . ' m² à ' . $appartement['location']; ?>">
+            <meta property="twitter:description" content="<?= substr($appartement['description'], 0, 155) ?>">
+            <meta property="twitter:image" content="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/annonces/<?= $appartement['image'] ?>">
+
+        <?php } ?>
+
+    <?php } ?>
+
+    <?php
+
+    if (basename($_SERVER['PHP_SELF']) == "annonces.php") {
+
+        if (empty($appartement_url) && !empty($maison_url)) {
+
+    ?>
+            <!-- Open Graph / Facebook -->
+            <meta property="og:type" content="website">
+            <meta property="og:url" content="https://<?= $_SERVER['SERVER_NAME'] ?>/annonces/<?= $_GET['url'] ?>">
+            <meta property="og:title" content="<?= $maison['pieces'] . ' pièces ' . $maison['title_type'] . ' de ' . $maison['surface'] . ' m² à ' . $maison['location']; ?>">
+            <meta property="og:description" content="<?= substr($maison['description'], 0, 155) ?>">
+            <meta property="og:image" content="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/annonces/<?= $maison['image'] ?>">
+
+            <!-- Twitter -->
+            <meta property="twitter:card" content="summary_large_image">
+            <meta property="twitter:url" content="https://<?= $_SERVER['SERVER_NAME'] ?>/annonces/<?= $_GET['url'] ?>">
+            <meta property="twitter:title" content="<?= $maison['pieces'] . ' pièces ' . $maison['title_type'] . ' de ' . $maison['surface'] . ' m² à ' . $maison['location']; ?>">
+            <meta property="twitter:description" content="<?= substr($maison['description'], 0, 155) ?>">
+            <meta property="twitter:image" content="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/annonces/<?= $maison['image'] ?>">
+
+        <?php } ?>
+
+    <?php } ?>
 
 </head>
 

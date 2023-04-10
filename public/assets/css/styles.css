@@ -462,3 +462,9 @@ header .col-lg-8.col-xl-7.col-xxl-6 {
         margin-bottom: 1rem;
     }
 }
+
+.footer_bottom {
+    background: #212529;
+    max-width: inherit;
+    padding: 0 8rem;
+}
