@@ -32,7 +32,7 @@
 
                             <div class="badge bg-info bg-gradient rounded-pill mb-3"><?= $value['tag'] ?></div>
 
-                            <a class="text-decoration-none link-dark stretched-link" href="/">
+                            <a class="text-decoration-none link-dark stretched-link" href="/blog/<?= $value['url'] ?>"></a>
                                 <h5 class="card-title mb-3"><?= $value['title'] ?></h5>
                             </a>
 
@@ -47,7 +47,7 @@
 
                                 <div class="d-flex align-items-center">
 
-                                    <img class="rounded-circle me-3" height="70" width="70" src="<?= $image_url . 'blog/' ?>avatar/73d897d1-0400-4c61-a860-27b2a06296a1.webp" alt="Mickaêl Libert" />
+                                    <img class="rounded-circle me-3" height="70" width="70" src="<?= $image_url . 'blog/avatar/' . $value['avatar'] ?>" alt="<?= $value['author'] ?>" />
 
                                     <div class="small">
                                         <div class="fw-bold"><?= $value['author'] ?></div>

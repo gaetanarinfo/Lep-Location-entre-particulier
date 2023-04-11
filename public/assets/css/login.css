@@ -6864,7 +6864,7 @@ label .password-icon {
     align-items: center;
     position: absolute;
     top: 50%;
-    right: -78px;
+    right: -155px;
     transform: translateY(-50%);
     width: 20px;
     color: #5a5b5c;
@@ -6967,7 +6967,7 @@ label .password-icon .feather-eye-off {
     position: relative;
 }
 
-/* Mot de passe oubliÃ© */
+/* Mot de passe oubliÃƒÂ© */
 
 #forgot-password {
     display: none;

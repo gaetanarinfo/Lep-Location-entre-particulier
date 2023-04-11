@@ -35,6 +35,20 @@ switch (basename($_SERVER['PHP_SELF'])) {
         $description = $site_config['meta_description'];
         break;
 
+    case 'blog.php':
+        $title = $site_config['meta_title'] . ' - Blog';
+        $description = $site_config['meta_description'];
+        break;
+
+    case 'actualite.php':
+
+        if (basename($_SERVER['PHP_SELF']) == 'actualite.php' && !empty($actualite_url)) {
+            $title = $actualite['title'];
+            $description = substr($actualite['small_description'], 0, 155);
+        }
+
+        break;
+
     default:
         $title = $site_config['meta_title'];
         $description = $site_config['meta_description'];

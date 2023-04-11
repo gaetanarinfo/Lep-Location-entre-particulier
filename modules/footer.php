@@ -9,6 +9,7 @@
                 <h5>À propos</h5>
 
                 <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="blog" class="nav-link p-0 text-muted">Blog</a></li>
                     <li class="nav-item mb-2"><a href="cgu" class="nav-link p-0 text-muted">Conditions générales d'utilisation</a></li>
                     <li class="nav-item mb-2"><a href="cgv" class="nav-link p-0 text-muted">Conditions générales de vente</a></li>
                     <li class="nav-item mb-2"><a href="help" class="nav-link p-0 text-muted">Aide / Contact</a></li>

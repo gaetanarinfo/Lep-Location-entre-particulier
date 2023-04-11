@@ -16,10 +16,17 @@ switch (basename($_SERVER['PHP_SELF'])) {
         if (!empty($appartement_url) && empty($maison_url)) {
         } else {
             if (empty($appartement_url) && !empty($maison_url)) {
-
             } else {
                 header('Location: /');
             }
+        }
+
+        break;
+
+    case 'actualite.php':
+
+        if (empty($actualite_url)) {
+            header('Location: /');
         }
 
         break;

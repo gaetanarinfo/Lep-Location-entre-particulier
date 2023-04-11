@@ -1,5 +1,10 @@
 @media all and (min-width: 320px) and (max-width: 768px) {
 
+    nav .container.px-5 {
+        padding-right: 1rem!important;
+        padding-left: 1rem!important;
+    }
+
     .hide-mobile {
         display: none !important;
     }
@@ -15,7 +20,7 @@
 }
 
 .show-mobile {
-    display: none !important;
+    display: none;
 }
 
 
@@ -327,7 +332,7 @@ header .col-lg-8.col-xl-7.col-xxl-6 {
     display: block;
     flex: 0.5;
 }
-    
+
 .nouveautes_maisons .footer a {
     display: block;
     flex: 0.5;
@@ -467,4 +472,14 @@ header .col-lg-8.col-xl-7.col-xxl-6 {
     background: #212529;
     max-width: inherit;
     padding: 0 8rem;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .footer_bottom {
+        padding: 0 2rem;
+    }
+
+    .footer_bottom .col-6 {
+        width: 100%;
+    }
 }

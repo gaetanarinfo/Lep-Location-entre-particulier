@@ -1,0 +1,459 @@
+body {
+    background: #d9e5e16b !important
+}
+
+p {
+    font-weight: 300;
+}
+
+a {
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+}
+
+a:hover {
+    text-decoration: none !important;
+}
+
+.content {
+    padding: 10rem 0 7rem 0;
+}
+
+@media all and (min-width: 320px) and (max-width: 768px) {
+
+    .content {
+        padding: 6rem 0 3rem 0;
+    }
+
+}
+
+h2 {
+    font-size: 20px;
+}
+
+@media (max-width: 991.98px) {
+    .content .bg {
+        height: 500px;
+    }
+}
+
+.content .contents,
+.content .bg {
+    width: 50%;
+}
+
+@media (max-width: 1199.98px) {
+
+    .content .contents,
+    .content .bg {
+        width: 100%;
+    }
+}
+
+.content .contents .form-group,
+.content .bg .form-group {
+    overflow: hidden;
+    margin-bottom: 0;
+    padding: 15px 15px;
+    border-bottom: none;
+    position: relative;
+    background: #dee4e7;
+    border-bottom: 1px solid #e6edf1;
+}
+
+.content .contents .form-group label,
+.content .bg .form-group label {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+}
+
+.content .contents .form-group input,
+.content .bg .form-group input {
+    background: transparent;
+}
+
+.content .contents .form-group.first,
+.content .bg .form-group.first {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+.content .contents .form-group.last,
+.content .bg .form-group.last {
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+.content .contents .form-group label,
+.content .bg .form-group label {
+    font-size: 12px;
+    display: block;
+    margin-bottom: 0;
+    color: #b3b3b3;
+}
+
+.content .contents .form-group.focus,
+.content .bg .form-group.focus {
+    background: #fff;
+}
+
+.content .contents .form-group.field--not-empty label,
+.content .bg .form-group.field--not-empty label {
+    margin-top: -20px;
+}
+
+.content .contents .form-control,
+.content .bg .form-control {
+    border: none;
+    padding: 0;
+    font-size: 20px;
+    border-radius: 0;
+}
+
+.content .contents .form-control:active,
+.content .contents .form-control:focus,
+.content .bg .form-control:active,
+.content .bg .form-control:focus {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.content .bg {
+    background-size: cover;
+    background-position: center;
+}
+
+.content a {
+    color: #888;
+    text-decoration: underline;
+}
+
+.content .forgot-pass {
+    position: relative;
+    top: 2px;
+    font-size: 14px;
+}
+
+.social-login a {
+    text-decoration: none;
+    position: relative;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.social-login a span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.social-login a:hover {
+    color: #fff;
+}
+
+.social-login a.facebook {
+    background: #3b5998;
+}
+
+.social-login a.facebook:hover {
+    background: #344e86;
+}
+
+.social-login a.twitter {
+    background: #1da1f2;
+}
+
+.social-login a.twitter:hover {
+    background: #0d95e8;
+}
+
+.social-login a.google {
+    background: #ea4335;
+}
+
+.social-login a.google:hover {
+    background: #e82e1e;
+}
+
+.control {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.control .caption {
+    position: relative;
+    top: .2rem;
+    color: #888;
+}
+
+.control input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.control__indicator {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: #e6e6e6;
+    border-radius: 4px;
+}
+
+.control--radio .control__indicator {
+    border-radius: 50%;
+}
+
+.control:hover input~.control__indicator,
+.control input:focus~.control__indicator {
+    background: #ccc;
+}
+
+.control input:checked~.control__indicator {
+    background: #3dd5f3;
+}
+
+.control:hover input:not([disabled]):checked~.control__indicator,
+.control input:checked:focus~.control__indicator {
+    background: #3dd5f3;
+}
+
+.control input:disabled~.control__indicator {
+    background: #e6e6e6;
+    opacity: 0.9;
+    pointer-events: none;
+}
+
+.control__indicator:after {
+    font-family: 'icomoon';
+    content: '\e5ca';
+    position: absolute;
+    display: none;
+    font-size: 16px;
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+}
+
+.control input:checked~.control__indicator:after {
+    display: block;
+    color: #fff;
+}
+
+.control--checkbox .control__indicator:after {
+    top: 50%;
+    left: 50%;
+    margin-top: -1px;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.control--checkbox input:disabled~.control__indicator:after {
+    border-color: #7b7b7b;
+}
+
+.control--checkbox input:disabled:checked~.control__indicator {
+    background-color: #7e0cf5;
+    opacity: .2;
+}
+
+/* Afficher ou masquer le mot de passe */
+
+label {
+    position: relative;
+}
+
+label input {
+    font-size: 1em;
+    color: #f9f9f9;
+    background: transparent;
+    padding: 1rem 1.2rem;
+    width: 350px;
+    border-radius: 5px;
+    border: 2px solid #7a7a7a;
+    transition: all 0.2s;
+}
+
+label input:focus {
+    border-color: #ff4754;
+}
+
+label .password-icon {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    right: -78px;
+    transform: translateY(-50%);
+    width: 20px;
+    color: #5a5b5c;
+    transition: all 0.2s;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+
+    label .password-icon {
+        top: 50%;
+        right: -48px;
+    }
+
+}
+
+label .password-icon:hover {
+    cursor: pointer;
+    color: #0dcaf0;
+}
+
+label .password-icon .feather-eye-off {
+    display: none;
+}
+
+.form-group.last {
+    min-height: 61px;
+}
+
+#loader-form {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Message de confirmation */
+
+.message-validation {
+    height: auto;
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 90%;
+}
+
+.message-validation.message-succes {
+    width: 100%;
+}
+
+.message-validation.message-error {
+    width: 90%;
+}
+
+.message-validation.message-success {
+    background: #48cb764a;
+    box-shadow: 0 0 5px 0px #bfe8cead;
+}
+
+.message-validation.message-error {
+    background: #cb48484a;
+    box-shadow: 0 0 5px 0px #e8bfbfad;
+}
+
+.message-validation img {
+    max-width: 160px;
+}
+
+.message-validation h3 {
+    font-style: italic;
+}
+
+.message-validation p {
+    color: black;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+.message-validation {
+    display: none;
+}
+
+.message-validation .back-login {
+    display: none;
+}
+
+.contents.login {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center !important;
+    flex-wrap: wrap;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Mot de passe oubliÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â© */
+
+#forgot-password {
+    display: none;
+}
+
+.forgot-password {
+    cursor: pointer;
+}
+
+.bloc-forgot {
+    display: none;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+
+    .bloc-center {
+        text-align: center;
+    }
+
+    .g-5, .gx-5 {
+        --bs-gutter-x: 0 !important;
+    }
+
+    .col-lg-4 {
+        padding: 0 1rem;
+    }
+
+    #show_news_bloc {
+        margin-top: 0 !important;
+    }
+
+}
+
+/* Footer */
+
+@media (min-width: 320px) and (max-width: 768px) {
+
+    footer {
+        bottom: 0;
+    }
+
+}
+
+.breadcrumb a {
+    color: #0d6efd;
+    text-decoration: underline;
+}

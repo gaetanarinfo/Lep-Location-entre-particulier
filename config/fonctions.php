@@ -13,7 +13,7 @@ $header = $dbh->query('SELECT * FROM header WHERE id_site = 1');
 $marketing = $dbh->query('SELECT * FROM marketing WHERE id_site = 1 ORDER BY ordre DESC');
 $mission = $dbh->query('SELECT * FROM mission WHERE id_site = 1 ORDER BY ordre DESC');
 $temoignages = $dbh->query('SELECT * FROM temoignages WHERE id_site = 1');
-$blogs = $dbh->query('SELECT * FROM blog WHERE id_site = 1');
+$blogs = $dbh->query('SELECT * FROM blog WHERE id_site = 1 LIMIT 0,6');
 $ville_populaire = $dbh->query('SELECT * FROM ville_populaire WHERE id_site = 1');
 $presentation = $dbh->query('SELECT * FROM presentation WHERE id_site = 1');
 $regions = $dbh->query('SELECT * FROM regions WHERE id_site = 1 ORDER BY title ASC');
@@ -23,6 +23,8 @@ $maisons_last = $dbh->query('SELECT M.*, MT.title AS title_type FROM maisons AS 
 
 $locationsCols1 = $dbh->query('SELECT * FROM regions WHERE id_site = 1 AND colonne = 1');
 $locationsCols2 = $dbh->query('SELECT * FROM regions WHERE id_site = 1 AND colonne = 2');
+
+$blogs_all = $dbh->query('SELECT * FROM blog WHERE id_site = 1 ORDER BY created_at DESC LIMIT 0,9');
 
 if (basename($_SERVER['PHP_SELF']) == "annonces.php") {
 	$appartements = $dbh->prepare('SELECT url FROM appartements WHERE url = :url');
@@ -46,6 +48,30 @@ if (!empty($appartement_url) && empty($maison_url)) {
 	}
 }
 
+if (basename($_SERVER['PHP_SELF']) == "actualite.php") {
+	$actualite = $dbh->prepare('SELECT url FROM blog WHERE url = :url');
+	$actualite->execute(array('url' => $_GET['url']));
+	$actualite_url = $actualite->fetch();
+}
+
+if (!empty($actualite_url)) {
+	$actualite_req = $dbh->prepare('SELECT B.* FROM blog AS B WHERE B.url = :url');
+	$actualite_req->execute(array('url' => $_GET['url']));
+	$actualite = $actualite_req->fetch();
+
+	$last_actualites = $dbh->prepare('SELECT * FROM blog WHERE url != :url AND id_site = 1 ORDER BY created_at DESC LIMIT 0,20');
+	$last_actualites->execute(array('url' => $_GET['url']));
+	$last_actualite = $last_actualites->fetchAll();
+}
+
+$loc_counts = $dbh->prepare('SELECT id FROM appartements WHERE verification = 1');
+$loc_counts->execute();
+$loc_count = $loc_counts->fetchAll();
+
+$loc_counts2 = $dbh->prepare('SELECT id FROM maisons WHERE verification = 1');
+$loc_counts2->execute();
+$loc_count2 = $loc_counts2->fetchAll();
+
 $config_row = $config->fetch(PDO::FETCH_ASSOC);
 $menu_row = $config->fetchAll();
 $header_row = $header->fetch(PDO::FETCH_ASSOC);
@@ -53,6 +79,7 @@ $marketing_row = $marketing->fetchAll();
 $mission_row = $mission->fetchAll();
 $temoignages_row = $temoignages->fetch(PDO::FETCH_ASSOC);
 $blogs_row = $blogs->fetchAll();
+$blogs_rows = $blogs_all->fetchAll();
 $ville_populaire_row = $ville_populaire->fetchAll();
 $presentation_row = $presentation->fetch(PDO::FETCH_ASSOC);
 $appartements_last_row = $appartements_last->fetchAll();

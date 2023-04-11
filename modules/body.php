@@ -65,6 +65,14 @@
         <link href="<?= $static_url . 'css/conditions.css?=' . time(); ?>" rel="stylesheet">
     <?php } ?>
 
+    <?php if (basename($_SERVER['PHP_SELF']) == "blog.php") { ?>
+        <link href="<?= $static_url . 'css/blog.css?=' . time(); ?>" rel="stylesheet">
+    <?php } ?>
+
+    <?php if (basename($_SERVER['PHP_SELF']) == "actualite.php") { ?>
+        <link href="<?= $static_url . 'css/actualite.css?=' . time(); ?>" rel="stylesheet">
+    <?php } ?>
+
     <!-- Script JS -->
     <script src="<?= $static_url . 'js/6650c3fdcf.js' ?>" crossorigin="anonymous"></script>
     <script src="<?= $static_url ?>js/jquery.min.js"></script>
@@ -91,6 +99,14 @@
             <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
             <script src="<?= $static_url . 'js/client.js?=' . time(); ?>"></script>
         <?php } ?>
+    <?php } ?>
+
+    <?php if (basename($_SERVER['PHP_SELF']) == "blog.php") { ?>
+        <script src="<?= $static_url . 'js/blog.js?=' . time(); ?>"></script>
+    <?php } ?>
+
+    <?php if (basename($_SERVER['PHP_SELF']) == "actualite.php") { ?>
+        <script src="<?= $static_url . 'js/actualite.js?=' . time(); ?>"></script>
     <?php } ?>
 
     <?php if (basename($_SERVER['PHP_SELF']) == "/") { ?>
@@ -176,6 +192,32 @@
         <?php } ?>
 
     <?php } ?>
+
+    <?php
+
+    if (basename($_SERVER['PHP_SELF']) == "actualite.php") {
+
+        if (!empty($actualite_url)) {
+
+    ?>
+            <!-- Open Graph / Facebook -->
+            <meta property="og:type" content="website">
+            <meta property="og:url" content="https://<?= $_SERVER['SERVER_NAME'] ?>/blog/<?= $_GET['url'] ?>">
+            <meta property="og:title" content="<?= $actualite['title']; ?>">
+            <meta property="og:description" content="<?= substr($actualite['small_description'], 0, 155) ?>">
+            <meta property="og:image" content="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/blog/<?= $actualite['image'] ?>">
+
+            <!-- Twitter -->
+            <meta property="twitter:card" content="summary_large_image">
+            <meta property="twitter:url" content="https://<?= $_SERVER['SERVER_NAME'] ?>/blog/<?= $_GET['url'] ?>">
+            <meta property="twitter:title" content="<?= $actualite['title']; ?>">
+            <meta property="twitter:description" content="<?= substr($actualite['small_description'], 0, 155) ?>">
+            <meta property="twitter:image" content="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/blog/<?= $actualite['image'] ?>">
+
+        <?php } ?>
+
+    <?php } ?>
+
 
 </head>
 
