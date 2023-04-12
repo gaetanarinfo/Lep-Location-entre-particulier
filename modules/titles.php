@@ -11,15 +11,15 @@ switch (basename($_SERVER['PHP_SELF'])) {
         $description = $site_config['meta_description'];
         break;
 
-    case 'annonces.php':
+    case 'location.php':
 
-        if (basename($_SERVER['PHP_SELF']) == 'annonces.php' && !empty($appartement_url) && empty($maison_url)) {
+        if (basename($_SERVER['PHP_SELF']) == 'location.php' && !empty($appartement_url) && empty($maison_url)) {
             $title = $appartement['pieces'] . ' pièces ' . $appartement['title_type'] . ' de ' . $appartement['surface'] . ' m² à ' . $appartement['location'];
             $description = substr($appartement['description'], 0, 155);
             break;
         }
 
-        if (basename($_SERVER['PHP_SELF']) == 'annonces.php' && empty($appartement_url) && !empty($maison_url)) {
+        if (basename($_SERVER['PHP_SELF']) == 'location.php' && empty($appartement_url) && !empty($maison_url)) {
             $title = $maison['pieces'] . ' pièces ' . $maison['title_type'] . ' de ' . $maison['surface'] . ' m² à ' . $maison['location'];
             $description = substr($maison['description'], 0, 155);
             break;

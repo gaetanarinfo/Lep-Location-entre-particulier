@@ -224,7 +224,7 @@ if (isset($_POST)) {
         if ($_POST['type_propriete'] == "7") {
 
             // Création de l'annonce //
-            $insert_annonce = $dbh->query('INSERT INTO `maisons` (
+            $insert_annonce = $dbh->query('INSERT INTO `locations` (
                 `id_site`,
                 `title`,
                 `description`,
@@ -278,7 +278,7 @@ if (isset($_POST)) {
         } else {
 
             // Création de l'annonce //
-            $insert_annonce = $dbh->query('INSERT INTO `appartements` (
+            $insert_annonce = $dbh->query('INSERT INTO `locations` (
                 `id_site`,
                 `title`,
                 `description`,

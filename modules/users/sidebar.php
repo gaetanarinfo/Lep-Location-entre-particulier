@@ -17,7 +17,7 @@
         </li>
 
         <li>
-            <a href="/annonces" class="nav-link text-white <?= (basename($_SERVER['PHP_SELF']) == "annonces.php") ? " active disabled" : ""; ?>">
+            <a href="/locations" class="nav-link text-white <?= (basename($_SERVER['PHP_SELF']) == "location.php") ? " active disabled" : ""; ?>">
                 <i class="fa-solid fa-rectangle-list me-2"></i>
                 Mes annonces active
             </a>
@@ -57,13 +57,13 @@
 
             <?php } else { ?>
                 <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "espace.php") ? " active disabled" : ""; ?>" href="espace"><i class="fa-solid fa-rocket me-2"></i>Mon espace</a></li>
-                <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "annonces.php") ? " active disabled" : ""; ?>" href="annonces"><i class="fa-solid fa-rectangle-list me-2"></i>Mes annonces</a></li>
+                <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "location.php") ? " active disabled" : ""; ?>" href="annonces"><i class="fa-solid fa-rectangle-list me-2"></i>Mes annonces</a></li>
                 <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "abonnements.php") ? " active disabled" : ""; ?>" href="abonnements"><i class="fa-solid fa-wand-magic-sparkles me-2"></i>Mes abonnements</a></li>
                 <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "coordonees.php") ? " active disabled" : ""; ?>" href="coordonees"><i class="fa-solid fa-user-pen me-2"></i>Gestion de mon compte</a></li>
                 <li>
                     <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "logout.php") ? " active disabled" : ""; ?>" href="logout"><i class="fa-solid fa-arrow-right-from-bracket me-2"></i>Déconnexion</a></li>
+                <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "logout.php") ? " active disabled" : ""; ?>" href="/utilisateurs/logout"><i class="fa-solid fa-arrow-right-from-bracket me-2"></i>Déconnexion</a></li>
             <?php } ?>
 
         </ul>
@@ -109,13 +109,13 @@
 
                     <?php } else { ?>
                         <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "espace.php") ? " active disabled" : ""; ?>" href="espace"><i class="fa-solid fa-rocket me-2"></i>Mon espace</a></li>
-                        <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "annonces.php") ? " active disabled" : ""; ?>" href="annonces"><i class="fa-solid fa-rectangle-list me-2"></i>Mes annonces</a></li>
+                        <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "location.php") ? " active disabled" : ""; ?>" href="annonces"><i class="fa-solid fa-rectangle-list me-2"></i>Mes annonces</a></li>
                         <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "abonnements.php") ? " active disabled" : ""; ?>" href="abonnements"><i class="fa-solid fa-wand-magic-sparkles me-2"></i>Mes abonnements</a></li>
                         <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "coordonees.php") ? " active disabled" : ""; ?>" href="coordonees"><i class="fa-solid fa-user-pen me-2"></i>Gestion de mon compte</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "logout.php") ? " active disabled" : ""; ?>" href="logout"><i class="fa-solid fa-arrow-right-from-bracket me-2"></i>Déconnexion</a></li>
+                        <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "logout.php") ? " active disabled" : ""; ?>" href="/utilisateurs/logout"><i class="fa-solid fa-arrow-right-from-bracket me-2"></i>Déconnexion</a></li>
                     <?php } ?>
 
                     <li>

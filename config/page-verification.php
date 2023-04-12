@@ -11,14 +11,11 @@ include_once('config/public.php');
 
 switch (basename($_SERVER['PHP_SELF'])) {
 
-    case 'annonces.php':
+    case 'location.php':
 
-        if (!empty($appartement_url) && empty($maison_url)) {
+        if (!empty($location_req)) {
         } else {
-            if (empty($appartement_url) && !empty($maison_url)) {
-            } else {
-                header('Location: /');
-            }
+            header('Location: /');
         }
 
         break;

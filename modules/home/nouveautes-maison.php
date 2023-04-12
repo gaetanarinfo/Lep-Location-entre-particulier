@@ -1,12 +1,12 @@
-<div class="container px-4 py-5 nouveautes_appart reveal">
+<div class="container px-4 py-5 nouveautes_maison reveal">
 
-    <h2 class="pb-2 border-bottom mb-3">Nos nouveautés côté location appartement.</h2>
+    <h2 class="pb-2 border-bottom mb-3">Nos nouveautés côté location maison.</h2>
 
-    <?php if (!empty($appartements_last_row)) { ?>
+    <?php if (!empty($maisons_last_row)) { ?>
 
-        <div class="row row-cols-1 row-cols-md-3 g-4 nouveautes_appartements">
+        <div class="row row-cols-1 row-cols-md-3 g-4 nouveautes_maisons">
 
-            <?php foreach ($appartements_last_row as $value) { ?>
+            <?php foreach ($maisons_last_row as $value) { ?>
 
                 <div class="col">
 
@@ -21,7 +21,7 @@
                         <div class="location">
 
 
-                            <div id="locaCarousel_<?= $value['id'] ?>" class="carousel slide" data-bs-ride="carousel">
+                            <div id="locaMCarousel_<?= $value['id'] ?>" class="carousel slide" data-bs-ride="carousel">
 
                                 <div class="carousel-inner">
 
@@ -50,12 +50,12 @@
 
                                 </div>
 
-                                <button class="carousel-control-prev" type="button" data-bs-target="#locaCarousel_<?= $value['id'] ?>" data-bs-slide="prev">
+                                <button class="carousel-control-prev" type="button" data-bs-target="#locaMCarousel_<?= $value['id'] ?>" data-bs-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Précédent</span>
                                 </button>
 
-                                <button class="carousel-control-next" type="button" data-bs-target="#locaCarousel_<?= $value['id'] ?>" data-bs-slide="next">
+                                <button class="carousel-control-next" type="button" data-bs-target="#locaMCarousel_<?= $value['id'] ?>" data-bs-slide="next">
                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Suivant</span>
                                 </button>
@@ -105,7 +105,7 @@
 
                             <div></div>
 
-                            <a href="/annonces/<?= $value['url'] ?>" class="text-decoration-none">
+                            <a href="/locations/<?= $value['url'] ?>" class="text-decoration-none">
                                 <div>
                                     <span>Voir le bien</span>
                                 </div>

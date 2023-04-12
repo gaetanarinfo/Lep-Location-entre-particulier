@@ -24,7 +24,7 @@ a:hover {
 @media all and (min-width: 320px) and (max-width: 768px) {
 
     .content {
-        padding: 3rem 0;
+        padding: 6rem 0 0 0;
     }
 
 }
@@ -367,8 +367,17 @@ label {
 }
 
 #map {
-    height: 476px;
+    height: 100%;
     z-index: 0;
+}
+
+@media all and (min-width: 320px) and (max-width: 768px) {
+
+    #map {
+        height: 476px;
+        z-index: 0;
+    }
+
 }
 
 .bloc-contact {
@@ -618,14 +627,27 @@ label {
     align-items: center;
 }
 
- #payment-form {
+#payment-form {
     max-width: 500px;
- }
+}
 
- #loader-paiement {
+#loader-paiement {
     margin-bottom: 1rem;
- }
+}
 
- .list-group li {
+.list-group li {
     background: #eff4f200;
- }
+}
+
+@media all and (min-width: 320px) and (max-width: 768px) {
+
+    .bloc-map {
+        margin-top: 2rem;
+    }
+
+    .table {
+        max-width: 100%;
+        overflow-y: scroll;
+    }
+
+}

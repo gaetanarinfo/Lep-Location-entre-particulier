@@ -18,34 +18,18 @@ $ville_populaire = $dbh->query('SELECT * FROM ville_populaire WHERE id_site = 1'
 $presentation = $dbh->query('SELECT * FROM presentation WHERE id_site = 1');
 $regions = $dbh->query('SELECT * FROM regions WHERE id_site = 1 ORDER BY title ASC');
 
-$appartements_last = $dbh->query('SELECT A.*, AT.title AS title_type FROM appartements AS A LEFT JOIN appartements_type AS AT ON AT.id = A.type WHERE A.id_site = 1 AND A.verification >= 1 ORDER BY A.created_at DESC LIMIT 0,6');
-$maisons_last = $dbh->query('SELECT M.*, MT.title AS title_type FROM maisons AS M LEFT JOIN maisons_type AS MT ON MT.id = M.type WHERE M.id_site = 1 AND M.verification >= 1 ORDER BY M.created_at DESC LIMIT 0,6');
+$appartements_last = $dbh->query('SELECT A.*, AT.title AS title_type FROM locations AS A LEFT JOIN locations_type AS AT ON AT.id = A.type WHERE A.id_site = 1 AND A.verification >= 1 AND type <= 6 ORDER BY A.created_at DESC LIMIT 0,6');
+$maisons_last = $dbh->query('SELECT A.*, AT.title AS title_type FROM locations AS A LEFT JOIN locations_type AS AT ON AT.id = A.type WHERE A.id_site = 1 AND A.verification >= 1 AND type >= 7 ORDER BY A.created_at DESC LIMIT 0,6');
 
 $locationsCols1 = $dbh->query('SELECT * FROM regions WHERE id_site = 1 AND colonne = 1');
 $locationsCols2 = $dbh->query('SELECT * FROM regions WHERE id_site = 1 AND colonne = 2');
 
 $blogs_all = $dbh->query('SELECT * FROM blog WHERE id_site = 1 ORDER BY created_at DESC LIMIT 0,9');
 
-if (basename($_SERVER['PHP_SELF']) == "annonces.php") {
-	$appartements = $dbh->prepare('SELECT url FROM appartements WHERE url = :url');
-	$appartements->execute(array('url' => $_GET['url']));
-	$appartement_url = $appartements->fetch();
-
-	$maisons = $dbh->prepare('SELECT url FROM maisons WHERE url = :url');
-	$maisons->execute(array('url' => $_GET['url']));
-	$maison_url = $maisons->fetch();
-}
-
-if (!empty($appartement_url) && empty($maison_url)) {
-	$appartement_req = $dbh->prepare('SELECT A.*, AT.title AS title_type FROM appartements AS A LEFT JOIN appartements_type AS AT ON AT.id = A.type WHERE A.url = :url');
-	$appartement_req->execute(array('url' => $_GET['url']));
-	$appartement = $appartement_req->fetch();
-} else {
-	if (empty($appartement_url) && !empty($maison_url)) {
-		$maison_req = $dbh->prepare('SELECT M.*, MT.title AS title_type FROM maisons AS M LEFT JOIN maisons_type AS MT ON MT.id = M.type WHERE M.url = :url');
-		$maison_req->execute(array('url' => $_GET['url']));
-		$maison = $maison_req->fetch();
-	}
+if (basename($_SERVER['PHP_SELF']) == "location.php") {
+	$locations_req = $dbh->prepare('SELECT L.*, LT.title AS title_type FROM locations AS L LEFT JOIN locations_type AS LT ON L.type = LT.id WHERE L.url = :url');
+	$locations_req->execute(array('url' => $_GET['url']));
+	$location_req = $locations_req->fetch();
 }
 
 if (basename($_SERVER['PHP_SELF']) == "actualite.php") {
@@ -64,13 +48,17 @@ if (!empty($actualite_url)) {
 	$last_actualite = $last_actualites->fetchAll();
 }
 
-$loc_counts = $dbh->prepare('SELECT id FROM appartements WHERE verification = 1');
+$loc_counts = $dbh->prepare('SELECT id FROM locations WHERE verification = 1 AND type <= 6');
 $loc_counts->execute();
 $loc_count = $loc_counts->fetchAll();
 
-$loc_counts2 = $dbh->prepare('SELECT id FROM maisons WHERE verification = 1');
+$loc_counts2 = $dbh->prepare('SELECT id FROM locations WHERE verification = 1 AND type >= 7');
 $loc_counts2->execute();
 $loc_count2 = $loc_counts2->fetchAll();
+
+$locations_req = $dbh->query('SELECT L.*, LT.title as title_type FROM locations AS L LEFT JOIN locations_type AS LT ON L.type = LT.id WHERE L.id_site = 1 AND L.verification = 1 AND L.prix <= 2500 AND L.chambres <= 1 AND L.pieces <= 1 ORDER BY L.created_at DESC');
+$locations = $locations_req->fetchAll();
+
 
 $config_row = $config->fetch(PDO::FETCH_ASSOC);
 $menu_row = $config->fetchAll();

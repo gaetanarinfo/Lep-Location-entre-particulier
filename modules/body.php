@@ -52,9 +52,9 @@
         <link href="<?= $static_url . 'css/users/espace.css?=' . time(); ?>" rel="stylesheet">
     <?php } ?>
 
-    <?php if (basename($_SERVER['PHP_SELF']) == "annonces.php") { ?>
+    <?php if (basename($_SERVER['PHP_SELF']) == "location.php") { ?>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
-        <link href="<?= $static_url . 'css/annonces.css?=' . time(); ?>" rel="stylesheet">
+        <link href="<?= $static_url . 'css/location.css?=' . time(); ?>" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
         <?php if (empty($_COOKIE['location_email'])) { ?>
             <link href="<?= $static_url . 'css/stripe.css?=' . time(); ?>" rel="stylesheet">
@@ -73,6 +73,10 @@
         <link href="<?= $static_url . 'css/actualite.css?=' . time(); ?>" rel="stylesheet">
     <?php } ?>
 
+    <?php if (basename($_SERVER['PHP_SELF']) == "locations.php") { ?>
+        <link href="<?= $static_url . 'css/locations.css?=' . time(); ?>" rel="stylesheet">
+    <?php } ?>
+
     <!-- Script JS -->
     <script src="<?= $static_url . 'js/6650c3fdcf.js' ?>" crossorigin="anonymous"></script>
     <script src="<?= $static_url ?>js/jquery.min.js"></script>
@@ -88,9 +92,9 @@
         <script src="<?= $static_url . 'js/register.js?=' . time(); ?>"></script>
     <?php } ?>
 
-    <?php if (basename($_SERVER['PHP_SELF']) == "annonces.php") { ?>
+    <?php if (basename($_SERVER['PHP_SELF']) == "location.php") { ?>
         <script src="<?= $static_url . 'js/jquery.creditCardValidator.js'; ?>"></script>
-        <script src="<?= $static_url . 'js/annonces.js?=' . time(); ?>"></script>
+        <script src="<?= $static_url . 'js/location.js?=' . time(); ?>"></script>
         <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/l10n/fr.umd.js"></script>
@@ -107,6 +111,10 @@
 
     <?php if (basename($_SERVER['PHP_SELF']) == "actualite.php") { ?>
         <script src="<?= $static_url . 'js/actualite.js?=' . time(); ?>"></script>
+    <?php } ?>
+
+    <?php if (basename($_SERVER['PHP_SELF']) == "locations.php") { ?>
+        <script src="<?= $static_url . 'js/locations.js?=' . time(); ?>"></script>
     <?php } ?>
 
     <?php if (basename($_SERVER['PHP_SELF']) == "/") { ?>
@@ -145,49 +153,24 @@
 
     <?php
 
-    if (basename($_SERVER['PHP_SELF']) == "annonces.php") {
+    if (basename($_SERVER['PHP_SELF']) == "location.php") {
 
-        if (!empty($appartement_url) && empty($maison_url)) {
-
-    ?>
-            <!-- Open Graph / Facebook -->
-            <meta property="og:type" content="website">
-            <meta property="og:url" content="https://<?= $_SERVER['SERVER_NAME'] ?>/annonces/<?= $_GET['url'] ?>">
-            <meta property="og:title" content="<?= $appartement['pieces'] . ' pièces ' . $appartement['title_type'] . ' de ' . $appartement['surface'] . ' m² à ' . $appartement['location']; ?>">
-            <meta property="og:description" content="<?= substr($appartement['description'], 0, 155) ?>">
-            <meta property="og:image" content="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/annonces/<?= $appartement['image'] ?>">
-
-            <!-- Twitter -->
-            <meta property="twitter:card" content="summary_large_image">
-            <meta property="twitter:url" content="https://<?= $_SERVER['SERVER_NAME'] ?>/annonces/<?= $_GET['url'] ?>">
-            <meta property="twitter:title" content="<?= $appartement['pieces'] . ' pièces ' . $appartement['title_type'] . ' de ' . $appartement['surface'] . ' m² à ' . $appartement['location']; ?>">
-            <meta property="twitter:description" content="<?= substr($appartement['description'], 0, 155) ?>">
-            <meta property="twitter:image" content="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/annonces/<?= $appartement['image'] ?>">
-
-        <?php } ?>
-
-    <?php } ?>
-
-    <?php
-
-    if (basename($_SERVER['PHP_SELF']) == "annonces.php") {
-
-        if (empty($appartement_url) && !empty($maison_url)) {
+        if (!empty($location_req)) {
 
     ?>
             <!-- Open Graph / Facebook -->
             <meta property="og:type" content="website">
-            <meta property="og:url" content="https://<?= $_SERVER['SERVER_NAME'] ?>/annonces/<?= $_GET['url'] ?>">
-            <meta property="og:title" content="<?= $maison['pieces'] . ' pièces ' . $maison['title_type'] . ' de ' . $maison['surface'] . ' m² à ' . $maison['location']; ?>">
-            <meta property="og:description" content="<?= substr($maison['description'], 0, 155) ?>">
-            <meta property="og:image" content="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/annonces/<?= $maison['image'] ?>">
+            <meta property="og:url" content="https://<?= $_SERVER['SERVER_NAME'] ?>/locations/<?= $_GET['url'] ?>">
+            <meta property="og:title" content="<?= $location_req['pieces'] . ' pièces ' . $location_req['title_type'] . ' de ' . $location_req['surface'] . ' m² à ' . $location_req['location']; ?>">
+            <meta property="og:description" content="<?= substr($location_req['description'], 0, 155) ?>">
+            <meta property="og:image" content="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/locations/<?= $location_req['image'] ?>">
 
             <!-- Twitter -->
             <meta property="twitter:card" content="summary_large_image">
-            <meta property="twitter:url" content="https://<?= $_SERVER['SERVER_NAME'] ?>/annonces/<?= $_GET['url'] ?>">
-            <meta property="twitter:title" content="<?= $maison['pieces'] . ' pièces ' . $maison['title_type'] . ' de ' . $maison['surface'] . ' m² à ' . $maison['location']; ?>">
-            <meta property="twitter:description" content="<?= substr($maison['description'], 0, 155) ?>">
-            <meta property="twitter:image" content="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/annonces/<?= $maison['image'] ?>">
+            <meta property="twitter:url" content="https://<?= $_SERVER['SERVER_NAME'] ?>/locations/<?= $_GET['url'] ?>">
+            <meta property="twitter:title" content="<?= $location_req['pieces'] . ' pièces ' . $location_req['title_type'] . ' de ' . $location_req['surface'] . ' m² à ' . $location_req['location']; ?>">
+            <meta property="twitter:description" content="<?= substr($location_req['description'], 0, 155) ?>">
+            <meta property="twitter:image" content="https://<?= $_SERVER['SERVER_NAME'] ?>/public/assets/images/annonces/<?= $location_req['image'] ?>">
 
         <?php } ?>
 

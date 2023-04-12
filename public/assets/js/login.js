@@ -136,7 +136,7 @@ $(document).ready(function () {
                     $('.message-validation .message-body').html(parsed.message);
                     $('.message-validation').addClass('message-error');
                     $('.message-validation .back-login').show();
-                    $('.message-validation .back-login a').attr('href', '/register');
+                    $('.message-validation .back-login a').attr('href', '/utilisateurs/register');
     
                     setTimeout(() => {
                         $('.message-validation').fadeIn(300);
@@ -196,7 +196,7 @@ $(document).ready(function () {
                     }, 2300);
     
                     setTimeout(() => {
-                        window.location.href = '/login';
+                        window.location.href = '/utilisateurs/login';
                     }, 6000);
     
                 }
@@ -208,7 +208,7 @@ $(document).ready(function () {
                     $('.message-validation .message-body').html(parsed.message);
                     $('.message-validation').addClass('message-error');
                     $('.message-validation .back-login').show();
-                    $('.message-validation .back-login a').attr('href', '/login');
+                    $('.message-validation .back-login a').attr('href', '/utilisateurs/login');
     
                     setTimeout(() => {
                         $('.message-validation').fadeIn(300);
@@ -278,7 +278,7 @@ function recaptchacheck(token) {
                 $('.message-validation .message-body').html(parsed.message);
                 $('.message-validation').addClass('message-error');
                 $('.message-validation .back-login').show();
-                $('.message-validation .back-login a').attr('href', '/register');
+                $('.message-validation .back-login a').attr('href', '/utilisateurs/register');
 
                 setTimeout(() => {
                     $('.message-validation').fadeIn(300);

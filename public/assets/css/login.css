@@ -6575,7 +6575,7 @@ a:hover {
 @media all and (min-width: 320px) and (max-width: 768px) {
 
     .content {
-        padding: 6rem 0 10rem 0;
+        padding: 6rem 0 3rem 0;
     }
 
 }
@@ -6994,7 +6994,6 @@ label .password-icon .feather-eye-off {
 @media (min-width: 320px) and (max-width: 768px) {
 
     footer {
-        position: fixed;
         bottom: 0;
     }
 

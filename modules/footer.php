@@ -34,14 +34,14 @@
 
                 <ul class="nav flex-column">
                     <?php if (!isset($_SESSION['user_id'])) { ?>
-                        <li class="nav-item mb-2"><a href="/register" class="nav-link p-0 text-muted">Créer une annonce de location</a></li>
-                        <li class="nav-item mb-2"><a href="/login" class="nav-link p-0 text-muted">Connexion</a></li>
+                        <li class="nav-item mb-2"><a href="/utilisateurs/register" class="nav-link p-0 text-muted">Créer une annonce de location</a></li>
+                        <li class="nav-item mb-2"><a href="/utilisateurs/login" class="nav-link p-0 text-muted">Connexion</a></li>
                     <?php } else { ?>
                         <li class="nav-item mb-2"><a class="nav-link p-0 text-muted" href="mon-espace">Mon espace</a></li>
                         <li class="nav-item mb-2"><a class="nav-link p-0 text-muted" href="annonces">Mes annonces</a></li>
                         <li class="nav-item mb-2"><a class="nav-link p-0 text-muted" href="abonnements">Mes abonnements</a></li>
                         <li class="nav-item mb-2"><a class="nav-link p-0 text-muted" href="coordonees">Gestion de mon compte</a></li>
-                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted" href="logout">Déconnexion</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted" href="/utilisateurs/logout">Déconnexion</a></li>
                     <?php } ?>
                 </ul>
 
@@ -91,7 +91,7 @@
 
 <a href="#" id="toTopBtn" class="cd-top text-replace js-cd-top cd-top--is-visible cd-top--fade-out" data-abc="true"><i class="fa-solid fa-chevron-up"></i></a>
 
-<?php if (basename($_SERVER['PHP_SELF']) == "login.php" or basename($_SERVER['PHP_SELF']) == "forgot-password.php" or basename($_SERVER['PHP_SELF']) == "annonces.php") { ?>
+<?php if (basename($_SERVER['PHP_SELF']) == "login.php" or basename($_SERVER['PHP_SELF']) == "forgot-password.php" or basename($_SERVER['PHP_SELF']) == "location.php") { ?>
     <!-- ICON SCRIPT -->
     <script src="https://unpkg.com/feather-icons"></script>
     <script>

@@ -232,7 +232,7 @@
 
                     <h3 class="text-white mb-4">Vous recherchez un logement en location ?</h3>
                     <p class="lead text-white">Rechercher parmi <?= count($loc_count) + count($loc_count2) ?> location<?= (count($loc_count) + count($loc_count2) >= 2) ? 's' : '' ?> disponible<?= (count($loc_count) + count($loc_count2) >= 2) ? 's' : '' ?></p>
-                    <a class="btn btn-lg btn-success bg-gradient create-annonce-free" href="/location" role="button">Rechercher maintenant</a>
+                    <a class="btn btn-lg btn-success bg-gradient create-annonce-free" href="/locations" role="button">Rechercher maintenant</a>
 
                 </div>
 

@@ -1,8 +1,8 @@
 @media all and (min-width: 320px) and (max-width: 768px) {
 
     nav .container.px-5 {
-        padding-right: 1rem!important;
-        padding-left: 1rem!important;
+        padding-right: 1rem !important;
+        padding-left: 1rem !important;
     }
 
     .hide-mobile {
@@ -345,11 +345,21 @@ header .col-lg-8.col-xl-7.col-xxl-6 {
 
 .nouveautes_maison .previous-alert {
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .nouveautes_maison .alert {
     width: 50%;
     justify-content: center;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+
+    .nouveautes_maison .alert {
+        width: 100%;
+    }
+
 }
 
 /* Bloc Autres Recherches */
