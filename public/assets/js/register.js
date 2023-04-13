@@ -377,7 +377,8 @@ $(document).ready(function () {
             title_annonce = $('#title_annonce').val(),
             content_annonce = $('#content_annonce').val(),
             email_login = $('#email_login').val(),
-            password_login = $('#password_login').val()
+            password_login = $('#password_login').val(),
+            disponibilite = $('#disponibilite').val()
 
 
         if (fichier.length == 1) {
@@ -431,7 +432,8 @@ $(document).ready(function () {
             if (e.name != "content_annonce") form_data.append(e.name, e.value);
             if (e.name != "email_login") form_data.append(e.name, e.value);
             if (e.name != "password_login") form_data.append(e.name, e.value);
-
+            if (e.name != "disponibilite") form_data.append(e.name, e.value);
+            
         });
 
         form_data.append('type_propriete', type_propriete);
@@ -459,6 +461,7 @@ $(document).ready(function () {
         form_data.append('content_annonce', content_annonce);
         form_data.append('email_login', email_login);
         form_data.append('password_login', password_login);
+        form_data.append('disponibilite', disponibilite);
 
         var url = '../ajax/ajax-register.php';
         
@@ -476,6 +479,8 @@ $(document).ready(function () {
             processData: false,
             contentType: false,
             success: function (data) {
+
+                console.log(data);
 
                 setTimeout(() => {
                     $('#loader-form').addClass('hidden');

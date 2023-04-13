@@ -13,7 +13,7 @@ switch (basename($_SERVER['PHP_SELF'])) {
 
     case 'register.php':
 
-        if (isset($_SESSION['user_id'])) {
+        if (!empty($_SESSION['user_id'])) {
             header('Location: /mon-espace');
         }
 
@@ -21,7 +21,7 @@ switch (basename($_SERVER['PHP_SELF'])) {
 
     case 'login.php':
 
-        if (isset($_SESSION['user_id'])) {
+        if (!empty($_SESSION['user_id'])) {
             header('Location: /mon-espace');
         }
 
@@ -29,7 +29,7 @@ switch (basename($_SERVER['PHP_SELF'])) {
 
     case 'espace.php':
 
-        if (!isset($_SESSION['user_id'])) {
+        if (empty($_SESSION['user_id'])) {
             header('Location: /login');
         }
 
@@ -53,7 +53,4 @@ switch (basename($_SERVER['PHP_SELF'])) {
 
         break;
 
-    default:
-        # code...
-        break;
 }

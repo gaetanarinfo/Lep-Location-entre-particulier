@@ -73,8 +73,16 @@
         <link href="<?= $static_url . 'css/actualite.css?=' . time(); ?>" rel="stylesheet">
     <?php } ?>
 
-    <?php if (basename($_SERVER['PHP_SELF']) == "locations.php") { ?>
+    <?php if (basename($_SERVER['PHP_SELF']) == "locations.php" OR basename($_SERVER['PHP_SELF']) == "locations-appartements.php" OR basename($_SERVER['PHP_SELF']) == "locations-maisons.php" OR basename($_SERVER['PHP_SELF']) == "locations-populaires.php") { ?>
         <link href="<?= $static_url . 'css/locations.css?=' . time(); ?>" rel="stylesheet">
+    <?php } ?>
+
+    <?php if (basename($_SERVER['PHP_SELF']) == "contact.php") { ?>
+        <link href="<?= $static_url . 'css/contact.css?=' . time(); ?>" rel="stylesheet">
+    <?php } ?>
+
+    <?php if (basename($_SERVER['PHP_SELF']) == "faq.php") { ?>
+        <link href="<?= $static_url . 'css/faq.css?=' . time(); ?>" rel="stylesheet">
     <?php } ?>
 
     <!-- Script JS -->
@@ -113,9 +121,14 @@
         <script src="<?= $static_url . 'js/actualite.js?=' . time(); ?>"></script>
     <?php } ?>
 
-    <?php if (basename($_SERVER['PHP_SELF']) == "locations.php") { ?>
+    <?php if (basename($_SERVER['PHP_SELF']) == "locations.php" OR basename($_SERVER['PHP_SELF']) == "locations-appartements.php" OR basename($_SERVER['PHP_SELF']) == "locations-maisons.php" OR basename($_SERVER['PHP_SELF']) == "locations-populaires.php") { ?>
         <script src="<?= $static_url . 'js/locations.js?=' . time(); ?>"></script>
     <?php } ?>
+
+    <?php if (basename($_SERVER['PHP_SELF']) == "contact.php") { ?>
+        <script src="<?= $static_url . 'js/contact.js?=' . time(); ?>"></script>
+    <?php } ?>
+
 
     <?php if (basename($_SERVER['PHP_SELF']) == "/") { ?>
         <script>

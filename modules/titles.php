@@ -13,15 +13,9 @@ switch (basename($_SERVER['PHP_SELF'])) {
 
     case 'location.php':
 
-        if (basename($_SERVER['PHP_SELF']) == 'location.php' && !empty($appartement_url) && empty($maison_url)) {
-            $title = $appartement['pieces'] . ' pièces ' . $appartement['title_type'] . ' de ' . $appartement['surface'] . ' m² à ' . $appartement['location'];
-            $description = substr($appartement['description'], 0, 155);
-            break;
-        }
-
-        if (basename($_SERVER['PHP_SELF']) == 'location.php' && empty($appartement_url) && !empty($maison_url)) {
-            $title = $maison['pieces'] . ' pièces ' . $maison['title_type'] . ' de ' . $maison['surface'] . ' m² à ' . $maison['location'];
-            $description = substr($maison['description'], 0, 155);
+        if (basename($_SERVER['PHP_SELF']) == 'location.php' && !empty($location_req)) {
+            $title = $location_req['pieces'] . ' pièces ' . $location_req['title_type'] . ' de ' . $location_req['surface'] . ' m² à ' . $location_req['location'];
+            $description = substr($location_req['description'], 0, 155);
             break;
         }
 
@@ -47,6 +41,40 @@ switch (basename($_SERVER['PHP_SELF'])) {
             $description = substr($actualite['small_description'], 0, 155);
         }
 
+        break;
+
+    case 'locations.php':
+        $title = $site_config['meta_title'] . ' - Maisons ou appartement en location en France';
+        $description = $site_config['meta_description'];
+        break;
+
+    case 'locations-appartements.php':
+        $title = $site_config['meta_title'] . ' - Appartements en location en France';
+        $description = $site_config['meta_description'];
+        break;
+
+    case 'locations-maisons.php':
+        $title = $site_config['meta_title'] . ' - Maisons en location en France';
+        $description = $site_config['meta_description'];
+        break;
+
+    case 'locations-populaires.php':
+
+        if (basename($_SERVER['PHP_SELF']) == 'locations-populaires.php') {
+            $title = 'Trouvez un logement dans la ville populaire de ' . $villes_france['ville_nom_reel'];
+            $description = $site_config['meta_description'];
+        }
+
+        break;
+
+    case 'contact.php':
+        $title = $site_config['meta_title'] . ' - Contactez-nous';
+        $description = $site_config['meta_description'];
+        break;
+
+    case 'faq.php':
+        $title = $site_config['meta_title'] . ' - Foire aux questions (FAQ)';
+        $description = 'Besoin d&#39;aide pour créer un compte, ou autre ? C&#39;est ici que ça se passe !';
         break;
 
     default:

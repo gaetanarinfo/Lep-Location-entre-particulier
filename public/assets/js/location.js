@@ -195,6 +195,50 @@ $(document).ready(function () {
 
   })
 
+  $('#contact-prop-3').on('submit', function (e) {
+
+    e.preventDefault();
+
+    var id = $('#location_id').val(),
+      abuse_reason = $('#abuse_reason').val(),
+      url = '../ajax/ajax-abuse-location.php'
+
+    $('#contact-prop-3').hide();
+    $('#loader-form-3').removeClass('hidden');
+
+    $.ajax({
+      url: url,
+      type: 'POST',
+      data: {
+        abuse_reason: abuse_reason,
+        location_id: id
+      },
+      success: function (data) {
+
+        console.log(data);
+
+        var parsed = JSON.parse(data);
+
+        if (parsed.abuse == true) {
+
+          setTimeout(() => {
+            $('#loader-form-3').addClass('hidden');
+          }, 2000);
+
+          setTimeout(() => {
+            $('#show-alert-error').fadeIn(300);
+          }, 2000);
+
+        }
+
+      }
+
+    })
+
+  })
+
+  // show-alert-error
+
 })
 
 // Cookie

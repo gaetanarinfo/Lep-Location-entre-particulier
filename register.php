@@ -77,7 +77,7 @@
 
                                 <div class="form-group mb-3">
                                     <label>* Disponible à partir de</label>
-                                    <input class="form-control" required placeholder="Disponible à partir de" type="date" id="disponible" name="disponible">
+                                    <input class="form-control" required placeholder="Disponible à partir de" type="date" min="<?= date('Y-m-d') ?>" id="disponible" name="disponible">
                                 </div>
 
                                 <div class="form-group mb-3">
@@ -97,7 +97,7 @@
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label>* Surface</label>
+                                    <label>* Surface (m2)</label>
                                     <input class="form-control" min="1" oninput="validity.valid||(value='');" placeholder="Surface" type="number" step="1" id="surface" name="surface">
                                 </div>
 
@@ -143,6 +143,14 @@
                                     <input class="form-control" placeholder="Frais supplémentaires" type="text" id="frais_supp" name="frais_supp">
                                 </div>
 
+                                <div class="form-group mb-3">
+                                    <label>* Location disponible</label>
+                                    <select class="form-select" placeholder="Chambres" id="disponibilite" name="disponibilite">
+                                        <option value="1">Oui</option>
+                                        <option value="0">Non</option>
+                                    </select>
+                                </div>
+
                             </div>
 
                             <div class="col-md-12 mb-4">
@@ -185,8 +193,8 @@
                             </div>
 
                             <div class="col-md-6 mb-4">
-                               
-                            <div class="form-group mb-3">
+
+                                <div class="form-group mb-3">
                                     <div class="form-group mb-3">
                                         <label>* Location</label>
                                         <input class="form-control" autocomplete="off" required id="location" placeholder="Ex: Le Mans" type="text" name="location">
@@ -195,7 +203,7 @@
 
                                 <div class="form-group mb-3">
                                     <label>* Code postal</label>
-                                    <input class="form-control" autocomplete="off" id="cp" required placeholder="Ex: 75256" min="1" max="5" type="number" name="cp">
+                                    <input class="form-control" autocomplete="off" id="cp" required placeholder="Ex: 75256" type="number" name="cp">
                                 </div>
 
                             </div>

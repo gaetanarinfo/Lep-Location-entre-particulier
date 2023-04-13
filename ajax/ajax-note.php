@@ -27,7 +27,7 @@ if (!empty($_POST)) {
 
     if (empty($donnees)) {
         $create_note = $dbh->query('INSERT INTO `blog_avis` (blog_id, ip, note) VALUES ("' . $blog_id . '", "' . $ip . '", "' . $note . '")');
-        $final = ['note' => true, 'message' => '<b>Merci pour votre note !</b>', 'icone' => '<i class="fa-solid fa-circle-check me-1 text-success></i>'];
+        $final = ['note' => true, 'message' => '<b>Merci pour votre note !</b>', 'icone' => '<i class="fa-regular fa-circle-check me-1 text-success"></i>'];
     } else {
         $final = ['note' => false, 'message' => '<b>Vous avez déjà noté cet article !</b>', 'icone' => '<i class="fa-solid fa-triangle-exclamation me-1 text-danger"></i>'];
     }

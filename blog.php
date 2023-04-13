@@ -66,7 +66,7 @@
 
                                     </div>
 
-                                    <div class="mt-3 text-end"><span><i class="fa-regular fa-comment me-2 text-success"></i><?= $value['comments'] ?></span><span class="ms-2 me-2"><i class="fa-regular fa-heart me-2 text-danger"></i><?= $value['likes'] ?></span><span><i class="fa-regular fa-eye me-2 text-info"></i><?= $value['views'] ?></span></div>
+                                    <div class="mt-3 text-end"><span class="ms-2 me-2"><i class="fa-regular fa-heart me-2 text-danger"></i><?= $value['likes'] ?></span><span><i class="fa-regular fa-eye me-2 text-info"></i><?= $value['views'] ?></span></div>
 
                                 </div>
 

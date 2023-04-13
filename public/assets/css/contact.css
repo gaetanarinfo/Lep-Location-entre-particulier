@@ -18,13 +18,13 @@ a:hover {
 }
 
 .content {
-    padding: 7rem 0 0 0;
+    padding: 7rem 0;
 }
 
 @media all and (min-width: 320px) and (max-width: 768px) {
 
     .content {
-        padding: 6rem 0 0 0;
+        padding: 3rem 0;
     }
 
 }
@@ -33,12 +33,12 @@ h2 {
     font-size: 20px;
 }
 
-.container .content a {
+.content a {
     color: #888;
     text-decoration: underline;
 }
 
-.container .content .btn {
+.content .btn {
     height: 40px;
     padding-left: 30px;
     padding-right: 30px;
@@ -187,6 +187,8 @@ h2 {
     background-color: #7e0cf5;
     opacity: .2;
 }
+
+
 
 /* Afficher ou masquer le mot de passe */
 
@@ -353,326 +355,10 @@ label {
     align-items: center;
 }
 
-#loader-form-2 {
-    display: flex;
-    height: auto;
-    justify-content: center;
-    position: relative;
-    flex-direction: column;
-    align-items: center;
-}
-
-#loader-form-3 {
-    display: flex;
-    height: auto;
-    margin-top: 3rem;
-    justify-content: center;
-    position: relative;
-    flex-direction: column;
-    align-items: center;
-}
-
 .hidden {
     display: none !important;
 }
 
-#map {
-    height: 100%;
-    z-index: 0;
-}
-
-@media all and (min-width: 320px) and (max-width: 768px) {
-
-    #map {
-        height: 476px;
-        z-index: 0;
-    }
-
-}
-
-.bloc-contact {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-}
-
-.bloc-content h3::after {
-    display: block;
-    content: "";
-    position: relative;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    width: 100%;
-    border-bottom: 3px solid #212529a3;
-}
-
-.bloc-contact .title-price::after {
-    display: block;
-    content: "";
-    position: relative;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    width: 100%;
-    border-bottom: 3px solid #ffc107;
-}
-
-.bloc-contact img {
-    transform: scale(0.7);
-}
-
-.bloc-galerie {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: nowrap;
-}
-
-.bloc-galerie img {
-    cursor: pointer;
-    transition: all 1.5s;
-    opacity: 0.7;
-}
-
-.bloc-galerie img:hover {
-    opacity: 1;
-    transform: scale(1.5);
-}
-
-#image-2,
-#image-3,
-#image-4 {
+.validationFile {
     display: none;
-}
-
-#button-contact-modal {
-    transition: all 1s;
-    color: #1e6ea0 !important;
-    font-weight: bold;
-}
-
-#button-contact-modal:hover {
-    color: #4b4b4b !important;
-}
-
-#loader-form {
-    height: 200px;
-}
-
-.show-coordonee {
-    display: none;
-    height: 200px;
-}
-
-.show-coordonee-2 {
-    display: none;
-}
-
-/* Modal */
-
-#contact_prop .modal-header,
-#contact_prop .modal-footer {
-    border: 0;
-}
-
-#contact_prop .modal-body {
-    padding-top: 0;
-}
-
-.form-bloc-email {
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    align-items: center;
-}
-
-.form-bloc-email span i {
-    font-size: 1.5rem;
-}
-
-#contact_prop_pre_paiement .modal-header,
-#contact_prop_pre_paiement .modal-footer {
-    border: 0;
-}
-
-#contact_prop_pre_paiement .modal-body {
-    padding-top: 0;
-}
-
-#contact_prop_pre_paiement .cancel-other {
-    background: #197aa9;
-    height: 50px;
-    text-align: center;
-    color: white;
-    font-weight: bold;
-    padding: 0.8rem;
-    display: block;
-    border-radius: 1rem 0 1rem 0;
-}
-
-#contact_prop_pre_paiement h4::after {
-    display: block;
-    content: "";
-    position: relative;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    width: 41%;
-    left: 30%;
-    border-bottom: 3px solid #ffc107;
-}
-
-#contact_prop_pre_paiement .grid-card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#contact_prop_pre_paiement #expire_m_card,
-#contact_prop_pre_paiement #expire_a_card,
-#contact_prop_pre_paiement #cvc_card {
-    width: 66px;
-}
-
-#contact_prop_pre_paiement .bloc-card-icon {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
-}
-
-#contact_prop_pre_paiement .bloc-card-icon i {
-    font-size: 2rem;
-}
-
-#contact_prop_pre_paiement .bloc-name-card {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-#contact_prop_pre_paiement #name_card {
-    max-width: 460px;
-}
-
-#contact_prop_pre_paiement .bloc-text-mini {
-    font-size: 0.8rem;
-    max-width: 300px;
-}
-
-#contact_prop_pre_paiement .bloc-text-div {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-#contact_prop_pre_paiement .grid-title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.required {
-    border: 4px solid red !important;
-}
-
-.form-card {
-    border: 4px solid #91888847;
-    height: 58px;
-    box-shadow: 5px 6px 8px #91888847;
-    background: #d3d3d317;
-    border-radius: 1rem 0 1rem 0;
-    font-weight: 500;
-    letter-spacing: 0.1rem;
-    font-size: 0.9rem;
-}
-
-#submit_card {
-    min-width: 305px;
-    color: white;
-    font-weight: 500;
-    font-size: 1rem;
-    background-color: steelblue;
-    border: 2px solid #5d89af;
-    transition: all 1s;
-}
-
-#submit_card:hover,
-#submit_card:active,
-#submit_card:focus {
-    background-color: rgba(70, 131, 180, 0.932);
-    border: 2px solid #5d89afe8;
-    color: white;
-    box-shadow: 0 0 0 0.25rem rgba(70, 131, 180, 0.932);
-}
-
-#alert-card-error {
-    text-align: center;
-    min-width: 460px;
-    display: none;
-}
-
-#alert-card-success {
-    text-align: center;
-    min-width: 460px;
-    display: none;
-}
-
-.alert-before {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-    flex-direction: row;
-}
-
-.card_element {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#payment-form {
-    max-width: 500px;
-}
-
-#loader-paiement {
-    margin-bottom: 1rem;
-}
-
-.list-group li {
-    background: #eff4f200;
-}
-
-@media all and (min-width: 320px) and (max-width: 768px) {
-
-    .bloc-map {
-        margin-top: 2rem;
-    }
-
-    .table {
-        max-width: 100%;
-        overflow-y: scroll;
-    }
-
-}
-
-#signal .modal-header,
-#signal .modal-footer {
-    border: 0;
-}
-
-#signal .modal-body {
-    padding-top: 0;
-}
-
-#show-alert-error {
-    display: none;
-    margin-top: 1rem;
-    margin-bottom: 0 !important;
 }

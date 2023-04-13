@@ -83,7 +83,15 @@
 
                         <div class="col-md-12 mt-2">
                             <h1 class="h2"><i class="fa-solid fa-puzzle-piece me-2 text-info"></i><?= $location_req['pieces'] ?> pièces <?= $location_req['title_type'] ?> de <?= $location_req['surface'] ?> m² à <?= $location_req['location'] ?></h1>
-                            <p class="text-dark"><i class="fa-solid fa-map-pin me-2 text-success"></i><?= $location_req['rue'] ?>, <?= $location_req['code_postal'] ?>, <?= $location_req['location'] ?></p>
+                            <p class="text-dark mt-4 mb-2 fw-bold"><i class="fa-solid fa-map-pin me-2 text-success"></i><?= $location_req['rue'] ?>, <?= $location_req['code_postal'] ?>, <?= $location_req['location'] ?></p>
+
+                            <?php if ($location_req['disponibilite'] == 1) { ?>
+                                <p class="text-dark fw-bold mt-2"><i class="fa-regular fa-calendar-check text-success me-2"></i>Disponible à partir du <?= date('d/m/Y', strtotime($location_req['disponible'])) ?></p>
+                            <?php } else { ?>
+                                <p class="text-dark fw-bold mt-2"><i class="fa-regular fa-calendar-xmark text-danger me-2"></i>Non disponible</p>
+                            <?php } ?>
+
+
                         </div>
 
                         <div class="col-md-12 mt-5 table">
@@ -120,11 +128,56 @@
 
                         </div>
 
+                        <hr class="mt-4 mb-4">
+
+                        <h4 class="mt-5">Information importante</h4>
+
+                        <div class="col-md-12 table">
+
+                            <table class="table">
+
+                                <thead>
+
+                                    <tr>
+                                        <th scope="col">Durée de location</th>
+                                        <th scope="col">Meublé</th>
+                                        <th scope="col">Animeaux acceptés</th>
+                                        <th scope="col">Sous location</th>
+                                        <th scope="col">Dépôt de garantie</th>
+                                        <th scope="col" class="text-end">Frais de gestion</th>
+                                    </tr>
+
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <th scope="row"><i class="fa-regular fa-clock me-2 text-primary"></i><?= $ocations_duree['title'] ?></th>
+                                        <td scope="row"><i class="fa-solid fa-couch me-2 text-warning"></i><?= ($location_req['meuble'] == 0) ? 'Non' : 'Oui' ?></td>
+                                        <td scope="row"><i class="fa-solid fa-dog me-2 text-success"></i><?= ($location_req['animeaux_acceptes'] == 0) ? 'Non' : 'Oui' ?></td>
+                                        <td scope="row"><i class="fa-regular fa-building me-2 text-info"></i><?= ($location_req['sous_location'] == 0) ? 'Non' : 'Oui' ?></td>
+                                        <td scope="row"><?= $location_req['garantie'] ?> €</td>
+                                        <td class="text-end"><?= $location_req['frais'] ?> €</td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
                         <div class="col-md-6 bloc-content mt-5">
                             <h3><i class="fa-solid fa-arrows-to-circle me-2 text-danger"></i><?= $location_req['title'] ?></h3>
                             <p class="text-dark"><?= $location_req['description'] ?></p>
 
                             <a id="button-contact-modal" href="#" data-bs-toggle="modal" data-bs-target="#contact_prop" class="text-decoration-none text-dark">Vous avez des questions concernant cette location ? Contactez le propriétaire simplement et rapidement en cliquant ici.</a>
+
+                            <hr class="mt-4">
+
+                            <div class="mt-4 text-end">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#signal" class="btn btn-danger btn-gradien fw-bold"><i class="fa-solid fa-triangle-exclamation me-2"></i>Signaler une erreur</a>
+                            </div>
+
                         </div>
 
                         <div class="col-md-6 mt-5">
@@ -400,6 +453,63 @@
 
             <div class="modal-footer text-center d-block pt-3 mb-3">
                 <a href="#" data-bs-dismiss="modal" class="text-dark">Non merci, cette offre ne m'interesse pas</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="signal" tabindex="-1" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <h3 class="text-center">DES ERREURS ? SIGNALEZ-LES ICI</h3>
+
+                <div class="loader_inf hidden" id="loader-form-3">
+                    <img width="67" height="67" src="<?= $image_url . 'loader.svg' ?>">
+                </div>
+
+                <div class="alert-before">
+                    <div id="show-alert-error" class="alert alert-success">Nous vous remercions de votre intérêt. Nous vous contacterons dans les plus brefs délais.</div>
+                </div>
+
+                <form id="contact-prop-3" class="mt-4">
+
+                    <div class="form-group select mb-3">
+
+                        <select class="form-select" required name="abuse_reason" id="abuse_reason">
+                            <option value="">Choisissez la raison</option>
+                            <option value="not_vacant">Logement non disponible</option>
+                            <option value="error_info">Erreur dans les données</option>
+                            <option value="scam">Risque de fraude</option>
+                        </select>
+
+                    </div>
+
+                    <div class="text-center">
+                        <p class="fw-bold text-dark">La location de cet hébergement vous intéresse ? <a href="#" class="text-decoration-none text-info" data-bs-toggle="modal" data-bs-dismiss="modal" data-bs-target="#contact_prop">Contactez</a> plutôt <a href="#" class="text-decoration-none text-info" data-bs-toggle="modal" data-bs-dismiss="modal" data-bs-target="#contact_prop">le propriétaire plutôt ici</a>.</p>
+                    </div>
+
+                    <div class="col-md-12 text-center mt-4">
+                        <input type="submit" value="Signaler la location" id="signal-error" class="btn btn-block bg-gradient btn-success text-white">
+                    </div>
+
+                </form>
+
+            </div>
+
+            <div class="modal-footer text-end d-block pt-3 mb-3">
+                <a href="#" class="btn btn-secondary btn-gradien" data-bs-toggle="modal" data-bs-dismiss="modal">Fermer</a>
             </div>
         </div>
 

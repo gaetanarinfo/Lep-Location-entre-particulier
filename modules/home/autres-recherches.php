@@ -91,7 +91,6 @@
                                     <span class="badge bg-success"><?= $count ?></span>
                                 </button>
 
-
                             </h2>
 
                             <div id="collapse2Cols<?= $value['id'] ?>" class="accordion-collapse collapse" aria-labelledby="heading2Cols<?= $value['id'] ?>" data-bs-parent="#accordion2Cols<?= $value['id'] ?>">
@@ -102,7 +101,7 @@
                                         <?php
 
                                         foreach ($array as $key => $value) {
-                                            echo '<li><a class="text-decoration-none" href="/">' . $value['location'] . '</a></li>';
+                                            echo '<li><a class="text-decoration-none" href="logements/' . makeUrl($value['location']) . '">' . $value['location'] . '</a></li>';
                                         }
 
                                         ?>

@@ -218,6 +218,8 @@ header .col-lg-8.col-xl-7.col-xxl-6 {
 
 .nouveautes_appart .previous-alert {
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .nouveautes_appart .alert {
@@ -360,6 +362,14 @@ header .col-lg-8.col-xl-7.col-xxl-6 {
         width: 100%;
     }
 
+    .nouveautes_appart .alert {
+        width: 100%;
+    }
+
+    .actualite .alert {
+        width: 100% !important;
+    }
+
 }
 
 /* Bloc Autres Recherches */
@@ -399,6 +409,16 @@ header .col-lg-8.col-xl-7.col-xxl-6 {
     position: absolute;
     display: block;
     right: 3rem;
+}
+
+.actualite .alert {
+    width: 50%;
+    justify-content: center;
+}
+
+.actualite .previous-alert {
+    display: flex;
+    justify-content: center;
 }
 
 /* Bloc Newsletter */
@@ -492,4 +512,15 @@ header .col-lg-8.col-xl-7.col-xxl-6 {
     .footer_bottom .col-6 {
         width: 100%;
     }
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .blog .container {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+
+.btn {
+    font-weight: bold;
 }

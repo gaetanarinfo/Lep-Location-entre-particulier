@@ -6,7 +6,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 // Requêtes
 
 $config = $dbh->query('
-SELECT C.title AS title_site, C.meta_title, C.description AS description_site, C.meta_description, C.favicon, CM.title AS menu_title, CM.icon AS menu_icon, CM.url AS menu_url 
+SELECT C.title AS title_site, C.meta_title, C.description AS description_site, C.meta_description, C.favicon, CM.active, CM.title AS menu_title, CM.icon AS menu_icon, CM.url AS menu_url 
 FROM config AS C LEFT JOIN menu AS CM ON C.id = CM.id_site WHERE C.id = 1');
 
 $header = $dbh->query('SELECT * FROM header WHERE id_site = 1');
@@ -30,6 +30,10 @@ if (basename($_SERVER['PHP_SELF']) == "location.php") {
 	$locations_req = $dbh->prepare('SELECT L.*, LT.title AS title_type FROM locations AS L LEFT JOIN locations_type AS LT ON L.type = LT.id WHERE L.url = :url');
 	$locations_req->execute(array('url' => $_GET['url']));
 	$location_req = $locations_req->fetch();
+
+	$locations_duree_req = $dbh->prepare('SELECT * FROM locations_duree WHERE id = "' . $location_req['duree'] . '"');
+	$locations_duree_req->execute();
+	$ocations_duree = $locations_duree_req->fetch();
 }
 
 if (basename($_SERVER['PHP_SELF']) == "actualite.php") {
@@ -42,6 +46,11 @@ if (!empty($actualite_url)) {
 	$actualite_req = $dbh->prepare('SELECT B.* FROM blog AS B WHERE B.url = :url');
 	$actualite_req->execute(array('url' => $_GET['url']));
 	$actualite = $actualite_req->fetch();
+
+	// Article vues
+	if ($_SERVER['REMOTE_ADDR'] != "31.33.145.219") {
+		$update = $dbh->query('UPDATE `blog` SET `views` = `views` + 1 WHERE id = "' . $actualite['id'] . '"');
+	}
 
 	$last_actualites = $dbh->prepare('SELECT * FROM blog WHERE url != :url AND id_site = 1 ORDER BY created_at DESC LIMIT 0,20');
 	$last_actualites->execute(array('url' => $_GET['url']));
@@ -59,6 +68,22 @@ $loc_count2 = $loc_counts2->fetchAll();
 $locations_req = $dbh->query('SELECT L.*, LT.title as title_type FROM locations AS L LEFT JOIN locations_type AS LT ON L.type = LT.id WHERE L.id_site = 1 AND L.verification = 1 AND L.prix <= 2500 AND L.chambres <= 1 AND L.pieces <= 1 ORDER BY L.created_at DESC');
 $locations = $locations_req->fetchAll();
 
+$locations_req_m = $dbh->query('SELECT L.*, LT.title as title_type FROM locations AS L LEFT JOIN locations_type AS LT ON L.type = LT.id WHERE L.id_site = 1 AND L.type >= 7 AND L.verification = 1 AND L.prix <= 2500 AND L.chambres <= 1 AND L.pieces <= 1 ORDER BY L.created_at DESC');
+$locations_maisons = $locations_req_m->fetchAll();
+
+$locations_req_a = $dbh->query('SELECT L.*, LT.title as title_type FROM locations AS L LEFT JOIN locations_type AS LT ON L.type = LT.id WHERE L.id_site = 1 AND L.type <= 6 AND L.verification = 1 AND L.prix <= 2500 AND L.chambres <= 1 AND L.pieces <= 1 ORDER BY L.created_at DESC');
+$locations_appartements = $locations_req_a->fetchAll();
+
+if (basename($_SERVER['PHP_SELF']) == "locations-populaires.php") {
+
+	// Comparaison avec la table villes et le get url
+	$villes_france_req = $dbh->prepare('SELECT ville_slug, ville_nom_reel FROM villes_france WHERE ville_slug = "' . $_GET['url'] . '"');
+	$villes_france_req->execute();
+	$villes_france = $villes_france_req->fetch();
+
+	$locations_req_populaires = $dbh->query('SELECT L.*, LT.title as title_type FROM locations AS L LEFT JOIN locations_type AS LT ON L.type = LT.id WHERE L.id_site = 1 AND L.location LIKE "' . $villes_france['ville_slug'] . '%" AND L.verification = 1 AND L.prix <= 2500 AND L.chambres <= 1 AND L.pieces <= 1 ORDER BY L.created_at DESC');
+	$locations_populaires = $locations_req_populaires->fetchAll();
+}
 
 $config_row = $config->fetch(PDO::FETCH_ASSOC);
 $menu_row = $config->fetchAll();
@@ -170,9 +195,7 @@ function sendMail($from, $from_name, $to, $to_name, $reply, $reply_name, $subjec
 		$mail->addAddress($to, $to_name);
 
 		if (!empty($attachments)) {
-			foreach ($attachments as $attachment) {
-				$mail->addStringAttachment(file_get_contents($attachment['url']), $attachment['name']);
-			}
+			$mail->addStringAttachment(file_get_contents($attachments['url']), $attachments['name']);
 		}
 
 		$mail->Subject = $subject;
@@ -201,6 +224,23 @@ function makeUrl($url)
 	$return = urlencode($return);
 	$return = trim(preg_replace("![^a-z0-9]+!i", "-", $return), '-');
 	return $return;
+}
+
+// -------- //
+
+// Générer nombre et lettre aléatoire //
+
+function genererChaineAleatoire($longueur = 10)
+{
+	$caracteres = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	$longueurMax = strlen($caracteres);
+	$chaineAleatoire = '';
+
+	for ($i = 0; $i < $longueur; $i++) {
+		$chaineAleatoire .= $caracteres[rand(0, $longueurMax - 1)];
+	}
+
+	return $chaineAleatoire;
 }
 
 // -------- //

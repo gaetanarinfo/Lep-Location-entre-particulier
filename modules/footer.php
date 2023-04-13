@@ -12,7 +12,7 @@
                     <li class="nav-item mb-2"><a href="blog" class="nav-link p-0 text-muted">Blog</a></li>
                     <li class="nav-item mb-2"><a href="cgu" class="nav-link p-0 text-muted">Conditions générales d'utilisation</a></li>
                     <li class="nav-item mb-2"><a href="cgv" class="nav-link p-0 text-muted">Conditions générales de vente</a></li>
-                    <li class="nav-item mb-2"><a href="help" class="nav-link p-0 text-muted">Aide / Contact</a></li>
+                    <li class="nav-item mb-2"><a href="contact" class="nav-link p-0 text-muted">Aide / Contact</a></li>
                 </ul>
 
             </div>
@@ -22,7 +22,8 @@
                 <h5>Pour les locataires</h5>
 
                 <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Rechercher des propriétés à louer</a></li>
+                    <li class="nav-item mb-2"><a href="locations" class="nav-link p-0 text-muted">Rechercher des propriétés à louer</a></li>
+                    <li class="nav-item mb-2"><a href="annonces-flash" class="disabled nav-link p-0 text-muted">Annonces flash</a></li>
                     <li class="nav-item mb-2"><a href="faq" class="nav-link p-0 text-muted">Aide (FAQ)</a></li>
                 </ul>
 

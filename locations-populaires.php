@@ -1,3 +1,6 @@
+<!-- Vérification utilisateur -->
+<?php require('config/page-verification.php') ?>
+
 <!-- Configuration du site -->
 <?php include('config/config.php'); ?>
 
@@ -15,7 +18,7 @@
 
             <div class="row">
 
-                <h1 class="h3 mb-4">Appartements en location en France - voir tous les appartements locatives vacantes en France</h1>
+                <h1 class="h3 mb-4">Trouvez un logement dans la ville populaire de <?= $villes_france['ville_nom_reel'] ?></h1>
 
                 <!-- Breadcrump -->
                 <?php include('modules/breadcrump.php') ?>
@@ -26,7 +29,7 @@
 
                         <div class="row row-cols-1 row-cols-md-3 g-4 locations">
 
-                            <?php foreach ($locations_appartements as $value) { ?>
+                            <?php foreach ($locations_populaires as $value) { ?>
 
                                 <div class="col">
 
@@ -168,16 +171,13 @@
 
                             <div class="col-md-12 mb-4">
 
-                                <div class="form-group mb-3">
-                                    <div class="form-group mb-3">
-                                        <label>Localisation</label>
-                                        <input class="form-control" autocomplete="off" id="location" placeholder="Code postal, ville ou région" type="text" name="location">
-                                    </div>
-                                </div>
+                                <input class="form-control" autocomplete="off" id="location" type="hidden" name="location" value="<?= $villes_france['ville_nom_reel'] ?>">
 
                                 <div class="form-group mb-3">
                                     <label for="type_propriete">Type</label>
                                     <select class="form-select" aria-label="Type de propriété" id="type_propriete" name="type_propriete">
+                                        <option value="0">Tous</option>
+                                        <option value="7">Maison</option>
                                         <option value="1">Appartement</option>
                                         <option value="4">Duplex</option>
                                         <option value="5">Loft</option>

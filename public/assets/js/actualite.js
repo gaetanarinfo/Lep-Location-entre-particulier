@@ -56,8 +56,6 @@ $(document).ready(function () {
             li.parent().find(':nth-child(6)').addClass('activate');
         }
 
-        // $('#avisFinal').val(value);
-
         $.ajax({
             url: url,
             type: 'POST',
@@ -73,6 +71,7 @@ $(document).ready(function () {
                     $('.result-note .icone').html(parsed.icone);
                     $('.result-note .message').html(parsed.message);
                     $('.result-note').fadeIn(600);
+                    $('.before-note').fadeIn(600);
                     $('.result-note').addClass('d-flex');
                 }
 
@@ -80,16 +79,57 @@ $(document).ready(function () {
                     $('.result-note .icone').html(parsed.icone);
                     $('.result-note .message').html(parsed.message);
                     $('.result-note').fadeIn(600);
+                    $('.before-note').fadeIn(600);
                     $('.result-note').addClass('d-flex');
                 }
 
                 setTimeout(() => {
                     $('.result-note').fadeOut();
+                    $('.before-note').fadeOut();
                 }, 1700);
 
                 setTimeout(() => {
                     $('.result-note').removeClass('d-flex');
                 }, 2100);
+            }
+
+        })
+
+    })
+
+    // ------------ //
+
+    // Like de l'article
+
+    $(document).on('click', '.like', function (e) {
+
+        e.preventDefault();
+
+        var url = '../ajax/ajax-like.php',
+            blog_id = $('#blog-id').val()
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: {
+                blog_id: blog_id
+            },
+            success: function (data) {
+
+                var parsed = JSON.parse(data);
+
+                if (parsed.note == true) {
+                    $('.like .icone').html(parsed.icone);
+                    $('.like .title').html(parsed.message);
+                    $('.like').addClass('active');
+                }
+
+                if (parsed.note == false) {
+                    $('.like .icone').html(parsed.icone);
+                    $('.like .message').html(parsed.message);
+                    $('.like').addClass('active');
+                }
+
             }
 
         })

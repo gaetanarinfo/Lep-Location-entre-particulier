@@ -15,7 +15,7 @@
 
             <div class="row">
 
-                <h1 class="h3 mb-4">Maisons ou appartement en location en France - voir toutes les maisons et appartement locatives vacantes en France</h1>
+                <h1 class="h3 mb-4">Maisons ou appartements en location en France - voir toutes les maisons et appartements locatives vacantes en France</h1>
 
                 <!-- Breadcrump -->
                 <?php include('modules/breadcrump.php') ?>
@@ -159,7 +159,7 @@
                             <div class="filter text-start" style="display: none;">
                                 <a id="remove_filter" class="btn btn-outline-info"><i class="fa-solid fa-eraser me-2"></i><b>Effacer les filtres</b></a>
                             </div>
-                            <p class="text-dark text-end fw-bold">Afficher les <?= count($locations) ?> résultats</p>
+                            <p class="text-dark text-end fw-bold">Afficher les <?= count($locations) ?> résultat(s)</p>
                         </div>
 
                         <hr>

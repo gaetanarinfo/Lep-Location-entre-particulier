@@ -69,7 +69,7 @@
 
                             </div>
 
-                            <div class="mt-3 text-start"><span><i class="fa-regular fa-comment me-2 text-success"></i><?= $actualite['comments'] ?></span><span class="ms-2 me-2"><i class="fa-regular fa-heart me-2 text-danger"></i><?= $actualite['likes'] ?></span><span><i class="fa-regular fa-eye me-2 text-info"></i><?= $actualite['views'] ?></span></div>
+                            <div class="mt-3 text-start"><span class="ms-2 me-2"><i class="fa-regular fa-heart me-2 text-danger"></i><?= $actualite['likes'] ?></span><span><i class="fa-regular fa-eye me-2 text-info"></i><?= $actualite['views'] ?></span></div>
 
                             <div class="mt-4 text-start">
                                 <p class="fw-bold h5">Source de l'article</p>
@@ -173,9 +173,22 @@
 
                                 </div>
 
-                                <div class="d-flex result-note mt-3">
-                                    <span class="icone"></span>
-                                    <span class="message"></span>
+                                <div class="before-note">
+                                    <div class="d-flex result-note mt-3">
+                                        <span class="icone"></span>
+                                        <span class="message"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="mt-4 text-start">
+
+                                <p class="fw-bold h5">Qualité de l'article</p>
+
+                                <div class="like mt-3">
+                                    <span class="me-2"><i class="fa-regular fa-face-grin-hearts"></i></span>
+                                    <span class="fw-bold"><span class="icone"></span><span class="message">J'aime cet article</span></span>
                                 </div>
 
                             </div>

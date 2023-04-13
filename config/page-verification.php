@@ -28,6 +28,14 @@ switch (basename($_SERVER['PHP_SELF'])) {
 
         break;
 
+    case 'locations-populaires.php':
+
+        if (empty($villes_france)) {
+            header('Location: /');
+        }
+
+        break;
+
     default:
         # code...
         break;
