@@ -77,6 +77,36 @@ switch (basename($_SERVER['PHP_SELF'])) {
         $description = 'Besoin d&#39;aide pour créer un compte, ou autre ? C&#39;est ici que ça se passe !';
         break;
 
+    case 'mon-espace.php':
+        $title = $site_config['meta_title'] . ' - Mon espace';
+        $description = $site_config['meta_description'];
+        break;
+
+    case 'mes-locations.php':
+        $title = $site_config['meta_title'] . ' - Toutes mes locations';
+        $description = $site_config['meta_description'];
+        break;
+
+    case 'abonnements.php':
+        $title = $site_config['meta_title'] . ' - Tous mes abonnements';
+        $description = $site_config['meta_description'];
+        break;
+
+    case 'cart.php':
+        $title = $site_config['meta_title'] . ' - Mon panier';
+        $description = $site_config['meta_description'];
+        break;
+
+    case 'location-statistiques.php':
+        $title = 'Statistiques de ' . $location_user['title'];
+        $description = substr($location_user['description'], 0, 155);
+        break;
+
+    case 'modification-location.php':
+        $title = 'Modification de ' . $location_user['title'];
+        $description = substr($location_user['description'], 0, 155);
+        break;
+
     default:
         $title = $site_config['meta_title'];
         $description = $site_config['meta_description'];

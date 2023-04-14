@@ -25,120 +25,7 @@
                 </div>
 
                 <div class="mt-4 mb-4">
-                    <h4><i class="fa-solid fa-wand-magic-sparkles me-2 text-1"></i>Mes abonnements</h4>
-                </div>
-
-                <div class="container nouveautes_maison locations_user mb-4">
-
-                    <?php if ($users['subscription'] == 1) { ?>
-
-                        <div class="subscriptions row row-cols-1 row-cols-md-3 g-4">
-
-                            <?php foreach ($subscriptions as $value) { ?>
-
-                                <?php if ($value['status'] == 2) { ?>
-
-                                    <div class="col">
-
-                                        <div class="card">
-
-                                            <h5 class="card-header"><i class="fa-solid fa-flag-checkered me-2 text-success"></i>Abonnement - LPE PRO - <?= date('d/m/Y', strtotime($value['paiement_date'])) . ' à ' . date('H:i', strtotime($value['paiement_date'])) ?></h5>
-
-                                            <div class="card-body">
-                                                <h5 class="card-title"><i class="fa-sharp fa-regular fa-circle-check me-2 text-success"></i>Abonnement actif</h5>
-                                                <p class="card-text">Votre abonnement prendra fin le <?= date('d/m/Y', strtotime('+1 month ' . $value['paiement_date'])) . ' à ' . date('H:i', strtotime($value['paiement_date'])) ?>.</p>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                <?php } ?>
-
-                                <?php if ($value['status'] == 5) { ?>
-
-                                    <div class="col">
-
-                                        <div class="card">
-
-                                            <h5 class="card-header"><i class="fa-solid fa-flag-checkered me-2 text-danger"></i>Abonnement - LPE PRO - <?= date('d/m/Y', strtotime($value['paiement_date'])) . ' à ' . date('H:i', strtotime($value['paiement_date'])) ?></h5>
-
-                                            <div class="card-body">
-                                                <h5 class="card-title"><i class="fa-sharp fa-regular fa-circle-xmark me-2 text-danger"></i>Abonnement inactif</h5>
-                                                <p class="card-text">Votre abonnement a pris fin le <?= date('d/m/Y', strtotime('+1 month ' . $value['paiement_date'])) . ' à ' . date('H:i', strtotime($value['paiement_date'])) ?>.</p>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                <?php } ?>
-
-                            <?php } ?>
-
-                        </div>
-
-                    <?php } else { ?>
-
-                        <?php if (!empty($subscriptions)) { ?>
-
-                            <div class="subscriptions row row-cols-1 row-cols-md-3 g-4 mb-4">
-
-                                <?php foreach ($subscriptions as $value) { ?>
-
-                                    <?php if ($value['status'] == 5) { ?>
-
-                                        <div class="col">
-
-                                            <div class="card">
-
-                                                <h5 class="card-header"><i class="fa-solid fa-flag-checkered me-2 text-danger"></i>Abonnement - LPE PRO - <?= date('d/m/Y', strtotime($value['paiement_date'])) . ' à ' . date('H:i', strtotime($value['paiement_date'])) ?></h5>
-
-                                                <div class="card-body">
-                                                    <h5 class="card-title"><i class="fa-sharp fa-regular fa-circle-xmark me-2 text-danger"></i>Abonnement inactif</h5>
-                                                    <p class="card-text">Votre abonnement a pris fin le <?= date('d/m/Y', strtotime('+1 month ' . $value['paiement_date'])) . ' à ' . date('H:i', strtotime($value['paiement_date'])) ?>.</p>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                    <?php } ?>
-
-                                <?php } ?>
-
-                            </div>
-
-                        <?php } else { ?>
-
-                            <div class="previous-alert">
-
-                                <div class="alert alert-primary d-flex align-items-center mt-3" role="alert">
-
-                                    <i class="fa-solid fa-wand-magic-sparkles me-2"></i>
-
-                                    <div>
-                                        Vous n'avez pas encore d'abonnement en cours !
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        <?php } ?>
-
-                        <div class="text-center mt-2">
-                            <a href="/cart" class="btn bg-gradient btn-outline-success btn-lg"><i class="fa-solid fa-cart-plus me-2"></i>Prendre un abonnement</a>
-                        </div>
-
-                    <?php } ?>
-
-                </div>
-
-                <hr class="">
-
-                <div class="mt-4 mb-4">
-                    <h4><i class="fa-solid fa-rectangle-list me-2 text-2"></i>Mes locations</h4>
+                    <h4><i class="fa-solid fa-rectangle-list me-2 text-2"></i>Mes Locations</h4>
                 </div>
 
                 <div class="mt-4 mb-4">
@@ -157,9 +44,9 @@
 
                     <div class="row row-cols-1 row-cols-md-4 g-4 nouveautes_maisons">
 
-                        <?php foreach ($locations_user as $value) { ?>
+                        <?php foreach ($locations_user_all as $value) { ?>
 
-                            <div id="location-<?= $value['id'] ?>" class="col">
+                            <div class="col">
 
                                 <?php if ($value['abonnement_expire'] == 0) { ?>
                                     <div class="d-flex bloc-update">
@@ -178,8 +65,8 @@
                                         </div>
                                     <?php } else { ?>
                                         <div class="col me-2 text-start"><a href="/location-statistiques/<?= $value['url'] ?>" class="statistiques text-decoration-none fw-bold text-dark"><i class="fa-solid fa-signal me-2 text-3"></i>Statistiques</a></div>
-                                        <div class="col text-center"><a data-id="<?= $value['id'] ?>" href="/modification/<?= $value['url'] ?>" class="update-location text-decoration-none fw-bold text-dark"><i class="fa-solid fa-file-pen me-1 text-success"></i> Modifier</a></div>
-                                        <div class="col text-end"><a data-id="<?= $value['id'] ?>" class="remove-location text-decoration-none fw-bold text-dark"><i class="fa-solid fa-trash-can text-danger me-1"></i>Supprimer</a></div>
+                                        <div class="col text-center"><a data-id="<?= $value['id'] ?>" class="update-location text-decoration-none fw-bold text-dark"><i class="fa-solid fa-file-pen me-1 text-success"></i> Modifier</a></div>
+                                        <div class="col text-end"><a data-id="<?= $value['id'] ?>" class="remove-location text-decoration-none fw-bold text-dark"><i class="fa-solid fa-trash-can me-1 text-danger"></i> Supprimer</a></div>
                                     <?php } ?>
 
                                 </div>
@@ -187,7 +74,6 @@
                                 <hr>
 
                                 <div class="card<?= ($value['abonnement_expire'] == 1) ? ' disabled' : '' ?>">
-                                
                                     <?php if (date('Y-m-d H:i', strtotime($value['created_at'])) < date('Y-m-d H:i', strtotime('+7 days'))) { ?>
                                         <div class="badge_new">
                                             <span class="badge rounded-pill bg-danger">Nouveau !</span>

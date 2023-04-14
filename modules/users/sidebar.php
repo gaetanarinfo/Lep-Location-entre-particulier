@@ -10,16 +10,16 @@
     <ul class="nav nav-pills flex-column mb-auto">
 
         <li class="nav-item">
-            <a href="/mon-espace" class="nav-link <?= (basename($_SERVER['PHP_SELF']) == "mon-espace.php") ? " active disabled" : ""; ?>" aria-current="page">
+            <a href="/mon-espace" class="nav-link text-white <?= (basename($_SERVER['PHP_SELF']) == "mon-espace.php") ? " active disabled" : ""; ?>" aria-current="page">
                 <i class="fa-solid fa-rocket me-2"></i>
                 Mon espace
             </a>
         </li>
 
         <li>
-            <a href="/locations" class="nav-link text-white <?= (basename($_SERVER['PHP_SELF']) == "location.php") ? " active disabled" : ""; ?>">
+            <a href="/mes-locations" class="nav-link text-white <?= (basename($_SERVER['PHP_SELF']) == "mes-locations.php") ? " active disabled" : ""; ?>">
                 <i class="fa-solid fa-rectangle-list me-2"></i>
-                Mes annonces active
+                Mes locations en ligne
             </a>
         </li>
 
@@ -37,7 +37,35 @@
             </a>
         </li>
 
+        <?php if ($users['subscription'] == 1) { ?>
+
+            <li>
+                <hr>
+            </li>
+
+            <li>
+                <div class="ps-3 pe-3">
+                    <i class="fa-solid fa-trophy text-3 me-2"></i><span class="text-3 fw-bold">Membre Pro Premium</span>
+                </div>
+            </li>
+
+        <?php } ?>
+
+        <?php if ($users['subscription'] <= 0) { ?>
+
+            <li>
+                <hr>
+            </li>
+
+            <li>
+                <div class="text-center">
+                    <a href="/cart" class="btn bg-gradient btn-success"><i class="fa-solid fa-cart-plus me-2"></i>Prendre un abonnement</a>
+                </div>
+            </li>
+        <?php } ?>
+
     </ul>
+
 
     <hr>
 
@@ -51,15 +79,15 @@
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
             <?php if (!isset($_SESSION['user_id'])) { ?>
 
-                <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "register.php") ? " active disabled" : ""; ?>" href="register"><i class="fa-solid fa-angle-right me-2"></i>Ajouter une annonce</a></li>
+                <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "register.php") ? " active disabled" : ""; ?>" href="/register"><i class="fa-solid fa-angle-right me-2"></i>Ajouter une annonce</a></li>
 
-                <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "login.php") ? " active disabled" : ""; ?>" href="login"><i class="fa-solid fa-angle-left me-2"></i>Connexion</a></li>
+                <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "login.php") ? " active disabled" : ""; ?>" href="/login"><i class="fa-solid fa-angle-left me-2"></i>Connexion</a></li>
 
             <?php } else { ?>
-                <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "espace.php") ? " active disabled" : ""; ?>" href="espace"><i class="fa-solid fa-rocket me-2"></i>Mon espace</a></li>
-                <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "location.php") ? " active disabled" : ""; ?>" href="annonces"><i class="fa-solid fa-rectangle-list me-2"></i>Mes annonces</a></li>
-                <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "abonnements.php") ? " active disabled" : ""; ?>" href="abonnements"><i class="fa-solid fa-wand-magic-sparkles me-2"></i>Mes abonnements</a></li>
-                <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "coordonees.php") ? " active disabled" : ""; ?>" href="coordonees"><i class="fa-solid fa-user-pen me-2"></i>Gestion de mon compte</a></li>
+                <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "mon-espace.php") ? " active disabled" : ""; ?>" href="/mon-espace"><i class="fa-solid fa-rocket me-2"></i>Mon espace</a></li>
+                <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "mes-locations.php") ? " active disabled" : ""; ?>" href="/mes-locations"><i class="fa-solid fa-rectangle-list me-2"></i>Mes annonces</a></li>
+                <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "abonnements.php") ? " active disabled" : ""; ?>" href="/abonnements"><i class="fa-solid fa-wand-magic-sparkles me-2"></i>Mes abonnements</a></li>
+                <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "coordonees.php") ? " active disabled" : ""; ?>" href="/coordonees"><i class="fa-solid fa-user-pen me-2"></i>Gestion de mon compte</a></li>
                 <li>
                     <hr class="dropdown-divider">
                 </li>

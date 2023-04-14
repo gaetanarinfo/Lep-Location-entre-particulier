@@ -12,13 +12,6 @@ body {
     overflow-y: hidden;
 }
 
-.navbar {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    height: 70px;
-}
-
 .sidebar {
     width: 280px;
     min-height: 100vh;
@@ -44,4 +37,62 @@ body {
         padding-right: 1.5rem !important;
     }
 
+    nav.navbar {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+}
+
+.locations_user {
+    max-width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.bloc-update {
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.bloc-update .col-md-6:last-child {
+    text-align: end;
+}
+
+
+.subscriptions {
+    position: relative;
+}
+
+@media all and (min-width: 320px) and (max-width: 768px) {
+
+    .subscriptions {
+        padding: 1.5rem;
+        margin-right: 0;
+        margin-left: 0;
+        border-width: 1px;
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+    }
+
+}
+
+.card.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.statistiques,
+.update-location,
+.remove-location {
+    cursor: pointer;
+    transition: all 500ms;
+}
+
+.statistiques:hover,
+.update-location:hover,
+.remove-location:hover {
+    opacity: 0.7;
 }

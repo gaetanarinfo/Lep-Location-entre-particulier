@@ -9,10 +9,10 @@
                 <h5>À propos</h5>
 
                 <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="blog" class="nav-link p-0 text-muted">Blog</a></li>
-                    <li class="nav-item mb-2"><a href="cgu" class="nav-link p-0 text-muted">Conditions générales d'utilisation</a></li>
-                    <li class="nav-item mb-2"><a href="cgv" class="nav-link p-0 text-muted">Conditions générales de vente</a></li>
-                    <li class="nav-item mb-2"><a href="contact" class="nav-link p-0 text-muted">Aide / Contact</a></li>
+                    <li class="nav-item mb-2"><a href="/blog" class="nav-link p-0 text-muted">Blog</a></li>
+                    <li class="nav-item mb-2"><a href="/cgu" class="nav-link p-0 text-muted">Conditions générales d'utilisation</a></li>
+                    <li class="nav-item mb-2"><a href="/cgv" class="nav-link p-0 text-muted">Conditions générales de vente</a></li>
+                    <li class="nav-item mb-2"><a href="/contact" class="nav-link p-0 text-muted">Aide / Contact</a></li>
                 </ul>
 
             </div>
@@ -22,9 +22,9 @@
                 <h5>Pour les locataires</h5>
 
                 <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="locations" class="nav-link p-0 text-muted">Rechercher des propriétés à louer</a></li>
-                    <li class="nav-item mb-2"><a href="annonces-flash" class="disabled nav-link p-0 text-muted">Annonces flash</a></li>
-                    <li class="nav-item mb-2"><a href="faq" class="nav-link p-0 text-muted">Aide (FAQ)</a></li>
+                    <li class="nav-item mb-2"><a href="/locations" class="nav-link p-0 text-muted">Rechercher des propriétés à louer</a></li>
+                    <li class="nav-item mb-2"><a href="/annonces-flash" class="disabled nav-link p-0 text-muted">Annonces flash</a></li>
+                    <li class="nav-item mb-2"><a href="/faq" class="nav-link p-0 text-muted">Aide (FAQ)</a></li>
                 </ul>
 
             </div>
@@ -38,10 +38,10 @@
                         <li class="nav-item mb-2"><a href="/utilisateurs/register" class="nav-link p-0 text-muted">Créer une annonce de location</a></li>
                         <li class="nav-item mb-2"><a href="/utilisateurs/login" class="nav-link p-0 text-muted">Connexion</a></li>
                     <?php } else { ?>
-                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted" href="mon-espace">Mon espace</a></li>
-                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted" href="annonces">Mes annonces</a></li>
-                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted" href="abonnements">Mes abonnements</a></li>
-                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted" href="coordonees">Gestion de mon compte</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted" href="/mon-espace">Mon espace</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted" href="/annonces">Mes annonces</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted" href="/abonnements">Mes abonnements</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted" href="/coordonees">Gestion de mon compte</a></li>
                         <li class="nav-item mb-2"><a class="nav-link p-0 text-muted" href="/utilisateurs/logout">Déconnexion</a></li>
                     <?php } ?>
                 </ul>
@@ -91,6 +91,12 @@
 </div>
 
 <a href="#" id="toTopBtn" class="cd-top text-replace js-cd-top cd-top--is-visible cd-top--fade-out" data-abc="true"><i class="fa-solid fa-chevron-up"></i></a>
+
+<?php if (isset($_SESSION['user_id']) && basename($_SERVER['PHP_SELF']) == "location-statistiques.php") { ?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.umd.min.js" integrity="sha512-GCiwmzA0bNGVsp1otzTJ4LWQT2jjGJENLGyLlerlzckNI30moi2EQT0AfRI7fLYYYDKR+7hnuh35r3y1uJzugw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="<?= $static_url . 'js/users/location-statistiques.js?=' . time(); ?>"></script>
+<?php } ?>
+
 
 <?php if (basename($_SERVER['PHP_SELF']) == "login.php" or basename($_SERVER['PHP_SELF']) == "forgot-password.php" or basename($_SERVER['PHP_SELF']) == "location.php") { ?>
     <!-- ICON SCRIPT -->

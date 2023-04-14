@@ -44,7 +44,7 @@ if(!empty($_GET['pieces_propriete'])) {
 // Récupération des datas sans quot
 $req = $dbh->prepare('SELECT L.*, LT.title AS title_type 
 FROM locations AS L LEFT JOIN locations_type AS LT ON LT.id = L.type 
-WHERE L.id_site = 1 ' . $where);
+WHERE L.id_site = 1 AND L.abonnement_expire = 0 ' . $where);
 
 $req->execute();
 

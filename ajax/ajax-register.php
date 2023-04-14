@@ -202,13 +202,19 @@ if (isset($_POST)) {
         else $sous_location = 1;
 
         if (!empty($attachement)) $image1 = str_replace('/var/www/lpe/public/assets/images/annonces/', '', $attachement[0]);
-        else $image1 = "";
+
+        if (empty($image1)) {
+            $image1 = "appartement_vide.jpg";
+        }
+
         if (!empty($attachement2)) $image2 = str_replace('/var/www/lpe/public/assets/images/annonces/', '', $attachement2[0]);
         else $image2 = "";
         if (!empty($attachement3)) $image3 = str_replace('/var/www/lpe/public/assets/images/annonces/', '', $attachement3[0]);
         else $image3 = "";
         if (!empty($attachement4)) $image4 = str_replace('/var/www/lpe/public/assets/images/annonces/', '', $attachement4[0]);
         else $image4 = "";
+
+
 
         $options = [
             'cost' => 12,
@@ -355,6 +361,7 @@ if (isset($_POST)) {
                 "' . $animeaux_acceptes . '",
                 "' . $sous_location  . '"
         )');
+
         }
 
         // Envoi du mail

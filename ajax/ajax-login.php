@@ -47,7 +47,6 @@ if (isset($_POST)) {
     }
 } else {
     // L'utilisateur a rencontré une erreur
-    //$final = ['register' => false, 'message' => constant('MESSAGE_REGISTER_2'), 'back' => '<a role="button" class="back">' . constant('BACK') .  '</a>', 'icone' => '<i class="fa-solid fa-triangle-exclamation" style="font-size: 40px;"></i>'];
 }
 
 echo json_encode($final);

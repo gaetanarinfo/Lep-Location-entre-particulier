@@ -36,6 +36,27 @@ if ($_POST['statut_transaction'] == "succeeded") {
 
     $update = $dbh->query('UPDATE `contact_location` SET `paiement_date` = "' . date('Y-m-d H:i:s') . '", `status` = "' . $status . '", `transaction_id` = "' . $_POST['transaction_id'] . '", `token` = "' . $token . '" WHERE email = "' . $email . '"');
 
+     // Création de l'historique du paiement //
+     $insert = $dbh->query('INSERT INTO `contact_location_history` (
+       `id_site`, 
+       `email`, 
+       `status`, 
+       `prix`, 
+       `paiement_date`, 
+       `paiement_methode`, 
+       `transaction_id`, 
+       `token`
+    ) VALUES (
+        1,
+        "' . $email  . '",
+        "' . $status . '",
+        "15.99",
+        "' . date('Y-m-d H:i:s') . '",
+        "Stripe",
+        "' . $_POST['transaction_id'] . '",
+        "' . $token . '"
+    )');
+
     // Envoi du mail
     $from = 'contact@location-entre-particulier.fr';
     $from_name = 'LEP - Location entre particulier';
@@ -64,6 +85,8 @@ if ($_POST['statut_transaction'] == "succeeded") {
     $content .= 'Date de la commande : <b>' . date('d/m/Y') . ' ' . date('H:i') . '</b  ><br/><br/>';
 
     $content .= 'Pour demander un remboursement merci de <a href="https://location-entre-particulier.fr/refund/' . $token . '">cliquez-ici</a>.<br/><br/>';
+
+    $content .= 'Selon nos conditions de remboursement, vous avez 14 jours pour le demander.<br/><br/>';
 
     $content .= 'Cet email sert de justificatif de paiement, merci de le conserver sans limite de temps.<br/><br/>';
 

@@ -1,0 +1,18 @@
+.hidden {
+    display: none;
+    max-height: 600px;
+}
+
+.visible {
+    display: block;
+    max-height: 600px;
+}
+
+.list-group {
+    max-width: 120px;
+}
+
+.list-group .list-group-item {
+    display: flex;
+    justify-content: space-between;
+}

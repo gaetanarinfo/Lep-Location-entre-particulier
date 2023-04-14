@@ -82,7 +82,7 @@
                             <img width="67" height="67" src="<?= $image_url ?>loader.svg">
                         </div>
 
-                        <a href="#" id="show_news" class="btn btn-lg btn-success btn-gradien text-white text-decoration-none"><i class="fa-solid fa-plus me-2 text-white"></i> Voir plus d'actualités</a>
+                        <a href="#" id="show_news" class="btn btn-lg btn-success bg-gradient text-white text-decoration-none"><i class="fa-solid fa-plus me-2 text-white"></i> Voir plus d'actualités</a>
 
                     </div>
 

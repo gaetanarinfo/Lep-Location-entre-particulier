@@ -114,10 +114,10 @@
                                 <tbody>
 
                                     <tr>
-                                        <th scope="row"><?= $location_req['surface'] ?> m2</th>
-                                        <td><?= $location_req['pieces'] ?> pièce<?= ($location_req['pieces'] >= 1) ? '' : 's' ?></td>
-                                        <td><?= $location_req['chambres'] ?> chambre<?= ($location_req['chambres'] >= 1) ? '' : 's' ?></td>
-                                        <td><?= $location_req['title_type'] ?></td>
+                                        <th scope="row"><i class="fa-solid fa-ruler-combined me-2 text-warning"></i><?= $location_req['surface'] ?> m2</th>
+                                        <td><i class="fa-solid fa-layer-group me-2 text-info"></i><?= $location_req['pieces'] ?> pièce<?= ($location_req['pieces'] >= 1) ? '' : 's' ?></td>
+                                        <td><i class="fa-solid fa-layer-group me-2 text-1"></i><?= $location_req['chambres'] ?> chambre<?= ($location_req['chambres'] >= 1) ? '' : 's' ?></td>
+                                        <td><i class="fa-regular fa-building me-2 text-danger"></i><?= $location_req['title_type'] ?></td>
                                         <td><i class="fa-solid fa-certificate me-1 <?= ($location_req['verification'] == 1) ? 'text-success' : 'text-danger' ?>"></i> <?= ($location_req['verification'] == 1) ? 'Oui' : 'Non' ?></td>
                                         <td class="text-end"><?= $location_req['id'] ?></td>
                                     </tr>
@@ -155,9 +155,9 @@
                                         <th scope="row"><i class="fa-regular fa-clock me-2 text-primary"></i><?= $ocations_duree['title'] ?></th>
                                         <td scope="row"><i class="fa-solid fa-couch me-2 text-warning"></i><?= ($location_req['meuble'] == 0) ? 'Non' : 'Oui' ?></td>
                                         <td scope="row"><i class="fa-solid fa-dog me-2 text-success"></i><?= ($location_req['animeaux_acceptes'] == 0) ? 'Non' : 'Oui' ?></td>
-                                        <td scope="row"><i class="fa-regular fa-building me-2 text-info"></i><?= ($location_req['sous_location'] == 0) ? 'Non' : 'Oui' ?></td>
-                                        <td scope="row"><?= $location_req['garantie'] ?> €</td>
-                                        <td class="text-end"><?= $location_req['frais'] ?> €</td>
+                                        <td scope="row"><i class="fa-regular fa-building me-2 text-2"></i><?= ($location_req['sous_location'] == 0) ? 'Non' : 'Oui' ?></td>
+                                        <td scope="row"><i class="fa-solid fa-money-bill-wave me-2 text-success"></i><?= $location_req['garantie'] ?> €</td>
+                                        <td class="text-end"><i class="fa-solid fa-money-bill-wave me-2 text-success"></i><?= $location_req['frais'] ?> €</td>
                                     </tr>
 
                                 </tbody>
@@ -175,7 +175,7 @@
                             <hr class="mt-4">
 
                             <div class="mt-4 text-end">
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#signal" class="btn btn-danger btn-gradien fw-bold"><i class="fa-solid fa-triangle-exclamation me-2"></i>Signaler une erreur</a>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#signal" class="btn btn-danger bg-gradient fw-bold"><i class="fa-solid fa-triangle-exclamation me-2"></i>Signaler une erreur</a>
                             </div>
 
                         </div>
@@ -435,7 +435,7 @@
                                 <!--Stripe.js injects the Card Element-->
                             </div>
 
-                            <button class="btn btn-lg btn-warning btn-gradient btn-paiement mt-3" id="submit_card">
+                            <button class="btn btn-lg btn-warning bg-gradient btn-paiement mt-3" id="submit_card">
                                 <span id="button-text">Commencez maintenant</span>
                             </button>
 
@@ -509,7 +509,7 @@
             </div>
 
             <div class="modal-footer text-end d-block pt-3 mb-3">
-                <a href="#" class="btn btn-secondary btn-gradien" data-bs-toggle="modal" data-bs-dismiss="modal">Fermer</a>
+                <a href="#" class="btn btn-secondary bg-gradient" data-bs-toggle="modal" data-bs-dismiss="modal">Fermer</a>
             </div>
         </div>
 

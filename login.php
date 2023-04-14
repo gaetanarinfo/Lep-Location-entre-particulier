@@ -46,7 +46,6 @@
 
                         </div>
 
-
                         <div class="col-md-8">
 
                             <div class="loader_inf hidden" id="loader-form">

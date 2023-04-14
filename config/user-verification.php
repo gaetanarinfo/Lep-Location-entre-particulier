@@ -35,6 +35,18 @@ switch (basename($_SERVER['PHP_SELF'])) {
 
         break;
 
+    case 'cart.php':
+
+        if (empty($_SESSION['user_id'])) {
+            header('Location: /login');
+        }
+
+        if ($users['subscription'] == 1) {
+            header('Location: /mon-espace');
+        }
+
+        break;
+
     case 'forgot-password.php':
 
         $req_user = $dbh->prepare('SELECT token FROM users WHERE token = :token');
@@ -52,5 +64,4 @@ switch (basename($_SERVER['PHP_SELF'])) {
         }
 
         break;
-
 }

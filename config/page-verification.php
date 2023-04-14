@@ -14,6 +14,10 @@ switch (basename($_SERVER['PHP_SELF'])) {
     case 'location.php':
 
         if (!empty($location_req)) {
+            // On vérifie que l'annonce a été validée
+            if ($location_req['verification'] == 0) {
+                header('Location: /');
+            }
         } else {
             header('Location: /');
         }
@@ -32,6 +36,38 @@ switch (basename($_SERVER['PHP_SELF'])) {
 
         if (empty($villes_france)) {
             header('Location: /');
+        }
+
+        break;
+
+    case 'refund.php':
+
+        if (empty($refund)) {
+            header('Location: /');
+        }
+
+        break;
+
+    case 'refund-pro.php':
+
+        if (empty($refund)) {
+            header('Location: /');
+        }
+
+        break;
+
+    case 'location-statistiques.php':
+
+        if (empty($location_user)) {
+            header('Location: /mon-espace');
+        }
+
+        break;
+
+    case 'modification-location.php':
+
+        if (empty($location_user)) {
+            header('Location: /mon-espace');
         }
 
         break;

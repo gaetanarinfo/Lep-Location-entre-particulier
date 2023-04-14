@@ -18,8 +18,8 @@ $ville_populaire = $dbh->query('SELECT * FROM ville_populaire WHERE id_site = 1'
 $presentation = $dbh->query('SELECT * FROM presentation WHERE id_site = 1');
 $regions = $dbh->query('SELECT * FROM regions WHERE id_site = 1 ORDER BY title ASC');
 
-$appartements_last = $dbh->query('SELECT A.*, AT.title AS title_type FROM locations AS A LEFT JOIN locations_type AS AT ON AT.id = A.type WHERE A.id_site = 1 AND A.verification >= 1 AND type <= 6 ORDER BY A.created_at DESC LIMIT 0,6');
-$maisons_last = $dbh->query('SELECT A.*, AT.title AS title_type FROM locations AS A LEFT JOIN locations_type AS AT ON AT.id = A.type WHERE A.id_site = 1 AND A.verification >= 1 AND type >= 7 ORDER BY A.created_at DESC LIMIT 0,6');
+$appartements_last = $dbh->query('SELECT A.*, AT.title AS title_type FROM locations AS A LEFT JOIN locations_type AS AT ON AT.id = A.type WHERE A.id_site = 1 AND A.verification >= 1 AND A.abonnement_expire = 0 AND type <= 6 ORDER BY A.created_at DESC LIMIT 0,6');
+$maisons_last = $dbh->query('SELECT A.*, AT.title AS title_type FROM locations AS A LEFT JOIN locations_type AS AT ON AT.id = A.type WHERE A.id_site = 1 AND A.verification >= 1 AND A.abonnement_expire = 0 AND type >= 7 ORDER BY A.created_at DESC LIMIT 0,6');
 
 $locationsCols1 = $dbh->query('SELECT * FROM regions WHERE id_site = 1 AND colonne = 1');
 $locationsCols2 = $dbh->query('SELECT * FROM regions WHERE id_site = 1 AND colonne = 2');
@@ -27,13 +27,26 @@ $locationsCols2 = $dbh->query('SELECT * FROM regions WHERE id_site = 1 AND colon
 $blogs_all = $dbh->query('SELECT * FROM blog WHERE id_site = 1 ORDER BY created_at DESC LIMIT 0,9');
 
 if (basename($_SERVER['PHP_SELF']) == "location.php") {
-	$locations_req = $dbh->prepare('SELECT L.*, LT.title AS title_type FROM locations AS L LEFT JOIN locations_type AS LT ON L.type = LT.id WHERE L.url = :url');
+	$locations_req = $dbh->prepare('SELECT L.*, LT.title AS title_type FROM locations AS L LEFT JOIN locations_type AS LT ON L.type = LT.id WHERE L.url = :url AND L.abonnement_expire = 0 ');
 	$locations_req->execute(array('url' => $_GET['url']));
 	$location_req = $locations_req->fetch();
 
 	$locations_duree_req = $dbh->prepare('SELECT * FROM locations_duree WHERE id = "' . $location_req['duree'] . '"');
 	$locations_duree_req->execute();
 	$ocations_duree = $locations_duree_req->fetch();
+
+	// Location vues
+	if ($_SERVER['REMOTE_ADDR'] != "31.33.145.219") {
+		$update = $dbh->query('UPDATE `locations` SET `views` = `views` + 1 WHERE id = "' . $location_req['id'] . '"');
+
+		$insert_annonce = $dbh->query('INSERT INTO `locations_views` (
+			`location_id`,
+			`ip`
+		) VALUES (
+			"' . $location_req['id'] . '",
+			"' . $_SERVER['REMOTE_ADDR'] . '"
+	)');
+	}
 }
 
 if (basename($_SERVER['PHP_SELF']) == "actualite.php") {
@@ -57,21 +70,21 @@ if (!empty($actualite_url)) {
 	$last_actualite = $last_actualites->fetchAll();
 }
 
-$loc_counts = $dbh->prepare('SELECT id FROM locations WHERE verification = 1 AND type <= 6');
+$loc_counts = $dbh->prepare('SELECT id FROM locations WHERE verification = 1 AND type <= 6 AND abonnement_expire = 0');
 $loc_counts->execute();
 $loc_count = $loc_counts->fetchAll();
 
-$loc_counts2 = $dbh->prepare('SELECT id FROM locations WHERE verification = 1 AND type >= 7');
+$loc_counts2 = $dbh->prepare('SELECT id FROM locations WHERE verification = 1 AND type >= 7 AND abonnement_expire = 0');
 $loc_counts2->execute();
 $loc_count2 = $loc_counts2->fetchAll();
 
-$locations_req = $dbh->query('SELECT L.*, LT.title as title_type FROM locations AS L LEFT JOIN locations_type AS LT ON L.type = LT.id WHERE L.id_site = 1 AND L.verification = 1 AND L.prix <= 2500 AND L.chambres <= 1 AND L.pieces <= 1 ORDER BY L.created_at DESC');
+$locations_req = $dbh->query('SELECT L.*, LT.title as title_type FROM locations AS L LEFT JOIN locations_type AS LT ON L.type = LT.id WHERE L.id_site = 1 AND L.verification = 1 AND L.abonnement_expire = 0 AND L.prix <= 2500 AND L.chambres <= 1 AND L.pieces <= 1 ORDER BY L.created_at DESC');
 $locations = $locations_req->fetchAll();
 
-$locations_req_m = $dbh->query('SELECT L.*, LT.title as title_type FROM locations AS L LEFT JOIN locations_type AS LT ON L.type = LT.id WHERE L.id_site = 1 AND L.type >= 7 AND L.verification = 1 AND L.prix <= 2500 AND L.chambres <= 1 AND L.pieces <= 1 ORDER BY L.created_at DESC');
+$locations_req_m = $dbh->query('SELECT L.*, LT.title as title_type FROM locations AS L LEFT JOIN locations_type AS LT ON L.type = LT.id WHERE L.id_site = 1 AND L.type >= 7 AND L.verification = 1 AND L.abonnement_expire = 0 AND L.prix <= 2500 AND L.chambres <= 1 AND L.pieces <= 1 ORDER BY L.created_at DESC');
 $locations_maisons = $locations_req_m->fetchAll();
 
-$locations_req_a = $dbh->query('SELECT L.*, LT.title as title_type FROM locations AS L LEFT JOIN locations_type AS LT ON L.type = LT.id WHERE L.id_site = 1 AND L.type <= 6 AND L.verification = 1 AND L.prix <= 2500 AND L.chambres <= 1 AND L.pieces <= 1 ORDER BY L.created_at DESC');
+$locations_req_a = $dbh->query('SELECT L.*, LT.title as title_type FROM locations AS L LEFT JOIN locations_type AS LT ON L.type = LT.id WHERE L.id_site = 1 AND L.type <= 6 AND L.verification = 1 AND L.abonnement_expire = 0 AND L.prix <= 2500 AND L.chambres <= 1 AND L.pieces <= 1 ORDER BY L.created_at DESC');
 $locations_appartements = $locations_req_a->fetchAll();
 
 if (basename($_SERVER['PHP_SELF']) == "locations-populaires.php") {
@@ -81,7 +94,7 @@ if (basename($_SERVER['PHP_SELF']) == "locations-populaires.php") {
 	$villes_france_req->execute();
 	$villes_france = $villes_france_req->fetch();
 
-	$locations_req_populaires = $dbh->query('SELECT L.*, LT.title as title_type FROM locations AS L LEFT JOIN locations_type AS LT ON L.type = LT.id WHERE L.id_site = 1 AND L.location LIKE "' . $villes_france['ville_slug'] . '%" AND L.verification = 1 AND L.prix <= 2500 AND L.chambres <= 1 AND L.pieces <= 1 ORDER BY L.created_at DESC');
+	$locations_req_populaires = $dbh->query('SELECT L.*, LT.title as title_type FROM locations AS L LEFT JOIN locations_type AS LT ON L.type = LT.id WHERE L.id_site = 1 AND L.abonnement_expire = 0 AND L.location LIKE "' . $villes_france['ville_slug'] . '%" AND L.verification = 1 AND L.prix <= 2500 AND L.chambres <= 1 AND L.pieces <= 1 ORDER BY L.created_at DESC');
 	$locations_populaires = $locations_req_populaires->fetchAll();
 }
 
@@ -106,6 +119,60 @@ if (isset($_SESSION['user_id'])) {
 	$req_user = $dbh->prepare('SELECT * FROM users WHERE id_site = 1 AND id = :id');
 	$req_user->execute(array('id' => $_SESSION['user_id']));
 	$users = $req_user->fetch();
+}
+
+// -------- //
+
+// Refund
+
+if (basename($_SERVER['PHP_SELF']) == "refund.php") {
+
+	$refund_req = $dbh->prepare('SELECT * FROM contact_location_history WHERE token = "' . $_GET['token'] . '"');
+	$refund_req->execute();
+	$refund = $refund_req->fetch();
+}
+
+if (basename($_SERVER['PHP_SELF']) == "refund-pro.php") {
+
+	$refund_req = $dbh->prepare('SELECT * FROM subscriptions WHERE token = "' . $_GET['token'] . '"');
+	$refund_req->execute();
+	$refund = $refund_req->fetch();
+}
+
+// -------- //
+
+// User logged
+
+if (isset($_SESSION['user_id'])) {
+	$locations_user_req = $dbh->query('SELECT L.*, LT.title as title_type FROM locations AS L LEFT JOIN locations_type AS LT ON L.type = LT.id WHERE L.id_site = 1 AND L.user_id = "' . $_SESSION['user_id'] . '" ORDER BY L.created_at DESC LIMIT 0,8');
+	$locations_user_req->execute();
+	$locations_user = $locations_user_req->fetchAll();
+
+	$locations_user_req_all = $dbh->query('SELECT L.*, LT.title as title_type FROM locations AS L LEFT JOIN locations_type AS LT ON L.type = LT.id WHERE L.id_site = 1 AND L.user_id = "' . $_SESSION['user_id'] . '" AND L.abonnement_expire = 0 ORDER BY L.created_at DESC');
+	$locations_user_req_all->execute();
+	$locations_user_all = $locations_user_req_all->fetchAll();
+
+	$locations_user_req_all2 = $dbh->query('SELECT L.*, LT.title as title_type FROM locations AS L LEFT JOIN locations_type AS LT ON L.type = LT.id WHERE L.id_site = 1 AND L.user_id = "' . $_SESSION['user_id'] . '" AND L.disponibilite = 0 ORDER BY L.created_at DESC');
+	$locations_user_req_all2->execute();
+	$locations_user_all2 = $locations_user_req_all2->fetchAll();
+
+	$subscription_req = $dbh->prepare('SELECT * FROM subscriptions WHERE user_id = "' . $_SESSION['user_id'] . '" ORDER BY created_at DESC LIMIT 0,6');
+	$subscription_req->execute();
+	$subscriptions = $subscription_req->fetchAll();
+
+	$ubscriptions_all_req = $dbh->prepare('SELECT * FROM subscriptions WHERE user_id = "' . $_SESSION['user_id'] . '" ORDER BY created_at DESC');
+	$ubscriptions_all_req->execute();
+	$subscriptions_all = $ubscriptions_all_req->fetchAll();
+
+	if (!empty($_GET['url']) && basename($_SERVER['PHP_SELF']) == "location-statistiques.php" OR basename($_SERVER['PHP_SELF']) == "modification-location.php") {
+		$location_req_user = $dbh->prepare('SELECT * FROM locations WHERE user_id = "' . $_SESSION['user_id'] . '" AND url = "' . $_GET['url'] . '" ORDER BY created_at DESC');
+		$location_req_user->execute();
+		$location_user = $location_req_user->fetch();
+
+		$months_req = $dbh->prepare('SELECT * FROM months');
+		$months_req->execute();
+		$months = $months_req->fetchAll();
+	}
 }
 
 // -------- //

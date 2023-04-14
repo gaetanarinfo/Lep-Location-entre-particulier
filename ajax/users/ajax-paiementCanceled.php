@@ -12,10 +12,17 @@ include_once('../config/public.php');
 date_default_timezone_set('Europe/Paris');
 setlocale(LC_TIME, 'fra_fra');
 
+$final = '';
+
 if ($_POST['statut_transaction'] == "card_declined" || $_POST['statut_transaction'] == "CANCELED" || $_POST['statut_transaction'] == "ERROR") {
 
     $status;
+
     $email = $_POST['email'];
+
+    $user_req = $dbh->prepare('SELECT * FROM users WHERE email = "' . $email . '"');
+    $user_req->execute();
+    $user_info = $user_req->fetch();
 
     switch ($_POST['statut_transaction']) {
         case 'succeeded':
@@ -35,17 +42,32 @@ if ($_POST['statut_transaction'] == "card_declined" || $_POST['statut_transactio
             break;
     }
 
-    $update = $dbh->query('UPDATE `contact_location` SET `paiement_date` = "' . date('Y-m-d H:i:s') . '", `status` = "' . $status . '" WHERE email = "' . $email . '"');
+    // Création de l'historique du paiement //
+    $insert = $dbh->query('INSERT INTO `subscriptions` (
+        `id_site`, 
+        `user_id`, 
+        `status`,
+        `paiement_date`,
+        `paiement_methode`,
+        `prix`
+    ) VALUES (
+        1,
+        "' . $_SESSION['user_id']  . '",
+        "' . $status . '",
+        "' . date('Y-m-d H:i:s') . '",
+        "Stripe",
+        "29.99"
+    )');
 
     // Envoi du mail
     $from = 'contact@location-entre-particulier.fr';
     $from_name = 'LEP - Location entre particulier';
     $to = $email;
-    $to_name = '';
+    $to_name = $user_info['prenom'] . ' ' . $user_info['nom'];
     $reply       = "no-reply@location-entre-particulier.fr";
     $reply_name     = 'LEP - Location entre particulier';
 
-    $sujet = 'Votre paiement n°' . str_replace('pi_', '', $_POST['transaction_id']) . ' sur LEP - Location entre particulier';
+    $sujet = 'Votre paiement n°' . str_replace('pi_', '', $_POST['transaction_id']) . ' sur LEP PRO - Location entre particulier';
 
     $content = 'Bonjour,<br/><br/>';
 
@@ -71,4 +93,8 @@ if ($_POST['statut_transaction'] == "card_declined" || $_POST['statut_transactio
     $content .= 'A très bientôt.';
 
     sendMail($from, $from_name, $to, $to_name, $reply, $reply_name, $sujet, $content, $dbh, false);
+
+    $final = ['paiement' => false, 'title' => 'Paiement refusé !', 'message' => 'Une erreur est survenue, merci de recommencer, vous allez être redirigé dans quelques instants.', 'icone' => $image_url . 'error.png'];
 }
+
+echo json_encode($final);
