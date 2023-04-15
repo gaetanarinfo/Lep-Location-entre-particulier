@@ -107,6 +107,11 @@ switch (basename($_SERVER['PHP_SELF'])) {
         $description = substr($location_user['description'], 0, 155);
         break;
 
+    case 'creation-location.php':
+        $title = 'Création d\'une location';
+        $description = $site_config['meta_description'];
+        break;
+
     default:
         $title = $site_config['meta_title'];
         $description = $site_config['meta_description'];

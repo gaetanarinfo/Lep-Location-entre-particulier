@@ -148,11 +148,15 @@ if (isset($_SESSION['user_id'])) {
 	$locations_user_req->execute();
 	$locations_user = $locations_user_req->fetchAll();
 
-	$locations_user_req_all = $dbh->query('SELECT L.*, LT.title as title_type FROM locations AS L LEFT JOIN locations_type AS LT ON L.type = LT.id WHERE L.id_site = 1 AND L.user_id = "' . $_SESSION['user_id'] . '" AND L.abonnement_expire = 0 ORDER BY L.created_at DESC');
+	$locations_user_req2 = $dbh->query('SELECT L.*, LT.title as title_type FROM locations AS L LEFT JOIN locations_type AS LT ON L.type = LT.id WHERE L.id_site = 1 AND L.user_id = "' . $_SESSION['user_id'] . '" ORDER BY L.created_at DESC');
+	$locations_user_req2->execute();
+	$locations_user2 = $locations_user_req2->fetchAll();
+
+	$locations_user_req_all = $dbh->query('SELECT L.*, LT.title as title_type FROM locations AS L LEFT JOIN locations_type AS LT ON L.type = LT.id WHERE L.id_site = 1 AND L.user_id = "' . $_SESSION['user_id'] . '" AND L.verification = 1 AND L.abonnement_expire = 0 ORDER BY L.created_at DESC');
 	$locations_user_req_all->execute();
 	$locations_user_all = $locations_user_req_all->fetchAll();
 
-	$locations_user_req_all2 = $dbh->query('SELECT L.*, LT.title as title_type FROM locations AS L LEFT JOIN locations_type AS LT ON L.type = LT.id WHERE L.id_site = 1 AND L.user_id = "' . $_SESSION['user_id'] . '" AND L.disponibilite = 0 ORDER BY L.created_at DESC');
+	$locations_user_req_all2 = $dbh->query('SELECT L.*, LT.title as title_type FROM locations AS L LEFT JOIN locations_type AS LT ON L.type = LT.id WHERE L.id_site = 1 AND L.user_id = "' . $_SESSION['user_id'] . '" AND (L.verification = 0 OR L.disponibilite = 0) ORDER BY L.created_at DESC');
 	$locations_user_req_all2->execute();
 	$locations_user_all2 = $locations_user_req_all2->fetchAll();
 

@@ -103,7 +103,7 @@ $(document).ready(function () {
           setTimeout(() => {
             $('#loader-form').addClass('hidden');
           }, 2000);
-          
+
           setTimeout(() => {
             $('.show-coordonee').attr('style', 'display: flex;align-content: center;align-items: flex-start;justify-content: center;');
           }, 2000);
@@ -150,7 +150,7 @@ $(document).ready(function () {
       },
       success: function (data) {
 
-       
+
         var parsed = JSON.parse(data);
 
         if (parsed.create == true) {
@@ -170,7 +170,7 @@ $(document).ready(function () {
           setTimeout(() => {
             $('#loader-form-2').addClass('hidden');
           }, 2000);
-          
+
           setTimeout(() => {
             $('.show-coordonee-2').attr('style', 'display: flex;align-content: center;align-items: flex-start;justify-content: center;');
           }, 2000);
@@ -252,3 +252,26 @@ function setCookie(nom, valeur, expire, chemin, domaine, securite) {
 }
 
 // -------- //
+
+// Stats
+
+$(document).on('click', '.click', function (e) {
+
+  var id = $(this).data('id'),
+    type = $(this).data('type'),
+    url = "../ajax/ajax-click-stats.php"
+
+  $.ajax({
+    url: url,
+    type: 'POST',
+    data: {
+      location_id: id,
+      type: type
+    },
+    success: function (data) {}
+
+  })
+
+})
+
+// ------- //

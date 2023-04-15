@@ -145,11 +145,10 @@
 
                     <h4><span class="badge bg-success me-3 py-2"><i class="fa-regular fa-circle-check me-2 text-white"></i>Mes locations en ligne (<?= count($locations_user_all); ?>)</span><span class="badge bg-danger me-3 py-2"><i class="fa-regular fa-circle-xmark me-1 text-white"></i> Mes locations inactive (<?= count($locations_user_all2) ?>)</span></h4>
 
-                    <?php if ($users['subscription'] == 1 or count($locations_user) <= 2) { ?>
-                        <div class="d-flex mt-4">
-                            <a class="btn bg-gradient btn-outline-info"><i class="fa-regular fa-square-plus me-2"></i>Créer une location</a>
-                        </div>
-                    <?php } ?>
+                    <div class="d-flex mt-4 align-items-center">
+                        <a href="/creation-location" class="btn bg-gradient btn-outline-info <?= (count($locations_user) < 2 or $users['subscription'] == 1) ? '' : 'disabled' ?>"><i class="fa-regular fa-square-plus me-2"></i>Créer une location</a>
+                        <?php if (count($locations_user) >= 2 && $users['subscription'] == 0) { ?><p class="text-danger fw-bold mb-0 ms-3"><i class="fa-solid fa-triangle-exclamation me-2"></i>Vous avez atteint la limite !</p><?php } ?>
+                    </div>
 
                 </div>
 
@@ -187,7 +186,7 @@
                                 <hr>
 
                                 <div class="card<?= ($value['abonnement_expire'] == 1) ? ' disabled' : '' ?>">
-                                
+
                                     <?php if (date('Y-m-d H:i', strtotime($value['created_at'])) < date('Y-m-d H:i', strtotime('+7 days'))) { ?>
                                         <div class="badge_new">
                                             <span class="badge rounded-pill bg-danger">Nouveau !</span>

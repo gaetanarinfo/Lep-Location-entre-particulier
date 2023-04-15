@@ -3,6 +3,11 @@ body {
     min-height: -webkit-fill-available;
 }
 
+.page {
+    max-height: 100vh;
+    overflow-y: scroll;
+}
+
 .main {
     flex-wrap: nowrap;
     height: 100vh;

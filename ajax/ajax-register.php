@@ -214,8 +214,6 @@ if (isset($_POST)) {
         if (!empty($attachement4)) $image4 = str_replace('/var/www/lpe/public/assets/images/annonces/', '', $attachement4[0]);
         else $image4 = "";
 
-
-
         $options = [
             'cost' => 12,
         ];
@@ -297,15 +295,15 @@ if (isset($_POST)) {
             )');
         } else {
 
-            if (empty($last_id)) $last_id = 1;
-            else $last_id = ($last_id['id']) + 1;
-
             $req_id = $dbh->query('SELECT id FROM locations WHERE id_site = 1 AND type <= 6 ORDER BY id DESC');
             $last_id = $req_id->fetch(PDO::FETCH_ASSOC);
 
-            $url_appartatement = makeUrl('Appartement ' . $_POST['location'] . ' ' . $last_id);
+            if (empty($last_id)) $last_id = 1;
+            else $last_id = ($last_id['id']) + 1;
 
-            $url_valide = $url_appartatement;
+            $url_appartement = makeUrl('Appartement ' . $_POST['location'] . ' ' . $last_id);
+
+            $url_valide = $url_appartement;
 
             // Création de l'annonce //
             $insert_annonce = $dbh->query('INSERT INTO `locations` (
@@ -339,7 +337,7 @@ if (isset($_POST)) {
                 1,
                 "' . $_POST['title_annonce'] . '",
                 "' . $_POST['content_annonce'] . '",
-                "' . $url_appartatement . '",
+                "' . $url_appartement . '",
                 "' . $_POST['location'] . '",
                 "' . $_POST['region'] . '",
                 "' . $_POST['address'] . '",
@@ -399,14 +397,14 @@ if (isset($_POST)) {
         // ---------------------------- //
 
         // L'utilisateur ne possède pas de compte
-        $final = ['create' => true, 'title' => 'Votre annonce a bien été créée !', 'message' => 'Merci de patienter le temps que notre équipe analyse votre annonce, celà peut prendre entre 24/48h jour ouvrée, merci de votre confiance.<br><br><h4>À très bientôt.</h4>', 'icone' => $image_url . 'check.png'];
+        $final = ['create' => true, 'title' => 'Votre location a bien été créée !', 'message' => 'Merci de patienter le temps que notre équipe analyse votre location, celà peut prendre entre 24/48h jour ouvrée, merci de votre confiance.<br><br><h4>À très bientôt.</h4>', 'icone' => $image_url . 'check.png'];
     } else {
         // L'utilisateur possède un compte
-        $final = ['create' => false, 'title' => 'Votre annonce n\'a pas été publié !', 'message' => 'Vous possédez déjà un compte, merci de vous connecter avec vos identifiants. Vous pouvez aussi réinitialiser votre mot de passe, si vous avez perdu votre mot de passe.<br><br>Vous avez la possibilité de nous contacter si vous ne retrouvez pas vos identifiant de connexion.<br><br><h4>À très bientôt.</h4>', 'icone' => $image_url . 'error.png'];
+        $final = ['create' => false, 'title' => 'Votre location n\'a pas été publié !', 'message' => 'Vous possédez déjà un compte, merci de vous connecter avec vos identifiants. Vous pouvez aussi réinitialiser votre mot de passe, si vous avez perdu votre mot de passe.<br><br>Vous avez la possibilité de nous contacter si vous ne retrouvez pas vos identifiant de connexion.<br><br><h4>À très bientôt.</h4>', 'icone' => $image_url . 'error.png'];
     }
 } else {
     // L'utilisateur a rencontré une erreur
-    $final = ['create' => false, 'title' => 'Votre annonce n\'a pas été publié !', 'message' => 'Vous possédez déjà un compte, merci de vous connecter avec vos identifiants. Vous pouvez aussi réinitialiser votre mot de passe, si vous avez perdu votre mot de passe.<br><br>Vous avez la possibilité de nous contacter si vous ne retrouvez pas vos identifiant de connexion.<br><br><h4>À très bientôt.</h4>', 'icone' => $image_url . 'error.png'];
+    $final = ['create' => false, 'title' => 'Votre location n\'a pas été publié !', 'message' => 'Vous possédez déjà un compte, merci de vous connecter avec vos identifiants. Vous pouvez aussi réinitialiser votre mot de passe, si vous avez perdu votre mot de passe.<br><br>Vous avez la possibilité de nous contacter si vous ne retrouvez pas vos identifiant de connexion.<br><br><h4>À très bientôt.</h4>', 'icone' => $image_url . 'error.png'];
 }
 
 echo json_encode($final);

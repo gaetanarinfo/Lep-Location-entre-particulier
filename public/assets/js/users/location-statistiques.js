@@ -27,9 +27,7 @@ $(document).on('click', '.remove-location', function (e) {
             data: {
                 location_id: id
             },
-            success: function (data) {
-                console.log(data);
-            }
+            success: function (data) {}
         })
 
     }

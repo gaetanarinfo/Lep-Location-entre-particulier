@@ -34,7 +34,8 @@
 
                     <?php if ($users['subscription'] == 1 or count($locations_user) <= 2) { ?>
                         <div class="d-flex mt-4">
-                            <a class="btn bg-gradient btn-outline-info"><i class="fa-regular fa-square-plus me-2"></i>Créer une location</a>
+                        <a href="/creation-location" class="btn bg-gradient btn-outline-info <?= (count($locations_user) < 2 or $users['subscription'] == 1) ? '' : 'disabled' ?>"><i class="fa-regular fa-square-plus me-2"></i>Créer une location</a>
+                        <?php if (count($locations_user) >= 2 && $users['subscription'] == 0) { ?><p class="text-danger fw-bold mb-0 ms-3"><i class="fa-solid fa-triangle-exclamation me-2"></i>Vous avez atteint la limite !</p><?php } ?>
                         </div>
                     <?php } ?>
 
@@ -44,7 +45,7 @@
 
                     <div class="row row-cols-1 row-cols-md-4 g-4 nouveautes_maisons">
 
-                        <?php foreach ($locations_user_all as $value) { ?>
+                        <?php foreach ($locations_user2 as $value) { ?>
 
                             <div class="col">
 

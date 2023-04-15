@@ -58,7 +58,7 @@
                                     </div>
 
                                     <div class="mb-4">
-                                        <a href="/login" class="btn btn-outline-dark text-decoration-none fw-bold">Retour</a>
+                                        <a href="/mon-espace" class="btn btn-outline-dark text-decoration-none fw-bold">Retour</a>
                                     </div>
 
                                 </div>
@@ -324,6 +324,130 @@
                                     <label>* Description</label>
                                     <textarea class="form-control" autocomplete="off" required id="content_annonce" placeholder="Description" rows="10" name="content_annonce"><?= $location_user['description'] ?></textarea>
                                 </div>
+                            </div>
+
+                            <div class="mb-4 bloc-form">
+                                <h3>Galerie d'images</h3>
+                            </div>
+
+                            <div class="col-md-3 mb-4 bloc-form">
+
+                                <label for="upload-galerie" class="d-block">
+
+                                    <div class="upload-bloc">
+
+                                        <?php if (!empty($location_user['image'])) { ?>
+                                            <div class="galerie-received" id="galerie-received">
+                                                <div class="div-img" id="1">
+                                                    <img class="img-fluid rounded shadow" style="width: 100%; max-height: 196px;" data-fancybox src="<?= $image_url . 'annonces/' . $location_user['image'] ?>" />
+                                                    <span class="delete-image delete-image-not-empty" data-id="1" id="del-1"><i class="fa-solid fa-xmark"></i></span>
+                                                </div>
+                                            </div>
+                                        <?php } else { ?>
+                                            <div class="galerie-received" id="galerie-received">
+                                            </div>
+                                        <?php } ?>
+
+                                        <input type="file" id="upload-galerie" <?= (!empty($location_user['image'])) ? 'disabled' : '' ?> class="d-none" accept="image/*">
+                                        <p class="text-dark" <?= (!empty($location_user['image'])) ? 'style="display: none;"' : '' ?>>Cliquez ici pour la télécharger</p>
+                                        <div id="button-add-galerie" <?= (!empty($location_user['image'])) ? 'style="display: none;"' : '' ?> class="btn btn-block bg-gradient btn-info text-white">Ajouter des photos</div>
+
+                                        <div class="error error-1 mt-2"></div>
+
+                                    </div>
+
+                                </label>
+
+                            </div>
+
+                            <div class="col-md-3 mb-4 bloc-form">
+
+                                <label for="upload-galerie-2" class="d-block">
+
+                                    <div class="upload-bloc-2">
+
+                                        <?php if (!empty($location_user['image_2'])) { ?>
+                                            <div class="galerie-received" id="galerie-received-2">
+                                                <div class="div-img" id="2">
+                                                    <img class="img-fluid rounded shadow" style="width: 100%; max-height: 196px;" data-fancybox src="<?= $image_url . 'annonces/' . $location_user['image_2'] ?>" />
+                                                    <span class="delete-image delete-image-not-empty" data-id="2" id="del-2"><i class="fa-solid fa-xmark"></i></span>
+                                                </div>
+                                            </div>
+                                        <?php } else { ?>
+                                            <div class="galerie-received" id="galerie-received-2">
+                                            </div>
+                                        <?php } ?>
+
+                                        <input type="file" id="upload-galerie-2" <?= (!empty($location_user['image_2'])) ? 'disabled' : '' ?> class="d-none" accept="image/*">
+                                        <p class="text-dark" <?= (!empty($location_user['image_2'])) ? 'style="display: none;"' : '' ?>>Cliquez ici pour la télécharger</p>
+                                        <div id="button-add-galerie" <?= (!empty($location_user['image_2'])) ? 'style="display: none;"' : '' ?> class="btn btn-block bg-gradient btn-info text-white">Ajouter des photos</div>
+
+                                        <div class="error error-1-2 mt-2"></div>
+
+                                    </div>
+
+                                </label>
+
+                            </div>
+
+                            <div class="col-md-3 mb-4 bloc-form">
+
+                                <label for="upload-galerie-3" class="d-block">
+
+                                    <div class="upload-bloc-3">
+
+                                        <?php if (!empty($location_user['image_3'])) { ?>
+                                            <div class="galerie-received" id="galerie-received-3">
+                                                <div class="div-img" id="3">
+                                                    <img class="img-fluid rounded shadow" style="width: 100%; max-height: 196px;" data-fancybox src="<?= $image_url . 'annonces/' . $location_user['image_3'] ?>" />
+                                                    <span class="delete-image delete-image-not-empty" data-id="3" id="del-3"><i class="fa-solid fa-xmark"></i></span>
+                                                </div>
+                                            </div>
+                                        <?php } else { ?>
+                                            <div class="galerie-received" id="galerie-received-3">
+                                            </div>
+                                        <?php } ?>
+
+                                        <input type="file" id="upload-galerie-3" <?= (!empty($location_user['image_3'])) ? 'disabled' : '' ?> class="d-none" accept="image/*">
+                                        <p class="text-dark" <?= (!empty($location_user['image_3'])) ? 'style="display: none;"' : '' ?>>Cliquez ici pour la télécharger</p>
+                                        <div id="button-add-galerie" <?= (!empty($location_user['image_3'])) ? 'style="display: none;"' : '' ?> class="btn btn-block bg-gradient btn-info text-white">Ajouter des photos</div>
+
+                                        <div class="error error-1-3 mt-2"></div>
+
+                                    </div>
+
+                                </label>
+
+                            </div>
+
+                            <div class="col-md-3 mb-4 bloc-form">
+
+                                <label for="upload-galerie-4" class="d-block">
+
+                                    <div class="upload-bloc-4">
+
+                                        <?php if (!empty($location_user['image_4'])) { ?>
+                                            <div class="galerie-received" id="galerie-received-4">
+                                                <div class="div-img" id="4">
+                                                    <img class="img-fluid rounded shadow" style="width: 100%; max-height: 196px;" data-fancybox src="<?= $image_url . 'annonces/' . $location_user['image_4'] ?>" />
+                                                    <span class="delete-image delete-image-not-empty" data-id="4" id="del-4"><i class="fa-solid fa-xmark"></i></span>
+                                                </div>
+                                            </div>
+                                        <?php } else { ?>
+                                            <div class="galerie-received" id="galerie-received-4">
+                                            </div>
+                                        <?php } ?>
+
+                                        <input type="file" id="upload-galerie-4" <?= (!empty($location_user['image_4'])) ? 'disabled' : '' ?> class="d-none" accept="image/*">
+                                        <p class="text-dark" <?= (!empty($location_user['image_4'])) ? 'style="display: none;"' : '' ?>>Cliquez ici pour la télécharger</p>
+                                        <div id="button-add-galerie" <?= (!empty($location_user['image_4'])) ? 'style="display: none;"' : '' ?> class="btn btn-block bg-gradient btn-info text-white">Ajouter des photos</div>
+
+                                        <div class="error error-1-4 mt-2"></div>
+
+                                    </div>
+
+                                </label>
+
                             </div>
 
                             <div class="col-md-12 bloc-form">

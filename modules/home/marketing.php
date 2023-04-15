@@ -8,7 +8,7 @@
 
             <div class="col-lg-3 mb-4">
 
-                <img class="bd-placeholder-img rounded-circle reveal" width="140" height="140" src="<?= $image_url . 'avatar/' . $value['image'] ?>" alt="<?= $value['title'] ?>">
+                <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="<?= $image_url . 'avatar/' . $value['image'] ?>" alt="<?= $value['title'] ?>">
 
                 <h2 class="mt-4 mb-4"><?= $value['title'] ?></h2>
 

@@ -1,0 +1,176 @@
+.location .card-img-top {
+    max-width: 100%;
+    max-height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+
+/* Afficher ou masquer le mot de passe */
+
+label {
+    position: relative;
+}
+
+label input {
+    font-size: 1em;
+    color: #f9f9f9;
+    background: transparent;
+    padding: 1rem 1.2rem;
+    width: 350px;
+    border-radius: 5px;
+    border: 2px solid #7a7a7a;
+    transition: all 0.2s;
+}
+
+label input:focus {
+    border-color: #ff4754;
+}
+
+label .password-icon {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    right: -78px;
+    transform: translateY(-50%);
+    width: 20px;
+    color: #5a5b5c;
+    transition: all 0.2s;
+}
+
+label .password-icon:hover {
+    cursor: pointer;
+    color: #0dcaf0;
+}
+
+label .password-icon .feather-eye-off {
+    display: none;
+}
+
+.form-group.last {
+    min-height: 61px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Upload Galerie */
+
+.upload-bloc,
+.upload-bloc-2,
+.upload-bloc-3,
+.upload-bloc-4 {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    background: white;
+    height: 260px;
+    border: 1px dotted black;
+    padding: 1rem;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-bloc .text-dark,
+.upload-bloc-2 .text-dark,
+.upload-bloc-3 .text-dark,
+.upload-bloc-4 .text-dark {
+    font-weight: 600;
+    font-size: initial;
+}
+
+.upload-bloc .div-img,
+.upload-bloc-2 .div-img,
+.upload-bloc-3 .div-img,
+.upload-bloc-4 .div-img {
+    margin: 0;
+}
+
+.error-1 {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.error-1 p {
+    font-size: 16px;
+    margin-bottom: 0;
+    color: red;
+    font-weight: 700;
+}
+
+.error-1 i {
+    color: red;
+    font-size: 16px;
+}
+
+.delete-image {
+    display: block;
+    margin-top: 0.5rem;
+    color: red;
+    font-size: 1rem;
+}
+
+.delete-image i {
+    cursor: pointer;
+}
+
+/* Message de confirmation */
+
+.message-validation {
+    width: 100%;
+    height: auto;
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.message-validation.message-success {
+    background: #48cb764a;
+    box-shadow: 0 0 5px 0px #bfe8cead;
+}
+
+.message-validation.message-error {
+    background: #cb48484a;
+    box-shadow: 0 0 5px 0px #e8bfbfad;
+}
+
+.message-validation img {
+    max-width: 160px;
+}
+
+.message-validation h3 {
+    font-style: italic;
+}
+
+.message-validation p {
+    color: black;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+.message-validation {
+    display: none;
+}
+
+#loader-form {
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden {
+    display: none !important;
+}

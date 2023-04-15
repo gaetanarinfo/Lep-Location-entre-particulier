@@ -72,6 +72,14 @@ switch (basename($_SERVER['PHP_SELF'])) {
 
         break;
 
+    case 'creation-location.php':
+
+        if (count($locations_user) >= 2 && $users['subscription'] == 0) {
+            header('Location: /mon-espace');
+        }
+
+        break;
+
     default:
         # code...
         break;

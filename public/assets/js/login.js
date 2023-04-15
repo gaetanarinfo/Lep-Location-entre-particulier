@@ -278,7 +278,7 @@ function recaptchacheck(token) {
                 $('.message-validation .message-body').html(parsed.message);
                 $('.message-validation').addClass('message-error');
                 $('.message-validation .back-login').show();
-                $('.message-validation .back-login a').attr('href', '/utilisateurs/register');
+                $('.message-validation .back-login a').attr('href', '/utilisateurs/login');
 
                 setTimeout(() => {
                     $('.message-validation').fadeIn(300);

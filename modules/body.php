@@ -40,80 +40,85 @@
     <link href="<?= $static_url . 'css/styles.css' ?>" rel="stylesheet">
 
     <?php if (basename($_SERVER['PHP_SELF']) == "login.php" or basename($_SERVER['PHP_SELF']) == "forgot-password.php") { ?>
-        <link href="<?= $static_url . 'css/login.css?=' . time(); ?>" rel="stylesheet">
+        <link href="<?= $static_url . 'css/login.css'; ?>" rel="stylesheet">
     <?php } ?>
 
     <?php if (basename($_SERVER['PHP_SELF']) == "register.php") { ?>
-        <link href="<?= $static_url . 'css/register.css?=' . time(); ?>" rel="stylesheet">
+        <link href="<?= $static_url . 'css/register.css'; ?>" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
     <?php } ?>
 
     <?php if (isset($_SESSION['user_id']) && basename($_SERVER['PHP_SELF']) == "mon-espace.php") { ?>
-        <link href="<?= $static_url . 'css/users/espace.css?=' . time(); ?>" rel="stylesheet">
+        <link href="<?= $static_url . 'css/users/espace.css'; ?>" rel="stylesheet">
     <?php } ?>
 
     <?php if (isset($_SESSION['user_id']) && basename($_SERVER['PHP_SELF']) == "abonnements.php") { ?>
-        <link href="<?= $static_url . 'css/users/espace.css?=' . time(); ?>" rel="stylesheet">
+        <link href="<?= $static_url . 'css/users/espace.css'; ?>" rel="stylesheet">
     <?php } ?>
 
     <?php if (isset($_SESSION['user_id']) && basename($_SERVER['PHP_SELF']) == "mes-locations.php") { ?>
-        <link href="<?= $static_url . 'css/users/espace.css?=' . time(); ?>" rel="stylesheet">
+        <link href="<?= $static_url . 'css/users/espace.css'; ?>" rel="stylesheet">
     <?php } ?>
 
     <?php if (isset($_SESSION['user_id']) && basename($_SERVER['PHP_SELF']) == "location-statistiques.php") { ?>
-        <link href="<?= $static_url . 'css/users/espace.css?=' . time(); ?>" rel="stylesheet">
-        <link href="<?= $static_url . 'css/users/location-statistiques.css?=' . time(); ?>" rel="stylesheet">
+        <link href="<?= $static_url . 'css/users/espace.css'; ?>" rel="stylesheet">
+        <link href="<?= $static_url . 'css/users/location-statistiques.css'; ?>" rel="stylesheet">
     <?php } ?>
 
     <?php if (isset($_SESSION['user_id']) && basename($_SERVER['PHP_SELF']) == "modification-location.php") { ?>
-        <link href="<?= $static_url . 'css/users/espace.css?=' . time(); ?>" rel="stylesheet">
-        <link href="<?= $static_url . 'css/users/modification-location.css?=' . time(); ?>" rel="stylesheet">
+        <link href="<?= $static_url . 'css/users/espace.css'; ?>" rel="stylesheet">
+        <link href="<?= $static_url . 'css/users/modification-location.css'; ?>" rel="stylesheet">
+    <?php } ?>
+
+    <?php if (isset($_SESSION['user_id']) && basename($_SERVER['PHP_SELF']) == "creation-location.php") { ?>
+        <link href="<?= $static_url . 'css/users/espace.css'; ?>" rel="stylesheet">
+        <link href="<?= $static_url . 'css/users/creation-location.css'; ?>" rel="stylesheet">
     <?php } ?>
 
     <?php if (isset($_SESSION['user_id']) && basename($_SERVER['PHP_SELF']) == "cart.php") { ?>
-        <link href="<?= $static_url . 'css/users/cart.css?=' . time(); ?>" rel="stylesheet">
-        <link href="<?= $static_url . 'css/stripe.css?=' . time(); ?>" rel="stylesheet">
+        <link href="<?= $static_url . 'css/users/cart.css'; ?>" rel="stylesheet">
+        <link href="<?= $static_url . 'css/stripe.css'; ?>" rel="stylesheet">
     <?php } ?>
 
     <?php if (basename($_SERVER['PHP_SELF']) == "location.php") { ?>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
-        <link href="<?= $static_url . 'css/location.css?=' . time(); ?>" rel="stylesheet">
+        <link href="<?= $static_url . 'css/location.css'; ?>" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
         <?php if (empty($_COOKIE['location_email'])) { ?>
-            <link href="<?= $static_url . 'css/stripe.css?=' . time(); ?>" rel="stylesheet">
+            <link href="<?= $static_url . 'css/stripe.css'; ?>" rel="stylesheet">
         <?php } ?>
     <?php } ?>
 
     <?php if (basename($_SERVER['PHP_SELF']) == "cgv.php" or basename($_SERVER['PHP_SELF']) == "cgu.php") { ?>
-        <link href="<?= $static_url . 'css/conditions.css?=' . time(); ?>" rel="stylesheet">
+        <link href="<?= $static_url . 'css/conditions.css'; ?>" rel="stylesheet">
     <?php } ?>
 
     <?php if (basename($_SERVER['PHP_SELF']) == "blog.php") { ?>
-        <link href="<?= $static_url . 'css/blog.css?=' . time(); ?>" rel="stylesheet">
+        <link href="<?= $static_url . 'css/blog.css'; ?>" rel="stylesheet">
     <?php } ?>
 
     <?php if (basename($_SERVER['PHP_SELF']) == "actualite.php") { ?>
-        <link href="<?= $static_url . 'css/actualite.css?=' . time(); ?>" rel="stylesheet">
+        <link href="<?= $static_url . 'css/actualite.css'; ?>" rel="stylesheet">
     <?php } ?>
 
     <?php if (basename($_SERVER['PHP_SELF']) == "locations.php" or basename($_SERVER['PHP_SELF']) == "locations-appartements.php" or basename($_SERVER['PHP_SELF']) == "locations-maisons.php" or basename($_SERVER['PHP_SELF']) == "locations-populaires.php") { ?>
-        <link href="<?= $static_url . 'css/locations.css?=' . time(); ?>" rel="stylesheet">
+        <link href="<?= $static_url . 'css/locations.css'; ?>" rel="stylesheet">
     <?php } ?>
 
     <?php if (basename($_SERVER['PHP_SELF']) == "contact.php") { ?>
-        <link href="<?= $static_url . 'css/contact.css?=' . time(); ?>" rel="stylesheet">
+        <link href="<?= $static_url . 'css/contact.css'; ?>" rel="stylesheet">
     <?php } ?>
 
     <?php if (basename($_SERVER['PHP_SELF']) == "faq.php") { ?>
-        <link href="<?= $static_url . 'css/faq.css?=' . time(); ?>" rel="stylesheet">
+        <link href="<?= $static_url . 'css/faq.css'; ?>" rel="stylesheet">
     <?php } ?>
 
     <?php if (basename($_SERVER['PHP_SELF']) == "refund.php") { ?>
-        <link href="<?= $static_url . 'css/refund.css?=' . time(); ?>" rel="stylesheet">
+        <link href="<?= $static_url . 'css/refund.css'; ?>" rel="stylesheet">
     <?php } ?>
 
     <?php if (basename($_SERVER['PHP_SELF']) == "refund-pro.php") { ?>
-        <link href="<?= $static_url . 'css/refund.css?=' . time(); ?>" rel="stylesheet">
+        <link href="<?= $static_url . 'css/refund.css'; ?>" rel="stylesheet">
     <?php } ?>
 
     <!-- Script JS -->
@@ -124,7 +129,7 @@
 
     <script src="<?= $static_url . 'js/scripts.js' ?>"></script>
     <?php if (basename($_SERVER['PHP_SELF']) == "login.php" or basename($_SERVER['PHP_SELF']) == "forgot-password.php") { ?>
-        <script src="<?= $static_url . 'js/login.js?=' . time(); ?>"></script>
+        <script src="<?= $static_url . 'js/login.js'; ?>"></script>
     <?php } ?>
 
     <script>
@@ -135,54 +140,62 @@
     </script>
 
     <?php if (basename($_SERVER['PHP_SELF']) == "register.php") { ?>
-        <script src="<?= $static_url . 'js/register.js?=' . time(); ?>"></script>
+        <script src="<?= $static_url . 'js/register.js'; ?>"></script>
     <?php } ?>
 
     <?php if (basename($_SERVER['PHP_SELF']) == "location.php") { ?>
         <script src="<?= $static_url . 'js/jquery.creditCardValidator.js'; ?>"></script>
-        <script src="<?= $static_url . 'js/location.js?=' . time(); ?>"></script>
+        <script src="<?= $static_url . 'js/location.js'; ?>"></script>
         <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/l10n/fr.umd.js"></script>
         <?php if (empty($_COOKIE['location_email'])) { ?>
             <script src="https://js.stripe.com/v3/"></script>
             <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
-            <script src="<?= $static_url . 'js/client.js?=' . time(); ?>"></script>
+            <script src="<?= $static_url . 'js/client.js'; ?>"></script>
         <?php } ?>
     <?php } ?>
 
     <?php if (basename($_SERVER['PHP_SELF']) == "blog.php") { ?>
-        <script src="<?= $static_url . 'js/blog.js?=' . time(); ?>"></script>
+        <script src="<?= $static_url . 'js/blog.js'; ?>"></script>
     <?php } ?>
 
     <?php if (basename($_SERVER['PHP_SELF']) == "actualite.php") { ?>
-        <script src="<?= $static_url . 'js/actualite.js?=' . time(); ?>"></script>
+        <script src="<?= $static_url . 'js/actualite.js'; ?>"></script>
     <?php } ?>
 
     <?php if (basename($_SERVER['PHP_SELF']) == "locations.php" or basename($_SERVER['PHP_SELF']) == "locations-appartements.php" or basename($_SERVER['PHP_SELF']) == "locations-maisons.php" or basename($_SERVER['PHP_SELF']) == "locations-populaires.php") { ?>
-        <script src="<?= $static_url . 'js/locations.js?=' . time(); ?>"></script>
+        <script src="<?= $static_url . 'js/locations.js'; ?>"></script>
     <?php } ?>
 
     <?php if (basename($_SERVER['PHP_SELF']) == "contact.php") { ?>
-        <script src="<?= $static_url . 'js/contact.js?=' . time(); ?>"></script>
+        <script src="<?= $static_url . 'js/contact.js'; ?>"></script>
     <?php } ?>
 
     <?php if (basename($_SERVER['PHP_SELF']) == "refund.php") { ?>
-        <script src="<?= $static_url . 'js/refund.js?=' . time(); ?>"></script>
+        <script src="<?= $static_url . 'js/refund.js'; ?>"></script>
     <?php } ?>
 
     <?php if (basename($_SERVER['PHP_SELF']) == "refund-pro.php") { ?>
-        <script src="<?= $static_url . 'js/users/refund-pro.js?=' . time(); ?>"></script>
+        <script src="<?= $static_url . 'js/users/refund-pro.js'; ?>"></script>
     <?php } ?>
 
     <?php if (isset($_SESSION['user_id']) && basename($_SERVER['PHP_SELF']) == "mon-espace.php") { ?>
-        <script src="<?= $static_url . 'js/users/espace.js?=' . time(); ?>"></script>
+        <script src="<?= $static_url . 'js/users/espace.js'; ?>"></script>
+    <?php } ?>
+
+    <?php if (isset($_SESSION['user_id']) && basename($_SERVER['PHP_SELF']) == "modification-location.php") { ?>
+        <script src="<?= $static_url . 'js/users/modification-location.js'; ?>"></script>
+    <?php } ?>
+
+    <?php if (isset($_SESSION['user_id']) && basename($_SERVER['PHP_SELF']) == "creation-location.php") { ?>
+        <script src="<?= $static_url . 'js/users/creation-location.js'; ?>"></script>
     <?php } ?>
 
     <?php if (isset($_SESSION['user_id']) && basename($_SERVER['PHP_SELF']) == "cart.php") { ?>
         <script src="https://js.stripe.com/v3/"></script>
         <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
-        <script src="<?= $static_url . 'js/users/cart.js?=' . time(); ?>"></script>
+        <script src="<?= $static_url . 'js/users/cart.js'; ?>"></script>
     <?php } ?>
 
     <?php if (basename($_SERVER['PHP_SELF']) == "/") { ?>
@@ -200,7 +213,7 @@
         </script>
     <?php } ?>
 
-    <script src="<?= $static_url . 'js/scrollreveal.js?=' . time(); ?>"></script>
+    <script src="<?= $static_url . 'js/scrollreveal.js'; ?>"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
 
     <?php if (basename($_SERVER['PHP_SELF']) == "/") { ?>
@@ -269,6 +282,39 @@
 
     <?php } ?>
 
+    <?php if ($_SERVER['SERVER_NAME'] == "location-entre-particulier.fr") { ?>
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-P985RNDYLX"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'G-P985RNDYLX');
+        </script>
+
+    <?php } ?>
+
+    <?php if ($_SERVER['SERVER_NAME'] == "location-entre-particulier.com") { ?>
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJ792KZTYB"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'G-VJ792KZTYB');
+        </script>
+
+    <?php } ?>
 
 </head>
 
