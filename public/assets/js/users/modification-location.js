@@ -472,8 +472,6 @@ $(document).ready(function () {
             contentType: false,
             success: function (data) {
 
-                console.log(data);
-
                 setTimeout(() => {
                     $('#loader-form').addClass('hidden');
                 }, 2000);
@@ -593,5 +591,52 @@ $(document).ready(function () {
     })
 
     // -------- //
+
+    // Input select adresse
+
+    $('#address').on('keyup', function (e) {
+
+        var value = $(this).val(),
+            url = "../../ajax/ajax-searcInAdress.php",
+            input = $(this)
+
+        if (value.length >= 6) {
+
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: {
+                    value: value
+                },
+                success: function (data) {
+                    $('.input-select>ul').html(data);
+                    $('.input-select').fadeIn(300);
+                    $(input).addClass('input-select-open');
+                }
+            })
+
+        }
+
+    })
+
+    $(document).on('click', '.clic-adresse-input', function (e) {
+
+        e.preventDefault();
+
+        var cp = $(this).data('cp'),
+            city = $(this).data('city'),
+            adresse = $(this).data('adresse')
+
+        $('#address').val(adresse);
+        $('#cp').val(cp);
+        $('#location').val(city);
+
+        $('.input-select>ul').html('');
+        $('.input-select').fadeOut(300);
+        $('#address').removeClass('input-select-open');
+
+    })
+
+    //
 
 })

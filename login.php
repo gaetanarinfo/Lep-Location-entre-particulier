@@ -7,6 +7,9 @@
 <!-- Body -->
 <?php include('modules/body.php'); ?>
 
+<!-- Google Login -->
+<?php include("config/config-google.php"); ?>
+
 <main class="flex-shrink-0">
 
     <!-- Navigation-->
@@ -94,15 +97,11 @@
 
                                 <div class="social-login bloc-center">
 
-                                    <a href="#" class="facebook me-2">
+                                    <a href="" id="facebook-btn" class="facebook me-2">
                                         <span class="icon-facebook me-3"></span>
                                     </a>
 
-                                    <a href="#" class="twitter me-2">
-                                        <span class="icon-twitter me-3"></span>
-                                    </a>
-
-                                    <a href="#" class="google">
+                                    <a href="<?= $google_client->createAuthUrl(); ?>" class="google">
                                         <span class="icon-google me-3"></span>
                                     </a>
 

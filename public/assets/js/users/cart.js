@@ -4,13 +4,13 @@ $(document).ready(function () {
     var request = null;
 
     var prod = "pk_test_51Mv1ACKNlFQUQJlOnuv8T2vIjjsvUnznglyMpBoCF2VEL7s3BJZIgqk80nzfokuON5fRwrAUhYKP2e3JGEJiEna400xYEA3fWM"
-    // var prod = "pk_live_51JWyC5Gkyhx4qcwe5A8jWjQlcMhLdTwsv7McySd8t2I7kJKtovnUu6TH93nmH4PK0YLCw27AKGoJEcOyVS7H0F3S00WW8qVLQU"
+    // var prod = "pk_live_51Mv1ACKNlFQUQJlOwzfFFCAhpiBMWYjIv8IwKIj4napO4hj0jkTPzASzILuKlLevLDGLzCQjoJrXA7pId9IaNUgD00SxObQcXq"
 
     var stripe,
         api;
 
     // The items the customer wants to buy
-    var amount = 2999,
+    var amount = 3999,
         description = $('#description').val(),
         purchase = [];
 

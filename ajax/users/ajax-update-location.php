@@ -295,7 +295,7 @@ if (isset($_POST)) {
         $final = ['update' => true, 'title' => 'Votre location a été modifiée !', 'message' => 'Les modifications apportées à votre location on été modifier<br><br>Merci de vous rendre sur celle-ci et de vérifier l\'éxactitude de vos informations.<br><br><h4>À très bientôt.</h4>', 'icone' => $image_url . 'check.png'];
     } else {
         // L'utilisateur a rencontré une erreur
-        $final = ['update' => false, 'title' => 'Votre location n\'a pas été modifié !', 'message' => 'Une erreur est survenue lors de la modification de votre annonce.<br><br>Vous avez la possibilité de recommencer de nouveau.<br><br><h4>À très bientôt.</h4>', 'icone' => $image_url . 'error.png'];
+        $final = ['update' => false, 'title' => 'Votre location n\'a pas été modifié !', 'message' => 'Une erreur est survenue lors de la modification de votre location.<br><br>Vous avez la possibilité de recommencer de nouveau.<br><br><h4>À très bientôt.</h4>', 'icone' => $image_url . 'error.png'];
     }
 }
 

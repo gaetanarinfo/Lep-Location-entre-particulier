@@ -22,22 +22,28 @@
             <div class="dropdown text-start dropdown-user">
 
                 <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="rounded-circle"><i class="fa-regular fa-circle-user"></i></span>
+                    <span class="rounded-circle">
+                        <?php if (!empty($users['avatar'])) { ?>
+                            <img src="<?= $users['avatar'] ?>" alt="<?= $users['prenom'] . ' ' . $users['nom'] ?>" class="img-fluid rounded-circle" width="24" height="24">
+                        <?php } else { ?>
+                            <i class="fa-regular fa-circle-user"></i>
+                        <?php } ?>
+                    </span>
                 </a>
 
-                <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                <ul class="dropdown-menu text-small dropdown-menu-dark shadow" aria-labelledby="dropdownUser1">
 
                     <?php if (!isset($_SESSION['user_id'])) { ?>
 
-                        <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "/register.php") ? " active disabled" : ""; ?>" href="register"><i class="fa-solid fa-angle-right me-2"></i>Ajouter une annonce</a></li>
+                        <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "register.php") ? " active disabled" : ""; ?>" href="register"><i class="fa-solid fa-angle-right me-2"></i>Ajouter une location</a></li>
 
-                        <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "/login.php") ? " active disabled" : ""; ?>" href="login"><i class="fa-solid fa-angle-left me-2"></i>Connexion</a></li>
+                        <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "login.php") ? " active disabled" : ""; ?>" href="login"><i class="fa-solid fa-angle-left me-2"></i>Connexion</a></li>
 
                     <?php } else { ?>
-                        <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "/mon-espace.php") ? " active disabled" : ""; ?>" href="mon-espace"><i class="fa-solid fa-rocket me-2"></i>Mon espace</a></li>
-                        <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "/location.php") ? " active disabled" : ""; ?>" href="annonces"><i class="fa-solid fa-rectangle-list me-2"></i>Mes annonces</a></li>
-                        <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "/abonnements.php") ? " active disabled" : ""; ?>" href="abonnements"><i class="fa-solid fa-wand-magic-sparkles me-2"></i>Mes abonnements</a></li>
-                        <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "/coordonees.php") ? " active disabled" : ""; ?>" href="coordonees"><i class="fa-solid fa-user-pen me-2"></i>Gestion de mon compte</a></li>
+                        <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "mon-espace.php") ? " active disabled" : ""; ?>" href="mon-espace"><i class="fa-solid fa-rocket me-2"></i>Mon espace</a></li>
+                        <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "location.php") ? " active disabled" : ""; ?>" href="annonces"><i class="fa-solid fa-rectangle-list me-2"></i>Mes annonces</a></li>
+                        <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "abonnements.php") ? " active disabled" : ""; ?>" href="abonnements"><i class="fa-solid fa-wand-magic-sparkles me-2"></i>Mes abonnements</a></li>
+                        <li><a class="dropdown-item<?= (basename($_SERVER['PHP_SELF']) == "coordonees.php") ? " active disabled" : ""; ?>" href="coordonees"><i class="fa-solid fa-user-pen me-2"></i>Gestion de mon compte</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

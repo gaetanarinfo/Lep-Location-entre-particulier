@@ -8,6 +8,7 @@ ini_set("display_errors", 1);
 include_once('../../config/connexion.php');
 include_once('../../config/fonctions.php');
 include_once('../../config/public.php');
+include_once('../../scripts/getCoordinateGps.php');
 
 $final = '';
 
@@ -268,7 +269,9 @@ if (count($locations_user) >= 2 && $users['subscription'] == 0) {
                     `frais`,
                     `meuble`,
                     `animeaux_acceptes`,
-                    `sous_location`
+                    `sous_location`,
+                    `longitude`,
+                    `latitude`
                 ) VALUES (
                     ' . $user_last_id . ',
                     1,
@@ -295,7 +298,9 @@ if (count($locations_user) >= 2 && $users['subscription'] == 0) {
                     "' . $_POST['frais_supp'] . '",
                     "' . $meuble . '",
                     "' . $animeaux_acceptes . '",
-                    "' . $sous_location  . '"
+                    "' . $sous_location  . '",
+                    "' . $longitude  . '",
+                    "' . $latitude  . '"
                 )');
             } else {
 
@@ -335,7 +340,9 @@ if (count($locations_user) >= 2 && $users['subscription'] == 0) {
                     `frais`,
                     `meuble`,
                     `animeaux_acceptes`,
-                    `sous_location`
+                    `sous_location`,
+                    `longitude`,
+                    `latitude`
                 ) VALUES (
                     ' . $user_last_id . ',
                     1,
@@ -361,7 +368,9 @@ if (count($locations_user) >= 2 && $users['subscription'] == 0) {
                     "' . $_POST['frais_supp'] . '",
                     "' . $meuble . '",
                     "' . $animeaux_acceptes . '",
-                    "' . $sous_location  . '"
+                    "' . $sous_location  . '",
+                    "' . $longitude  . '",
+                    "' . $latitude  . '"
             )');
             }
 

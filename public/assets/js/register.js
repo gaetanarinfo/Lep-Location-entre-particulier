@@ -433,7 +433,7 @@ $(document).ready(function () {
             if (e.name != "email_login") form_data.append(e.name, e.value);
             if (e.name != "password_login") form_data.append(e.name, e.value);
             if (e.name != "disponibilite") form_data.append(e.name, e.value);
-            
+
         });
 
         form_data.append('type_propriete', type_propriete);
@@ -464,7 +464,7 @@ $(document).ready(function () {
         form_data.append('disponibilite', disponibilite);
 
         var url = '../ajax/ajax-register.php';
-        
+
         $('.bloc-form').fadeOut(300);
 
         setTimeout(() => {
@@ -517,7 +517,7 @@ $(document).ready(function () {
         })
 
     })
-    
+
     // -------- //
 
     // Suppression des différentes images de l'utilisateur
@@ -579,5 +579,52 @@ $(document).ready(function () {
     })
 
     // -------- //
+
+    // Input select adresse
+
+    $('#address').on('keyup', function (e) {
+
+        var value = $(this).val(),
+            url = "../ajax/ajax-searcInAdress.php",
+            input = $(this)
+
+        if (value.length >= 6) {
+
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: {
+                    value: value
+                },
+                success: function (data) {
+                    $('.input-select>ul').html(data);
+                    $('.input-select').fadeIn(300);
+                    $(input).addClass('input-select-open');
+                }
+            })
+
+        }
+
+    })
+
+    $(document).on('click', '.clic-adresse-input', function (e) {
+
+        e.preventDefault();
+
+        var cp = $(this).data('cp'),
+            city = $(this).data('city'),
+            adresse = $(this).data('adresse')
+
+        $('#address').val(adresse);
+        $('#cp').val(cp);
+        $('#location').val(city);
+
+        $('.input-select>ul').html('');
+        $('.input-select').fadeOut(300);
+        $('#address').removeClass('input-select-open');
+
+    })
+
+    //
 
 });

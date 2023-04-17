@@ -112,6 +112,11 @@ switch (basename($_SERVER['PHP_SELF'])) {
         $description = $site_config['meta_description'];
         break;
 
+    case 'coordonees.php':
+        $title = 'Mes informations personnelles';
+        $description = $site_config['meta_description'];
+        break;
+
     default:
         $title = $site_config['meta_title'];
         $description = $site_config['meta_description'];

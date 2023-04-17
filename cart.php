@@ -42,7 +42,7 @@
                                         <h6 class="my-0">Abonnement LEP PRO - 1 mois</h6>
                                         <small class="text-muted">Locations illimités pendant 1 mois sur tout le site LEP.</small>
                                     </div>
-                                    <span class="text-muted price">29,99 €</span>
+                                    <span class="text-muted price">39,99 €</span>
                                 </li>
 
                             </ul>
@@ -416,7 +416,7 @@
 
                                 <div class="row gy-3">
 
-                                    <input type="hidden" value="Abonnement LPE Pro - 1 mois - <?= '29,99 €' . ' - ' . date('d/m/Y H:i:s') ?>" id="description">
+                                    <input type="hidden" value="Abonnement LPE Pro - 1 mois - <?= '39,99 €' . ' - ' . date('d/m/Y H:i:s') ?>" id="description">
 
                                     <div id="card-element">
                                         <!--Stripe.js injects the Card Element-->

@@ -21,8 +21,6 @@ $(document).ready(function () {
             },
             success: function (data) {
 
-                console.log(data);
-
                 setTimeout(() => {
                     $('#loader-form').addClass('hidden');
                 }, 1500);

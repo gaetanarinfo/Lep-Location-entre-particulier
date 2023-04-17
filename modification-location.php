@@ -188,6 +188,10 @@
                                         <div class="form-group mb-3">
                                             <label>* Adresse</label>
                                             <input class="form-control" autocomplete="off" required id="address" placeholder="Ex: 20 rue du parc" type="text" name="address" value="<?= $location_user['rue'] ?>">
+                                            <div class="input-select">
+                                                <ul>
+                                                </ul>
+                                            </div>
                                         </div>
 
                                         <div class="form-group mb-3">

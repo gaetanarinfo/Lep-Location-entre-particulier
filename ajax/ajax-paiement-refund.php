@@ -23,7 +23,7 @@ if (!empty($_POST)) {
 
         if (!empty($refund)) {
 
-            $stripe = new \Stripe\StripeClient('sk_test_51Mv1ACKNlFQUQJlOcAnkIY5HUXH1wVre1P7KgZygnpQlcUiNWLrcAr64OBVqYhdc4xSjFADM8dVTcU6OF2P8ao3Z00C7zfpYDk');
+            $stripe = new \Stripe\StripeClient('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');
             $stripe->refunds->create(['payment_intent' => $refund['transaction_id']]);
 
             // Envoi du mail

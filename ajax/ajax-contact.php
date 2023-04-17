@@ -84,8 +84,6 @@ if (isset($_POST)) {
         "' . $attachemens . '"
     )');
 
-    $attachemens_mail = ['url' => 'https://location-entre-particulier.fr/public/assets/documents/' . $attachemens, 'name' => $attachemens];
-
     // Envoi du mail
     $from = 'contact@location-entre-particulier.fr';
     $from_name = 'LEP - Location entre particulier';
@@ -119,9 +117,13 @@ if (isset($_POST)) {
 
     $content .= 'A très bientôt.';
 
-    sendMail($from, $from_name, $to, $to_name, $reply, $reply_name, $sujet, $content, $dbh, $attachemens_mail);
+    $attachments = array();
 
-    sendMail($from, $from_name, 'contact@location-entre-particulier.fr', $to_name, $reply, $reply_name, $sujet, $content, $dbh, $attachemens_mail);
+    array_push($attachments, array('name' => $attachemens, 'url' => 'https://location-entre-particulier.fr/public/assets/documents/' . $attachemens));
+
+    sendMail($from, $from_name, $to, $to_name, $reply, $reply_name, $sujet, $content, $dbh, $attachments);
+
+    sendMail($from, $from_name, 'contact@location-entre-particulier.fr', $to_name, $reply, $reply_name, $sujet, $content, $dbh, $attachments);
 
     $final = ['contact' => true, 'title' => 'Votre demande de contact !', 'message' => 'Merci de l\'intéret que vous porter pour LEP, notre équipe s\'enguage à vous répondre dans les plus brefs délais.<br><br><h4>À très bientôt.</h4>', 'icone' => $image_url . 'check.png'];
 } else {

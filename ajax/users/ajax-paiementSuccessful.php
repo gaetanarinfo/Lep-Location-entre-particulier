@@ -100,7 +100,7 @@ if ($_POST['statut_transaction'] == "succeeded") {
     $content .= 'Votre adresse email : <b>' . $email . '</b><br/>';
     $content .= 'Votre adresse ip : <b>' . $_SERVER['REMOTE_ADDR'] . '</b><br/><br/>';
 
-    $content .= 'Montant de la transaction : <b>29,99 €</b><br/>';
+    $content .= 'Montant de la transaction : <b>39,99 €</b><br/>';
     $content .= 'Date de la commande : <b>' . date('d/m/Y') . ' ' . date('H:i') . '</b  ><br/><br/>';
 
     $content .= 'Pour demander un remboursement merci de <a href="https://location-entre-particulier.fr/refund-pro/' . $token . '">cliquez-ici</a>.<br/><br/>';
@@ -115,7 +115,15 @@ if ($_POST['statut_transaction'] == "succeeded") {
 
     $content .= 'A très bientôt.';
 
-    sendMail($from, $from_name, $to, $to_name, $reply, $reply_name, $sujet, $content, $dbh, false);
+    // PDF
+    include_once('../../modules/paiements/facture.php');
+
+    // PDF
+    $attachments = array();
+
+    array_push($attachments, array('name' => str_replace('pdf/paiements/', '', $filename), 'url' => 'https://location-entre-particulier.fr/pdf/paiements/' .  str_replace('pdf/paiements/', '', $filename)));
+
+    sendMail($from, $from_name, $to, $to_name, $reply, $reply_name, $sujet, $content, $dbh, $attachments);
 
     $final = ['paiement' => true, 'title' => 'Paiement accepté !', 'message' => 'Merci pour votre paiement, vous allez être redirigé dans quelques instants.', 'icone' => $image_url . 'check.png'];
 }

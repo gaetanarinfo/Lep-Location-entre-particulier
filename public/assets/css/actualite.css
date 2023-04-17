@@ -616,3 +616,7 @@ h2 {
 .like .icone i {
     font-size: 1rem;
 }
+
+.blog-post-content img {
+    width: 100%;
+}

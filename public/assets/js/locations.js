@@ -119,8 +119,6 @@ $(document).ready(function () {
             },
             success: function (data) {
 
-                console.log(data.length);
-
                 setTimeout(() => {
                     $('#loader-form').addClass('hidden');
                 }, 1200);

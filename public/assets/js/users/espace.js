@@ -24,7 +24,6 @@ $(document).ready(function () {
                     location_id: id
                 },
                 success: function (data) {
-                    console.log(data);
                 }
             })
 

@@ -6908,3 +6908,34 @@ label {
 .hidden {
     display: none !important;
 }
+
+.input-select {
+    display: none;
+    width: 100%;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    font-size: 14px;
+    min-height: 60px;
+    max-height: 200px;
+    border: 1px solid #ced4da;
+    background: #fff;
+    border-top: 0;
+    overflow-y: scroll;
+    border-radius: 0 0 0.25rem 0.25rem;
+}
+
+.input-select-open {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.input-select ul {
+    list-style-type: none;
+    padding: 0 0;
+    margin: 0 0;
+}
+
+.input-select ul li {
+    cursor: pointer;
+    padding-bottom: 0.5rem;
+    font-weight: 500;
+}

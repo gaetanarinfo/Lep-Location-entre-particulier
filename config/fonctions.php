@@ -13,7 +13,7 @@ $header = $dbh->query('SELECT * FROM header WHERE id_site = 1');
 $marketing = $dbh->query('SELECT * FROM marketing WHERE id_site = 1 ORDER BY ordre DESC');
 $mission = $dbh->query('SELECT * FROM mission WHERE id_site = 1 ORDER BY ordre DESC');
 $temoignages = $dbh->query('SELECT * FROM temoignages WHERE id_site = 1');
-$blogs = $dbh->query('SELECT * FROM blog WHERE id_site = 1 LIMIT 0,6');
+$blogs = $dbh->query('SELECT * FROM blog WHERE id_site = 1 ORDER BY created_at DESC LIMIT 0,6');
 $ville_populaire = $dbh->query('SELECT * FROM ville_populaire WHERE id_site = 1');
 $presentation = $dbh->query('SELECT * FROM presentation WHERE id_site = 1');
 $regions = $dbh->query('SELECT * FROM regions WHERE id_site = 1 ORDER BY title ASC');
@@ -266,7 +266,9 @@ function sendMail($from, $from_name, $to, $to_name, $reply, $reply_name, $subjec
 		$mail->addAddress($to, $to_name);
 
 		if (!empty($attachments)) {
-			$mail->addStringAttachment(file_get_contents($attachments['url']), $attachments['name']);
+			foreach ($attachments as $attachment) {
+				$mail->addStringAttachment(file_get_contents($attachment['url']), $attachment['name']);
+			}
 		}
 
 		$mail->Subject = $subject;

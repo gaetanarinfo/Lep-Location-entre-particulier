@@ -2,14 +2,14 @@ $(document).ready(function () {
 
     var request = null;
 
-    var prod = "pk_test_51Mv1ACKNlFQUQJlOnuv8T2vIjjsvUnznglyMpBoCF2VEL7s3BJZIgqk80nzfokuON5fRwrAUhYKP2e3JGEJiEna400xYEA3fWM"
-    // var prod = "pk_live_51JWyC5Gkyhx4qcwe5A8jWjQlcMhLdTwsv7McySd8t2I7kJKtovnUu6TH93nmH4PK0YLCw27AKGoJEcOyVS7H0F3S00WW8qVLQU"
+    // var prod = "pk_test_51Mv1ACKNlFQUQJlOnuv8T2vIjjsvUnznglyMpBoCF2VEL7s3BJZIgqk80nzfokuON5fRwrAUhYKP2e3JGEJiEna400xYEA3fWM"
+    var prod = "pk_live_51Mv1ACKNlFQUQJlOwzfFFCAhpiBMWYjIv8IwKIj4napO4hj0jkTPzASzILuKlLevLDGLzCQjoJrXA7pId9IaNUgD00SxObQcXq"
 
     var stripe,
         api;
 
     // The items the customer wants to buy
-    var amount = 1599,
+    var amount = 2198,
         description = $('#description').val(),
         purchase = [];
 
@@ -177,7 +177,7 @@ $(document).ready(function () {
             url: "../ajax/ajax-paiementCanceled.php",
             method: 'POST',
             data: {
-                transaction_id: paymentIntentId,
+                transaction_id: '',
                 statut_transaction: 'CANCELED',
                 email: email
             },
@@ -207,7 +207,7 @@ $(document).ready(function () {
             url: "../ajax/ajax-paiementCanceled.php",
             method: 'POST',
             data: {
-                transaction_id: paymentIntentId,
+                transaction_id: '',
                 statut_transaction: 'CANCELED',
                 email: email
             },
@@ -237,7 +237,7 @@ $(document).ready(function () {
             url: "../ajax/ajax-paiementCanceled.php",
             method: 'POST',
             data: {
-                transaction_id: paymentIntentId,
+                transaction_id: '',
                 statut_transaction: 'CANCELED',
                 email: email
             },
@@ -264,7 +264,7 @@ $(document).ready(function () {
             url: "../ajax/ajax-paiementCanceled.php",
             method: 'POST',
             data: {
-                transaction_id: paymentIntentId,
+                transaction_id: '',
                 statut_transaction: 'CANCELED',
                 email: email
             },

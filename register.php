@@ -24,8 +24,8 @@
                         <img src="<?= $image_url . 'register.jpg' ?>" class="img-fluid rounded shadow-lg" alt="">
 
                         <div class="mt-4 w-100">
-                            <h3 class="mb-3">Publiez votre annonce de location sur <?= $site_config['title'] ?></h3>
-                            <p class="text-dark">Ajoutez votre annonce de location sur <?= $site_config['title'] ?> - c'est 100 % gratuit ! Des milliers de locataires font des recherches sur internet, sans trouver le bon site internet. Nous avons la bonne solution pour vous. Publiez votre annonce de location dès aujourd'hui ! Vous pouvez toujours suspendre et / ou supprimer votre annonce.</p>
+                            <h3 class="mb-3">Publiez votre location de location sur <?= $site_config['title'] ?></h3>
+                            <p class="text-dark">Ajoutez votre location de location sur <?= $site_config['title'] ?> - c'est 100 % gratuit ! Des milliers de locataires font des recherches sur internet, sans trouver le bon site internet. Nous avons la bonne solution pour vous. Publiez votre location de location dès aujourd'hui ! Vous pouvez toujours suspendre et / ou supprimer votre location.</p>
                         </div>
                     </div>
 
@@ -180,6 +180,10 @@
                                 <div class="form-group mb-3">
                                     <label>* Adresse</label>
                                     <input class="form-control" autocomplete="off" required id="address" placeholder="Ex: 20 rue du parc" type="text" name="address">
+                                    <div class="input-select">
+                                        <ul>
+                                        </ul>
+                                    </div>
                                 </div>
 
                                 <div class="form-group mb-3">
@@ -257,8 +261,8 @@
                         <img src="<?= $image_url . 'register.jpg' ?>" class="img-fluid rounded shadow-lg" alt="">
 
                         <div class="mt-4 w-100">
-                            <h3 class="mb-3">Publiez votre annonce de location sur <?= $site_config['title'] ?></h3>
-                            <p class="text-dark">Ajoutez votre annonce de location sur <?= $site_config['title'] ?> - c'est 100 % gratuit ! Des milliers de locataires font des recherches sur internet, sans trouver le bon site internet. Nous avons la bonne solution pour vous. Publiez votre annonce de location dès aujourd'hui ! Vous pouvez toujours suspendre et / ou supprimer votre annonce.</p>
+                            <h3 class="mb-3">Publiez votre location de location sur <?= $site_config['title'] ?></h3>
+                            <p class="text-dark">Ajoutez votre location de location sur <?= $site_config['title'] ?> - c'est 100 % gratuit ! Des milliers de locataires font des recherches sur internet, sans trouver le bon site internet. Nous avons la bonne solution pour vous. Publiez votre location de location dès aujourd'hui ! Vous pouvez toujours suspendre et / ou supprimer votre location.</p>
                         </div>
                     </div>
 

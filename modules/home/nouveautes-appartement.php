@@ -142,7 +142,7 @@
                     <use xlink:href="#info-fill" />
                 </svg>
                 <div>
-                    Aucune nouvelle annonce pour le moment.
+                    Aucune nouvelle location pour le moment.
                 </div>
             </div>
 

@@ -75,6 +75,11 @@
         <link href="<?= $static_url . 'css/users/creation-location.css'; ?>" rel="stylesheet">
     <?php } ?>
 
+    <?php if (isset($_SESSION['user_id']) && basename($_SERVER['PHP_SELF']) == "coordonees.php") { ?>
+        <link href="<?= $static_url . 'css/users/espace.css'; ?>" rel="stylesheet">
+        <link href="<?= $static_url . 'css/users/coordonees.css'; ?>" rel="stylesheet">
+    <?php } ?>
+
     <?php if (isset($_SESSION['user_id']) && basename($_SERVER['PHP_SELF']) == "cart.php") { ?>
         <link href="<?= $static_url . 'css/users/cart.css'; ?>" rel="stylesheet">
         <link href="<?= $static_url . 'css/stripe.css'; ?>" rel="stylesheet">
@@ -123,13 +128,15 @@
 
     <!-- Script JS -->
     <script src="<?= $static_url . 'js/6650c3fdcf.js' ?>" crossorigin="anonymous"></script>
-    <script src="<?= $static_url ?>js/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
     <script src="<?= $static_url . 'js/scripts.js' ?>"></script>
     <?php if (basename($_SERVER['PHP_SELF']) == "login.php" or basename($_SERVER['PHP_SELF']) == "forgot-password.php") { ?>
         <script src="<?= $static_url . 'js/login.js'; ?>"></script>
+        <!-- Load the JS SDK asynchronously -->
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js"></script>
     <?php } ?>
 
     <script>
@@ -178,6 +185,10 @@
 
     <?php if (basename($_SERVER['PHP_SELF']) == "refund-pro.php") { ?>
         <script src="<?= $static_url . 'js/users/refund-pro.js'; ?>"></script>
+    <?php } ?>
+
+    <?php if (basename($_SERVER['PHP_SELF']) == "coordonees.php") { ?>
+        <script src="<?= $static_url . 'js/users/coordonees.js'; ?>"></script>
     <?php } ?>
 
     <?php if (isset($_SESSION['user_id']) && basename($_SERVER['PHP_SELF']) == "mon-espace.php") { ?>
@@ -281,6 +292,21 @@
         <?php } ?>
 
     <?php } ?>
+
+    <script>
+        window.axeptioSettings = {
+            clientId: "643ad5696f6e8e813f755bca",
+            cookiesVersion: "location-entre-particulier-fr",
+        };
+
+        (function(d, s) {
+            var t = d.getElementsByTagName(s)[0],
+                e = d.createElement(s);
+            e.async = true;
+            e.src = "//static.axept.io/sdk.js";
+            t.parentNode.insertBefore(e, t);
+        })(document, "script");
+    </script>
 
     <?php if ($_SERVER['SERVER_NAME'] == "location-entre-particulier.fr") { ?>
 

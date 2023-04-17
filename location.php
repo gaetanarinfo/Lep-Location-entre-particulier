@@ -429,7 +429,7 @@
                         <!-- Display a payment form -->
                         <form id="payment-form" class="mb-3">
 
-                            <input type="hidden" value="Abonnement LPE location - <?= '15,99 €' . ' - ' . date('d/m/Y H:i:s') ?>" id="description">
+                            <input type="hidden" value="Abonnement LPE location - <?= '21.98 €' . ' - ' . date('d/m/Y H:i:s') ?>" id="description">
 
                             <div id="card-element">
                                 <!--Stripe.js injects the Card Element-->
@@ -444,7 +444,7 @@
                     </div>
 
                     <div class="bloc-text-div">
-                        <p class="bloc-text-mini text-center">Votre abonnement commence dès maintenant, l'abonnement est renouvelé tous les mois. Les frais de renouvellement sont de 15,99 €. Vous pouvez toujours annuler votre abonnement.</p>
+                        <p class="bloc-text-mini text-center">Votre abonnement commence dès maintenant, l'abonnement est renouvelé tous les mois. Les frais de renouvellement sont de 21.98 €. Vous pouvez toujours annuler votre abonnement.</p>
                     </div>
 
                 </div>
@@ -523,9 +523,9 @@
     var longitude = <?= $location_req['longitude'] ?>,
         latitude = <?= $location_req['latitude'] ?>;
 
-    const map = L.map('map').setView([longitude, latitude], 13);
+    const map = L.map('map').setView([latitude, longitude], 13);
 
-    var marker = L.marker([longitude, latitude]).addTo(map);
+    var marker = L.marker([latitude, longitude]).addTo(map);
 
     const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,

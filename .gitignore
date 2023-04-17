@@ -1,2 +1,6 @@
 /myadmin
 ajax/ajax-card.php
+ajax/users/ajax-paiement-refund.php
+ajax/ajax-paiement-refund.php
+config-google.php
+/vendor/

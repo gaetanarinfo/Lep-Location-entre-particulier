@@ -52,12 +52,12 @@ $contents_blog = $req->fetchAll();
 
                         <div class="d-flex align-items-center">
 
-                            <img class="rounded-circle me-3" height="70" width="70" src="<?= $image_url . 'blog/' ?>avatar/73d897d1-0400-4c61-a860-27b2a06296a1.webp" alt="Mickaêl Libert" />
+                            <img class="rounded-circle me-3" height="70" width="70" src="<?= $image_url . 'blog/' ?>avatar/<?= $value['avatar'] ?>" alt="<?= $value['author'] ?>" />
 
                             <div class="small">
                                 <div class="fw-bold"><?= $value['author'] ?></div>
                                 <div class="text-muted">Publié le <?= date('d/m/Y', strtotime($value['created_at'])) . ' à ' . date('H:i', strtotime($value['created_at'])) ?></div>
-                                <div class="text-muted">Mis à jour le <?= date('d/m/Y', strtotime($value['updated_at'])) . ' à ' . date('H:i', strtotime($value['updated_at'])) ?></div>
+                                <?php if(!empty($value['updated_at'])) { ?><div class="text-muted">Mis à jour le <?= date('d/m/Y', strtotime($value['updated_at'])) . ' à ' . date('H:i', strtotime($value['updated_at'])) ?></div><?php } ?>
                             </div>
 
 

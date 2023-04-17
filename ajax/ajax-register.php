@@ -8,6 +8,7 @@ ini_set("display_errors", 1);
 include_once('../config/connexion.php');
 include_once('../config/fonctions.php');
 include_once('../config/public.php');
+include_once('../scripts/getCoordinateGps.php');
 
 $final = '';
 
@@ -264,7 +265,9 @@ if (isset($_POST)) {
                 `frais`,
                 `meuble`,
                 `animeaux_acceptes`,
-                `sous_location`
+                `sous_location`,
+                `longitude`,
+                `latitude`
             ) VALUES (
                 ' . $user_last_id . ',
                 1,
@@ -291,7 +294,9 @@ if (isset($_POST)) {
                 "' . $_POST['frais_supp'] . '",
                 "' . $meuble . '",
                 "' . $animeaux_acceptes . '",
-                "' . $sous_location  . '"
+                "' . $sous_location  . '",
+                "' . $longitude  . '",
+                "' . $latitude  . '"
             )');
         } else {
 
@@ -331,7 +336,9 @@ if (isset($_POST)) {
                 `frais`,
                 `meuble`,
                 `animeaux_acceptes`,
-                `sous_location`
+                `sous_location`,
+                `longitude`,
+                `latitude`
             ) VALUES (
                 ' . $user_last_id . ',
                 1,
@@ -357,9 +364,10 @@ if (isset($_POST)) {
                 "' . $_POST['frais_supp'] . '",
                 "' . $meuble . '",
                 "' . $animeaux_acceptes . '",
-                "' . $sous_location  . '"
+                "' . $sous_location  . '",
+                "' . $longitude  . '",
+                "' . $latitude  . '"
         )');
-
         }
 
         // Envoi du mail
@@ -376,11 +384,11 @@ if (isset($_POST)) {
 
         $content .= 'Merci de vous avoir inscrit sur LEP, vous pouvez désormais vous connecter à votre espace.<br/><br/>';
 
-        $content .= 'Vous pouvez retrouvez votre annonce en <b><a href="https://location-entre-particulier.fr/locations/' . $url_valide . '">cliquant ici</a></b>.<br/><br/>';
+        $content .= 'Vous pouvez retrouvez votre location en <b><a href="https://location-entre-particulier.fr/locations/' . $url_valide . '">cliquant ici</a></b>.<br/><br/>';
 
-        $content .= 'Notre équipe va examiner avec attention votre annonce, et elle sera en ligne sous 24/48h jours ouvrés maximum.<br/><br/>';
+        $content .= 'Notre équipe va examiner avec attention votre location, et elle sera en ligne sous 24/48h jours ouvrés maximum.<br/><br/>';
 
-        $content .= 'Vous pouvez gérer vos annonces ou vos coordonnées, modifier supprimer, créé, comme bon vous semble.<br/><br/>';
+        $content .= 'Vous pouvez gérer vos locations ou vos coordonnées, modifier supprimer, créé, comme bon vous semble.<br/><br/>';
 
         $content .= 'Pour rappel votre identifiant de connexion :<br/><br/>';
         $content .= 'Adresse email : ' . $_POST['email_contact'] . '<br/>';

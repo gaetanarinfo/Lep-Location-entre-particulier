@@ -8,151 +8,169 @@
 
 <url>
    <loc>https://location-entre-particulier.fr/</loc>
-   <lastmod>2023-04-15T08:47:12+00:00</lastmod>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
    <changefreq>monthly</changefreq>
    <priority>1.0000</priority>
 </url>
 <url>
    <loc>https://location-entre-particulier.fr/locations-appartements</loc>
-   <lastmod>2023-04-15T08:47:12+00:00</lastmod>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
    <changefreq>monthly</changefreq>
    <priority>0.8000</priority>
 </url>
 <url>
    <loc>https://location-entre-particulier.fr/locations-maisons</loc>
-   <lastmod>2023-04-15T08:47:12+00:00</lastmod>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
    <changefreq>monthly</changefreq>
    <priority>0.8000</priority>
 </url>
 <url>
    <loc>https://location-entre-particulier.fr/annonces-flash</loc>
-   <lastmod>2023-04-15T08:47:12+00:00</lastmod>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
    <changefreq>monthly</changefreq>
    <priority>0.8000</priority>
 </url>
 <url>
    <loc>https://location-entre-particulier.fr/register</loc>
-   <lastmod>2023-04-15T08:47:12+00:00</lastmod>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
    <changefreq>monthly</changefreq>
    <priority>0.8000</priority>
 </url>
 <url>
    <loc>https://location-entre-particulier.fr/login</loc>
-   <lastmod>2023-04-15T08:47:12+00:00</lastmod>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
    <changefreq>monthly</changefreq>
    <priority>0.8000</priority>
 </url>
 <url>
    <loc>https://location-entre-particulier.fr/contact</loc>
-   <lastmod>2023-04-15T08:47:12+00:00</lastmod>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
    <changefreq>monthly</changefreq>
    <priority>0.8000</priority>
 </url>
 <url>
    <loc>https://location-entre-particulier.fr/locations</loc>
-   <lastmod>2023-04-15T08:47:12+00:00</lastmod>
-   <changefreq>monthly</changefreq>
-   <priority>0.8000</priority>
-</url>
-<url>
-   <loc>https://location-entre-particulier.fr/utilisateurs/register</loc>
-   <lastmod>2023-04-15T08:47:12+00:00</lastmod>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
    <changefreq>monthly</changefreq>
    <priority>0.8000</priority>
 </url>
 <url>
    <loc>https://location-entre-particulier.fr/logements/le-mans</loc>
-   <lastmod>2023-04-15T08:47:12+00:00</lastmod>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
    <changefreq>monthly</changefreq>
    <priority>0.8000</priority>
 </url>
 <url>
    <loc>https://location-entre-particulier.fr/logements/rennes</loc>
-   <lastmod>2023-04-15T08:47:12+00:00</lastmod>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
    <changefreq>monthly</changefreq>
    <priority>0.8000</priority>
 </url>
 <url>
    <loc>https://location-entre-particulier.fr/logements/nantes</loc>
-   <lastmod>2023-04-15T08:47:12+00:00</lastmod>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
    <changefreq>monthly</changefreq>
    <priority>0.8000</priority>
 </url>
 <url>
-   <loc>https://location-entre-particulier.fr/locations/appartement-paris-1</loc>
-   <lastmod>2023-04-15T08:47:12+00:00</lastmod>
+   <loc>https://location-entre-particulier.fr/blog/l-immobilier-est-un-marche-en-constante-evolution</loc>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
    <changefreq>monthly</changefreq>
    <priority>0.8000</priority>
 </url>
 <url>
-   <loc>https://location-entre-particulier.fr/logements/paris</loc>
-   <lastmod>2023-04-15T08:47:12+00:00</lastmod>
+   <loc>https://location-entre-particulier.fr/blog/impots-sur-immobilier-les-subtilites-de-cette-nouvelle-obligation-du-fisc-pour-les-proprietaires</loc>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://location-entre-particulier.fr/blog/le-portage-salarial-dans-limmobilier-est-il-legal</loc>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://location-entre-particulier.fr/blog/pourquoi-devez-vous-souscrire-une-assurance-habitation</loc>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://location-entre-particulier.fr/blog/quelles-sont-les-tendances-du-marche-immobilier-pour-lannee-2023</loc>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://location-entre-particulier.fr/blog/immobilier-mars-2023</loc>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
    <changefreq>monthly</changefreq>
    <priority>0.8000</priority>
 </url>
 <url>
    <loc>https://location-entre-particulier.fr/blog</loc>
-   <lastmod>2023-04-15T08:47:12+00:00</lastmod>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
    <changefreq>monthly</changefreq>
    <priority>0.8000</priority>
 </url>
 <url>
    <loc>https://location-entre-particulier.fr/cgu</loc>
-   <lastmod>2023-04-15T08:47:12+00:00</lastmod>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
    <changefreq>monthly</changefreq>
    <priority>0.8000</priority>
 </url>
 <url>
    <loc>https://location-entre-particulier.fr/cgv</loc>
-   <lastmod>2023-04-15T08:47:12+00:00</lastmod>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
    <changefreq>monthly</changefreq>
    <priority>0.8000</priority>
 </url>
 <url>
    <loc>https://location-entre-particulier.fr/faq</loc>
-   <lastmod>2023-04-15T08:47:12+00:00</lastmod>
-   <changefreq>monthly</changefreq>
-   <priority>0.8000</priority>
-</url>
-<url>
-   <loc>https://location-entre-particulier.fr/utilisateurs/login</loc>
-   <lastmod>2023-04-15T08:47:12+00:00</lastmod>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
    <changefreq>monthly</changefreq>
    <priority>0.8000</priority>
 </url>
 <url>
    <loc>https://location-entre-particulier.fr/utilisateurs/contact</loc>
-   <lastmod>2023-04-15T08:47:12+00:00</lastmod>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
    <changefreq>monthly</changefreq>
    <priority>0.6400</priority>
 </url>
 <url>
-   <loc>https://location-entre-particulier.fr/locations/register</loc>
-   <lastmod>2023-04-15T08:47:12+00:00</lastmod>
+   <loc>https://location-entre-particulier.fr/blog/peut-on-continuer-a-louer-un-logement-dans-un-immeuble-en-peril</loc>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
    <changefreq>monthly</changefreq>
    <priority>0.6400</priority>
 </url>
 <url>
-   <loc>https://location-entre-particulier.fr/locations/login</loc>
-   <lastmod>2023-04-15T08:47:12+00:00</lastmod>
+   <loc>https://location-entre-particulier.fr/blog/maisons-appartements-le-portail-immobilier-plebiscite-par-les-parisiens</loc>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
    <changefreq>monthly</changefreq>
    <priority>0.6400</priority>
 </url>
 <url>
-   <loc>https://location-entre-particulier.fr/locations/contact</loc>
-   <lastmod>2023-04-15T08:47:12+00:00</lastmod>
+   <loc>https://location-entre-particulier.fr/blog/colocation-intergénérationnelle-colette-leve-trois-millions-d-euros</loc>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://location-entre-particulier.fr/blog/les-9-etapes-pour-louer-son%20bien-entre-particuliers</loc>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
    <changefreq>monthly</changefreq>
    <priority>0.6400</priority>
 </url>
 <url>
    <loc>https://location-entre-particulier.fr/public/assets/documents/cgu.pdf</loc>
-   <lastmod>2023-04-15T08:47:12+00:00</lastmod>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
    <changefreq>monthly</changefreq>
    <priority>0.6400</priority>
 </url>
 <url>
    <loc>https://location-entre-particulier.fr/public/assets/documents/cgv.pdf</loc>
-   <lastmod>2023-04-15T08:47:12+00:00</lastmod>
+   <lastmod>2023-04-17T08:22:46+00:00</lastmod>
    <changefreq>monthly</changefreq>
    <priority>0.6400</priority>
 </url>

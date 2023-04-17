@@ -61,7 +61,7 @@
                                     <div class="small">
                                         <div class="fw-bold"><?= $actualite['author'] ?></div>
                                         <div class="text-muted">Publié le <?= date('d/m/Y', strtotime($actualite['created_at'])) . ' à ' . date('H:i', strtotime($actualite['created_at'])) ?></div>
-                                        <div class="text-muted">Mis à jour le <?= date('d/m/Y', strtotime($actualite['updated_at'])) . ' à ' . date('H:i', strtotime($actualite['updated_at'])) ?></div>
+                                        <?php if(!empty($actualite['updated_at'])) { ?><div class="text-muted">Mis à jour le <?= date('d/m/Y', strtotime($actualite['updated_at'])) . ' à ' . date('H:i', strtotime($actualite['updated_at'])) ?></div><?php } ?>
                                     </div>
 
 

@@ -27,13 +27,27 @@ $(document).on('click', '.remove-location', function (e) {
             data: {
                 location_id: id
             },
-            success: function (data) {}
+            success: function (data) { }
         })
 
     }
 
 })
 
+// Capture ecran
+
+$("#share").on('click', function (e) {
+
+    e.preventDefault();
+
+    html2canvas($(".capture")[0]).then((canvas) => {
+        theCanvas = canvas;
+        canvas.toBlob(function (blob) {
+            saveAs(blob, "Capture_" + new Date().getUTCDate() + "_" + new Date().getUTCMonth() + "_" + new Date().getUTCFullYear() + ".png");
+        });
+    });
+
+});
 
 var ctx = $("#myAreaChart"),
     ctx2 = $("#myAreaChart2");

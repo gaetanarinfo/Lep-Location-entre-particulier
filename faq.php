@@ -42,17 +42,17 @@
                                 <p class="text-dark fw-bold">Pourquoi je ne peut pas m'inscrire en tant que locataire ?</p>
                             </blockquote>
 
-                            <p class="text-dark">Notre site a été créer afin que vous puissiez voir les coordonnées des propriétaires sans créer de compte, il vous suffit de cliquer sur <b>Voir les coordonnées du propriétaire</b> sur une annonce, puis d'effectuer le paiement de l'abonnement vous aurez donc accès pendant 1 mois à toutes les coordonnées des annonces locatives sur LEP.</p>
+                            <p class="text-dark">Notre site a été créer afin que vous puissiez voir les coordonnées des propriétaires sans créer de compte, il vous suffit de cliquer sur <b>Voir les coordonnées du propriétaire</b> sur une location, puis d'effectuer le paiement de l'abonnement vous aurez donc accès pendant 1 mois à toutes les coordonnées des annonces locatives sur LEP.</p>
 
                         </div>
 
                         <div class="bloc-faq mt-4">
 
                             <blockquote class="blockquote">
-                                <p class="text-dark fw-bold">Comment puis-je signaler une annonce immobilière ?</p>
+                                <p class="text-dark fw-bold">Comment puis-je signaler une location immobilière ?</p>
                             </blockquote>
 
-                            <p class="text-dark">En signalant une annonce immobilière, vous vous aidez vous-même, les autres clients et nous. Par exemple, le signalement d’une annonce immobilière pourrait être basé sur des soupçons concernant une fausse annonce de logement, une annonce avec des erreurs manifestes dans la description / le prix, des erreurs dans les coordonnées du propriétaire, etc. Nous recommandons et apprécions la coopération avec nos clients afin que nous puissions corriger les erreurs immédiatement sur la page, et ainsi vous offrir le meilleur service possible.</p>
+                            <p class="text-dark">En signalant une location immobilière, vous vous aidez vous-même, les autres clients et nous. Par exemple, le signalement d’une location immobilière pourrait être basé sur des soupçons concernant une fausse location de logement, une location avec des erreurs manifestes dans la description / le prix, des erreurs dans les coordonnées du propriétaire, etc. Nous recommandons et apprécions la coopération avec nos clients afin que nous puissions corriger les erreurs immédiatement sur la page, et ainsi vous offrir le meilleur service possible.</p>
 
                         </div>
 

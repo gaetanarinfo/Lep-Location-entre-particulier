@@ -35,14 +35,14 @@
 
                 <ul class="nav flex-column">
                     <?php if (!isset($_SESSION['user_id'])) { ?>
-                        <li class="nav-item mb-2"><a href="/utilisateurs/register" class="nav-link p-0 text-muted">Créer une annonce de location</a></li>
-                        <li class="nav-item mb-2"><a href="/utilisateurs/login" class="nav-link p-0 text-muted">Connexion</a></li>
+                        <li class="nav-item mb-2"><a href="/register" class="nav-link p-0 text-muted">Créer une annonce de location</a></li>
+                        <li class="nav-item mb-2"><a href="/login" class="nav-link p-0 text-muted">Connexion</a></li>
                     <?php } else { ?>
                         <li class="nav-item mb-2"><a class="nav-link p-0 text-muted" href="/mon-espace">Mon espace</a></li>
                         <li class="nav-item mb-2"><a class="nav-link p-0 text-muted" href="/annonces">Mes annonces</a></li>
                         <li class="nav-item mb-2"><a class="nav-link p-0 text-muted" href="/abonnements">Mes abonnements</a></li>
                         <li class="nav-item mb-2"><a class="nav-link p-0 text-muted" href="/coordonees">Gestion de mon compte</a></li>
-                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted" href="/utilisateurs/logout">Déconnexion</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted" href="/logout">Déconnexion</a></li>
                     <?php } ?>
                 </ul>
 
@@ -65,13 +65,13 @@
             <ul class="list-unstyled d-flex">
 
                 <li class="ms-3">
-                    <a class="link-white" href="#">
+                    <a class="link-white" href="https://www.facebook.com/profile.php?id=100091571244506">
                         <img src="<?= $image_url . '/socials/facebook.svg' ?>" alt="Facebook" width="24" height="24">
                     </a>
                 </li>
 
                 <li class="ms-3">
-                    <a class="link-white" href="#">
+                    <a class="link-white" href="https://twitter.com/ContactLep">
                         <img src="<?= $image_url . '/socials/twitter.svg' ?>" alt="Twitter" width="24" height="24">
                     </a>
                 </li>
@@ -94,6 +94,8 @@
 
 <?php if (isset($_SESSION['user_id']) && basename($_SERVER['PHP_SELF']) == "location-statistiques.php") { ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.umd.min.js" integrity="sha512-GCiwmzA0bNGVsp1otzTJ4LWQT2jjGJENLGyLlerlzckNI30moi2EQT0AfRI7fLYYYDKR+7hnuh35r3y1uJzugw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="<?= $static_url . 'js/users/html2canvas.min.js'; ?>"></script>
+    <script src="<?= $static_url . 'js/users/FileSaver.js'; ?>"></script>
     <script src="<?= $static_url . 'js/users/location-statistiques.js?=' . time(); ?>"></script>
 <?php } ?>
 

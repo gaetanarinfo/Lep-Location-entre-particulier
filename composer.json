@@ -1,0 +1,12 @@
+{
+    "name": "gaetan/lpe",
+    "authors": [
+        {
+            "name": "gaetanarinfo",
+            "email": "gaetanarinf@gmail.com"
+        }
+    ],
+    "require": {
+        "google/apiclient": "^2.12.1"
+    }
+}

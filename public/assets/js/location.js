@@ -215,8 +215,6 @@ $(document).ready(function () {
       },
       success: function (data) {
 
-        console.log(data);
-
         var parsed = JSON.parse(data);
 
         if (parsed.abuse == true) {

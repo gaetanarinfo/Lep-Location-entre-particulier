@@ -14,11 +14,11 @@
                 foreach ($locationsCols1_last_row as $value) {
 
                     // On compte le nombre de résultat par Région
-                    $regionCounterCols1 = $dbh->query('SELECT COUNT(id) FROM locations WHERE id_site = 1 AND region = ' . $value['id']);
+                    $regionCounterCols1 = $dbh->query('SELECT COUNT(id) FROM locations WHERE id_site = 1 AND verification = 1 AND abonnement_expire = 0 AND region = ' . $value['id']);
                     $count = $regionCounterCols1->fetchColumn();
 
                     // Je veux uniquement le nom de la ville pour chaque annonce
-                    $villeRow1 = $dbh->query('SELECT location FROM locations WHERE id_site = 1 AND region = ' . $value['id']);
+                    $villeRow1 = $dbh->query('SELECT location FROM locations WHERE id_site = 1 AND verification = 1 AND abonnement_expire = 0 AND region = ' . $value['id']);
                     $ville1_row = $villeRow1->fetchAll();
                     $array = array_unique($ville1_row, SORT_REGULAR);
 
@@ -71,11 +71,11 @@
                 foreach ($locationsCols2_last_row as $value) {
 
                     // On compte le nombre de résultat par Région
-                    $regionCounterCols2 = $dbh->query('SELECT COUNT(*) FROM locations WHERE id_site = 1 AND region = ' . $value['id']);
+                    $regionCounterCols2 = $dbh->query('SELECT COUNT(*) FROM locations WHERE id_site = 1 AND verification = 1 AND abonnement_expire = 0 AND region = ' . $value['id']);
                     $count = $regionCounterCols2->fetchColumn();
 
                     // Je veux uniquement le nom de la ville pour chaque annonce
-                    $villeRow2 = $dbh->query('SELECT location FROM locations WHERE id_site = 1 AND region = ' . $value['id']);
+                    $villeRow2 = $dbh->query('SELECT location FROM locations WHERE id_site = 1 AND verification = 1 AND abonnement_expire = 0 AND region = ' . $value['id']);
                     $ville2_row = $villeRow2->fetchAll();
                     $array = array_unique($ville2_row, SORT_REGULAR);
                 ?>

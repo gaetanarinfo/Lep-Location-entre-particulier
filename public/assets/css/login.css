@@ -17,7 +17,6 @@ body {
 [class*=" icon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'icomoon' !important;
-    speak: none;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
@@ -6997,4 +6996,10 @@ label .password-icon .feather-eye-off {
         bottom: 0;
     }
 
+}
+
+.social-login .disabled {
+    opacity: 0.7;
+    pointer-events: none;
+    cursor: none;
 }

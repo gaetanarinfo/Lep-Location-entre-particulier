@@ -106,46 +106,46 @@ $(document).ready(function () {
                 email_forgot_login: email,
             },
             success: function (data) {
-    
+
                 setTimeout(() => {
                     $('#loader-form').addClass('hidden');
                 }, 2000);
 
                 var parsed = JSON.parse(data);
-    
+
                 if (parsed.login == true) {
-    
+
                     $('.message-validation .message-icone').attr('src', parsed.icone);
                     $('.message-validation .message-title').html(parsed.title);
                     $('.message-validation .message-body').html(parsed.message);
                     $('.message-validation').addClass('message-success');
-    
+
                     setTimeout(() => {
                         $('.message-validation').fadeIn(300);
                     }, 2300);
-    
+
                     setTimeout(() => {
                     }, 3000);
-    
+
                 }
-    
+
                 if (parsed.login == false) {
-    
+
                     $('.message-validation .message-icone').attr('src', parsed.icone);
                     $('.message-validation .message-title').html(parsed.title);
                     $('.message-validation .message-body').html(parsed.message);
                     $('.message-validation').addClass('message-error');
                     $('.message-validation .back-login').show();
-                    $('.message-validation .back-login a').attr('href', '/utilisateurs/register');
-    
+                    $('.message-validation .back-login a').attr('href', '/register');
+
                     setTimeout(() => {
                         $('.message-validation').fadeIn(300);
                     }, 2300);
-    
+
                 }
-    
+
             }
-    
+
         })
     })
 
@@ -177,51 +177,59 @@ $(document).ready(function () {
                 token_forgot_check: token
             },
             success: function (data) {
-    
+
                 setTimeout(() => {
                     $('#loader-form').addClass('hidden');
                 }, 2000);
 
                 var parsed = JSON.parse(data);
-    
+
                 if (parsed.login == true) {
-    
+
                     $('.message-validation .message-icone').attr('src', parsed.icone);
                     $('.message-validation .message-title').html(parsed.title);
                     $('.message-validation .message-body').html(parsed.message);
                     $('.message-validation').addClass('message-success');
-    
+
                     setTimeout(() => {
                         $('.message-validation').fadeIn(300);
                     }, 2300);
-    
+
                     setTimeout(() => {
-                        window.location.href = '/utilisateurs/login';
+                        window.location.href = '/login';
                     }, 6000);
-    
+
                 }
-    
+
                 if (parsed.login == false) {
-    
+
                     $('.message-validation .message-icone').attr('src', parsed.icone);
                     $('.message-validation .message-title').html(parsed.title);
                     $('.message-validation .message-body').html(parsed.message);
                     $('.message-validation').addClass('message-error');
                     $('.message-validation .back-login').show();
-                    $('.message-validation .back-login a').attr('href', '/utilisateurs/login');
-    
+                    $('.message-validation .back-login a').attr('href', '/login');
+
                     setTimeout(() => {
                         $('.message-validation').fadeIn(300);
                     }, 2300);
-    
+
                 }
-    
+
             }
-    
+
         })
     })
 
     // -------- //
+
+    $('#facebook-btn').on('click', function (e) {
+
+        e.preventDefault();
+
+        fb_login();
+    })
+
 });
 
 // Login user //
@@ -278,7 +286,7 @@ function recaptchacheck(token) {
                 $('.message-validation .message-body').html(parsed.message);
                 $('.message-validation').addClass('message-error');
                 $('.message-validation .back-login').show();
-                $('.message-validation .back-login a').attr('href', '/utilisateurs/login');
+                $('.message-validation .back-login a').attr('href', '/login');
 
                 setTimeout(() => {
                     $('.message-validation').fadeIn(300);
@@ -289,6 +297,136 @@ function recaptchacheck(token) {
         }
 
     })
+}
+
+// -------- //
+
+// Login user Facebook
+
+function fb_login() {
+
+    FB.login(function (response) {
+
+        if (response.status === 'connected') { // Logged into your webpage and Facebook.
+            facebookApi();
+        } else { // Not logged into your webpage or we are unable to tell.
+
+        }
+
+    }, { scope: 'email,public_profile' });
+
+}
+
+function checkLoginState() { // Called when a person is finished with the Login Button.
+    FB.getLoginStatus(function (response) { // See the onlogin handler
+        fb_login(response);
+    });
+}
+
+window.fbAsyncInit = function () {
+    FB.init({
+        appId: '996414568185217',
+        cookie: true, // Enable cookies to allow the server to access the session.
+        xfbml: false, // Parse social plugins on this webpage.
+        version: 'v16.0' // Use this Graph API version for this call.
+    });
+
+
+    FB.getLoginStatus(function (response) { // Called after the JS SDK has been initialized.
+        fb_login(response); // Returns the login status.
+    });
+};
+
+function facebookApi() { // Testing Graph API after login.  See fb_login() for when this call is made.
+
+
+    var user = new Array(),
+        url = '../ajax/ajax-login-fb.php'
+
+    FB.api('/me', {
+        fields: [
+            'id',
+            'email',
+            'first_name',
+            'last_name',
+            'picture',
+        ]
+    }, function (response) {
+        user['id'] = response.id;
+        user['email'] = response.email;
+        user['first_name'] = response.first_name;
+        user['last_name'] = response.last_name;
+        user['avatar'] = response.picture.data.url;
+    });
+
+    $('.bloc-form').fadeOut(300);
+
+    setTimeout(() => {
+        $('#loader-form').removeClass('hidden');
+        $('.col-md-6.contents').addClass('login');
+    }, 600);
+
+    setTimeout(() => {
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: {
+                email_login: user['email'],
+                first_name: user['first_name'],
+                last_name: user['last_name'],
+                avatar: user['avatar'],
+                id: user['id']
+            },
+            success: function (data) {
+
+                console.log(data);
+
+                setTimeout(() => {
+                    $('#loader-form').addClass('hidden');
+                }, 2000);
+
+                var parsed = JSON.parse(data);
+
+                if (parsed.login == true) {
+
+                    $('.message-validation .message-icone').attr('src', parsed.icone);
+                    $('.message-validation .message-title').html(parsed.title);
+                    $('.message-validation .message-body').html(parsed.message);
+                    $('.message-validation').addClass('message-success');
+
+                    setTimeout(() => {
+                        $('.message-validation').fadeIn(300);
+                    }, 2300);
+
+                    setTimeout(() => {
+                        window.location.href = '/mon-espace';
+                    }, 6000);
+
+                }
+
+                if (parsed.login == false) {
+
+                    $('.message-validation .message-icone').attr('src', parsed.icone);
+                    $('.message-validation .message-title').html(parsed.title);
+                    $('.message-validation .message-body').html(parsed.message);
+                    $('.message-validation').addClass('message-error');
+                    $('.message-validation .back-login').show();
+                    $('.message-validation .back-login a').attr('href', '/login');
+
+                    setTimeout(() => {
+                        $('.message-validation').fadeIn(300);
+                    }, 2300);
+
+                }
+
+            }
+
+        })
+
+    }, 1500);
+
+
 }
 
 // -------- //
