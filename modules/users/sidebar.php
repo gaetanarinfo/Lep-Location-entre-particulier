@@ -132,7 +132,7 @@
                 <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="rounded-circle">
                         <?php if (!empty($users['avatar'])) { ?>
-                            <img src="<?= $users['avatar'] ?>" alt="<?= $users['prenom'] . ' ' . $users['nom'] ?>">
+                            <img src="<?= $users['avatar'] ?>" width="24" height="24" alt="<?= $users['prenom'] . ' ' . $users['nom'] ?>" class="img-fluid rounded-circle">
                         <?php } else { ?>
                             <i class="fa-regular fa-circle-user"></i>
                         <?php } ?>

@@ -7003,3 +7003,15 @@ label .password-icon .feather-eye-off {
     pointer-events: none;
     cursor: none;
 }
+
+.img-login {
+    max-width: 200px;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+
+    .img-login-grid {
+        text-align: center;
+    }
+
+}

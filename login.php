@@ -21,8 +21,8 @@
 
             <div class="row">
 
-                <div class="col-md-6 mb-5">
-                    <img src="<?= $image_url ?>login.svg" alt="Image" class="img-fluid">
+                <div class="col-md-6 mb-5 img-login-grid">
+                    <img src="<?= $image_url ?>login.svg" alt="Image" class="img-fluid img-login">
                 </div>
 
                 <div class="col-md-6 contents">

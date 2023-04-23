@@ -545,3 +545,80 @@ header .col-lg-8.col-xl-7.col-xxl-6 {
 .card .card-img-top {
     max-height: 211px;
 }
+
+.android {
+    max-width: 330px;
+    width: 65%;
+}
+
+.android_grid {
+    align-content: center;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.google-play {
+    display: block;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .android_grid {
+        display: block !important;
+        text-align: center;
+    }
+}
+
+.android img {
+    max-width: 330px;
+    opacity: 0.8;
+    border-radius: 10px;
+}
+
+.google_play a img {
+    max-width: 200px;
+    border-radius: 10px !important;
+}
+
+.google_play a {
+    transition: all 1s;
+}
+
+.google_play a:hover {
+    opacity: 0.7;
+}
+
+.container.android {
+    display: flex;
+    justify-content: center;
+}
+
+.google-play h2 {
+    background: white;
+    padding: 1.5rem 2rem 1.5rem 2rem !important;
+    margin: -3rem 0;
+    text-transform: uppercase;
+}
+
+.google-play h2 i::after {
+    display: block;
+    position: relative;
+    width: 56px;
+    bottom: 0;
+    padding-bottom: 1.0rem;
+    content: " ";
+    border-bottom: 3px solid #0dcaf096;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+
+    .google-play h2 {
+        line-height: 2.5rem;
+        padding: 1rem 2rem !important;
+        margin-top: -5rem;
+    }
+
+    .google-play h2 i::after {
+        display: none;
+    }
+
+}

@@ -85,6 +85,16 @@ body {
     padding-right: 1rem;
 }
 
+@media all and (min-width: 320px) and (max-width: 768px) {
+
+    .paiement-stripe {
+        font-size: 3rem;
+        text-align: center;
+        padding-right: 1rem;
+    }
+
+}
+
 .price {
     width: 100px;
     text-align: end;
